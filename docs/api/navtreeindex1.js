@@ -1,10 +1,11 @@
 var NAVTREEINDEX1 =
 {
-"docs_toolchain_settings.html#autotoc_md147":[0,14,4],
-"docs_toolchain_settings.html#autotoc_md148":[0,14,5],
-"docs_toolchain_settings.html#autotoc_md149":[0,14,6],
-"docs_toolchain_settings.html#autotoc_md150":[0,14,7],
-"docs_toolchain_settings.html#autotoc_md151":[0,14,8],
+"docs_toolchain_settings.html#autotoc_md147":[0,14,3],
+"docs_toolchain_settings.html#autotoc_md148":[0,14,4],
+"docs_toolchain_settings.html#autotoc_md149":[0,14,5],
+"docs_toolchain_settings.html#autotoc_md150":[0,14,6],
+"docs_toolchain_settings.html#autotoc_md151":[0,14,7],
+"docs_toolchain_settings.html#autotoc_md152":[0,14,8],
 "docs_using_gbdk.html":[0,6],
 "docs_using_gbdk.html#autotoc_md21":[0,6,0],
 "docs_using_gbdk.html#autotoc_md22":[0,6,0,0],
@@ -238,8 +239,8 @@ var NAVTREEINDEX1 =
 "gbdecompress_8h_source.html":[4,0,2,8],
 "gbdk-lib_8h.html":[4,0,8],
 "gbdk-lib_8h_source.html":[4,0,8],
-"globals.html":[4,1,0,0],
 "globals.html":[4,1,0],
+"globals.html":[4,1,0,0],
 "globals_a.html":[4,1,0,1],
 "globals_b.html":[4,1,0,2],
 "globals_c.html":[4,1,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "globals_defs.html":[4,1,4,0],
 "globals_defs_a.html":[4,1,4,1],
 "globals_defs_b.html":[4,1,4,2],
-"globals_defs_c.html":[4,1,4,3],
-"globals_defs_d.html":[4,1,4,4]
+"globals_defs_c.html":[4,1,4,3]
 };

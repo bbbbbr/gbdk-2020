@@ -9,7 +9,7 @@ var searchData=
   ['time_2eh_560',['time.h',['../time_8h.html',1,'']]],
   ['time_5ft_561',['time_t',['../time_8h.html#ab3806eb1b3b24a99fcc7a2a8c6411e77',1,'time.h']]],
   ['tma_5freg_562',['TMA_REG',['../hardware_8h.html#a39e5a5b9afd2c2ca78de4aba7ccd071c',1,'hardware.h']]],
-  ['to_5ffar_5fptr_563',['to_far_ptr',['../far__ptr_8h.html#a374dd0c7e00bec635f1dd24d5cbe0d35',1,'to_far_ptr(void *ofs, int seg):&#160;far_ptr.h'],['../far__ptr_8h.html#a0c227677a96f9bf7e84a90922f2f8708',1,'TO_FAR_PTR():&#160;far_ptr.h']]],
+  ['to_5ffar_5fptr_563',['TO_FAR_PTR',['../far__ptr_8h.html#a0c227677a96f9bf7e84a90922f2f8708',1,'TO_FAR_PTR():&#160;far_ptr.h'],['../far__ptr_8h.html#a374dd0c7e00bec635f1dd24d5cbe0d35',1,'to_far_ptr(void *ofs, int seg):&#160;far_ptr.h']]],
   ['todo_20list_564',['Todo List',['../todo.html',1,'']]],
   ['tolower_565',['tolower',['../ctype_8h.html#a207391fc2c5fa7786d5e0b9ef8ba5e80',1,'ctype.h']]],
   ['toupper_566',['toupper',['../ctype_8h.html#a811b7a0d5194feaccfacf8a7f02bb9c3',1,'ctype.h']]],
