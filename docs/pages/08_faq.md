@@ -50,3 +50,11 @@
 - When using gbt_player with music in banks, how can the current bank be restored after calling gbt_update()? (since it changes the currently active bank without restoring it).
   - See @ref banking_current_bank "restoring the current bank"
     <!-- -->  
+
+- How can CGB palettes and other sprite properties be used with metasprites?
+  - See @ref metasprite_and_sprite_properties "Metasprites and sprite properties"
+    <!-- -->    
+
+- Weird things are happening to my sprite colors when I use png2mtspr and metasprites. What's going on and how does it work?
+  - See @ref utility_png2mtspr for details of how the conversion process works.
+    <!-- -->    
