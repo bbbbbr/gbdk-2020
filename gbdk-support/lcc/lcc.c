@@ -219,25 +219,21 @@ int main(int argc, char *argv[]) {
 
 		int target_is_ihx = 0;
 
-		// If an .ihx file is persent as input, only convert that
-		// and skip link related stages
+		// if output target is not specified, set it to "a.gb"
+		if(!outfile)
+			outfile = concat("a", EXT_GB);
+
+		// If an .ihx file is present as input skip link related stages
 		if (ihx_inputs > 0) {
 
 			// Only one .ihx can be used for input, warn that others will be ignored
 			if (ihx_inputs > 1)
 				fprintf(stderr, "%s: Warning: Multiple (%d) .ihx files present as input, only one (%s) will be used\n", progname, ihx_inputs, ihxFile);
-
-			// if outfile is not specified, set it to "a.gb"
-			if(!outfile)
-				outfile = concat("a", EXT_GB);
-		}
+		} 
 		else {
-			// if outfile is not specified, set it to "a.ihx"
-			if(!outfile)
-				outfile = concat("a", EXT_IHX);
 
-			//file.gb to file.ihx (don't use tmpfile because maps and other stuffs are created there)
-			// Check to see if output is a .ihx file
+ 			// file.gb to file.ihx (don't use tmpfile because maps and other stuffs are created there)
+			// Check to see if output target is a .ihx file
 			target_is_ihx = (suffix(outfile, (char *[]){EXT_IHX}, 1) != SUFX_NOMATCH);
 
 			// Build ihx file name from output name
