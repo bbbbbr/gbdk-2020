@@ -1,0 +1,69 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the develop branch
+  push:
+#    branches: [ build ]
+  pull_request:
+#    branches: [ build ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-20.04
+          # - macos-10.15
+          # - windows-2019
+        include:
+          - os: ubuntu-20.04
+            name: Linux-64
+          # - os: macos-10.15
+          #   name: Mac-64
+          # - os: windows-2019
+          #   name: Windows-64
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+
+      - name: Linux Depends
+        if: matrix.name == 'Linux'
+        run: |
+          sudo apt -qq update
+          curl -Lo sdcc-src-4.1.0.tar.bz2 'https://downloads.sourceforge.net/project/sdcc/sdcc/4.1.0/sdcc-src-4.1.0.tar.bz2?ts=gAAAAABhKcI3CCes3QInMxVwacOsJvjTo1Ll2Rzu0vd6pWIKa5xF5UGKyzjcOzXwAgwC8qk5_fOw7owk-nMLG39CrGrxHYg9Tw%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fsdcc%2Ffiles%2Fsdcc%2F4.1.0%2Fsdcc-src-4.1.0.tar.bz2%2Fdownload%3Fuse_mirror%3Dmanagedway%26r%3Dhttps%253A%252F%252Fsourceforge.net%252Fprojects%252Fsdcc%252Ffiles%252Flatest%252Fdownload'
+          bunzip2 sdcc-src-4.1.0.tar.bz2
+          tar xvf sdcc-src-4.1.0.tar.bz2
+
+      - name: Check out GBDK-2020
+        uses: actions/checkout@v2
+        with:
+          path: gbdk-2020
+          submodules: false # This is intentionally not "recursive", change if needed
+
+      - name: Build GBDK-2020
+        shell: bash
+        working-directory: gbdk-2020
+        run: |
+          export SDCCDIR=../sdcc
+          make
+
+      - name: Package build
+        shell: bash
+        working-directory: gbdk-2020
+        run: | # macOS does NOT have `realpath` :)
+          mkdir packaging
+          tar czf ../packaging/gbdk-2020-Linux.tar.gz gbdk
+
+      - name: Store build
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.name }} build
+          path: packaging/
