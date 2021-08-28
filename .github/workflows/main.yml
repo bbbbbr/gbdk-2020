@@ -59,11 +59,10 @@ jobs:
           echo $SDCCDIR
           cd gbdk-2020
           pwd
-          $SDCCDIR/bin/sdcc
+#          $SDCCDIR/bin/sdcc
           ls -la
           make
-          cd ..
-          ls -la
+          ls -la          
 
       - name: Package build
         if: matrix.name == 'Linux-64'
