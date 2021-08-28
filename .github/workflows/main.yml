@@ -57,7 +57,6 @@ jobs:
           ls -la       
           export SDCCDIR=`pwd`/../sdcc
           echo $SDCCDIR
-          $SDCCDIR/bin/sdcc
           cd gbdk-2020
           $SDCCDIR/bin/sdcc
           pwd
