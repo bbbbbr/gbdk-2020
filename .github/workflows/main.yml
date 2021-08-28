@@ -36,7 +36,7 @@ jobs:
       - name: Linux Depends
         if: matrix.name == 'Linux-64'
         run: |
-          curl -Lo sdcc-src-4.1.0.tar.bz2 'https://downloads.sourceforge.net/project/sdcc/sdcc/4.1.0/sdcc-src-4.1.0.tar.bz2?ts=gAAAAABhKcI3CCes3QInMxVwacOsJvjTo1Ll2Rzu0vd6pWIKa5xF5UGKyzjcOzXwAgwC8qk5_fOw7owk-nMLG39CrGrxHYg9Tw%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fsdcc%2Ffiles%2Fsdcc%2F4.1.0%2Fsdcc-src-4.1.0.tar.bz2%2Fdownload%3Fuse_mirror%3Dmanagedway%26r%3Dhttps%253A%252F%252Fsourceforge.net%252Fprojects%252Fsdcc%252Ffiles%252Flatest%252Fdownload'
+          curl -Lo sdcc-src-4.1.0.tar.bz2 'https://sourceforge.net/projects/sdcc/files/sdcc-linux-amd64/4.1.0/sdcc-4.1.0-amd64-unknown-linux2.5.tar.bz2/download'
           bunzip2 sdcc-src-4.1.0.tar.bz2
           tar xvf sdcc-src-4.1.0.tar
           pwd
