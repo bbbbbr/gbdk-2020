@@ -40,6 +40,7 @@ jobs:
           bunzip2 sdcc-src-4.1.0.tar.bz2
           tar xvf sdcc-src-4.1.0.tar
           pwd
+          ls -la
 
       - name: Check out GBDK-2020
         uses: actions/checkout@v2
@@ -52,8 +53,11 @@ jobs:
         shell: bash
         working-directory: gbdk-2020
         run: |
-          export SDCCDIR=../../sdcc
+          export SDCCDIR=../sdcc
+          echo $SDCCDIR
           make
+          cd ..
+          ls -la
 
       - name: Package build
         if: matrix.name == 'Linux-64'
