@@ -79,10 +79,12 @@ jobs:
           ls -la
           tar czf ../package/gbdk-2020-Linux.tar.gz gbdk
           cd ..
+          pwd          
+          ls -la package
           cd ..
 
       - name: Store build
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.name }} build
-          path: package/
+          path: gbdk-2020/package/
