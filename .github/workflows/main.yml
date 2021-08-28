@@ -35,7 +35,7 @@ jobs:
     steps:
 
       - name: Linux Depends
-        if: matrix.name == 'Linux'
+        if: matrix.name == 'Linux-64'
         run: |
           sudo apt -qq update
           curl -Lo sdcc-src-4.1.0.tar.bz2 'https://downloads.sourceforge.net/project/sdcc/sdcc/4.1.0/sdcc-src-4.1.0.tar.bz2?ts=gAAAAABhKcI3CCes3QInMxVwacOsJvjTo1Ll2Rzu0vd6pWIKa5xF5UGKyzjcOzXwAgwC8qk5_fOw7owk-nMLG39CrGrxHYg9Tw%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fsdcc%2Ffiles%2Fsdcc%2F4.1.0%2Fsdcc-src-4.1.0.tar.bz2%2Fdownload%3Fuse_mirror%3Dmanagedway%26r%3Dhttps%253A%252F%252Fsourceforge.net%252Fprojects%252Fsdcc%252Ffiles%252Flatest%252Fdownload'
@@ -49,6 +49,7 @@ jobs:
           submodules: false # This is intentionally not "recursive", change if needed
 
       - name: Build GBDK-2020
+        if: matrix.name == 'Linux-64'
         shell: bash
         working-directory: gbdk-2020
         run: |
@@ -56,9 +57,10 @@ jobs:
           make
 
       - name: Package build
+        if: matrix.name == 'Linux-64'
         shell: bash
         working-directory: gbdk-2020
-        run: | # macOS does NOT have `realpath` :)
+        run: |
           mkdir packaging
           tar czf ../packaging/gbdk-2020-Linux.tar.gz gbdk
 
