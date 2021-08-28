@@ -59,17 +59,21 @@ jobs:
           pwd
           ls -la
           make
-          ls -la          
+          ls -la
+          cd ..
+          
 
       - name: Package build
         if: matrix.name == 'Linux-64'
         shell: bash
         working-directory: gbdk-2020
         run: |
+          mkdir gbdk-2020/package
+          cd gbdk-2020/build
           pwd
-          ls -la
-          mkdir package
-          tar czf package/gbdk-2020-Linux.tar.gz gbdk
+          ls -la          
+          tar czf ../package/gbdk-2020-Linux.tar.gz gbdk
+          cd ../..
 
       - name: Store build
         uses: actions/upload-artifact@v2
