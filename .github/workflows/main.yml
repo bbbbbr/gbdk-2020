@@ -66,15 +66,17 @@ jobs:
       - name: Package build
         if: matrix.name == 'Linux-64'
         shell: bash
-        working-directory: gbdk-2020
+#        working-directory: gbdk-2020
         run: |
+          pwd
+          ls -la
           cd gbdk-2020
           mkdir package
           pwd
-          ls -la          
+          ls -la
           cd build
           pwd
-          ls -la          
+          ls -la
           tar czf ../package/gbdk-2020-Linux.tar.gz gbdk
           cd ..
           cd ..
