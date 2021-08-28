@@ -68,12 +68,16 @@ jobs:
         shell: bash
         working-directory: gbdk-2020
         run: |
-          mkdir gbdk-2020/package
-          cd gbdk-2020/build
+          cd gbdk-2020
+          mkdir package
+          pwd
+          ls -la          
+          cd build
           pwd
           ls -la          
           tar czf ../package/gbdk-2020-Linux.tar.gz gbdk
-          cd ../..
+          cd ..
+          cd ..
 
       - name: Store build
         uses: actions/upload-artifact@v2
