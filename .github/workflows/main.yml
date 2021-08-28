@@ -54,12 +54,9 @@ jobs:
 #        working-directory: gbdk-2020
         run: |
           pwd
-          ls -la       
           export SDCCDIR=`pwd`/sdcc
-          echo $SDCCDIR
           cd gbdk-2020
           pwd
-#          $SDCCDIR/bin/sdcc
           ls -la
           make
           ls -la          
@@ -69,6 +66,8 @@ jobs:
         shell: bash
         working-directory: gbdk-2020
         run: |
+          pwd
+          ls -la
           mkdir package
           tar czf package/gbdk-2020-Linux.tar.gz gbdk
 
