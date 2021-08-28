@@ -5,11 +5,10 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
-  push:
+#  push:
 #    branches: [ build ]
-  pull_request:
+#  pull_request:
 #    branches: [ build ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -37,10 +36,10 @@ jobs:
       - name: Linux Depends
         if: matrix.name == 'Linux-64'
         run: |
-          sudo apt -qq update
           curl -Lo sdcc-src-4.1.0.tar.bz2 'https://downloads.sourceforge.net/project/sdcc/sdcc/4.1.0/sdcc-src-4.1.0.tar.bz2?ts=gAAAAABhKcI3CCes3QInMxVwacOsJvjTo1Ll2Rzu0vd6pWIKa5xF5UGKyzjcOzXwAgwC8qk5_fOw7owk-nMLG39CrGrxHYg9Tw%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fsdcc%2Ffiles%2Fsdcc%2F4.1.0%2Fsdcc-src-4.1.0.tar.bz2%2Fdownload%3Fuse_mirror%3Dmanagedway%26r%3Dhttps%253A%252F%252Fsourceforge.net%252Fprojects%252Fsdcc%252Ffiles%252Flatest%252Fdownload'
           bunzip2 sdcc-src-4.1.0.tar.bz2
           tar xvf sdcc-src-4.1.0.tar
+          pwd
 
       - name: Check out GBDK-2020
         uses: actions/checkout@v2
@@ -53,7 +52,7 @@ jobs:
         shell: bash
         working-directory: gbdk-2020
         run: |
-          export SDCCDIR=../sdcc
+          export SDCCDIR=../../sdcc
           make
 
       - name: Package build
@@ -61,11 +60,11 @@ jobs:
         shell: bash
         working-directory: gbdk-2020
         run: |
-          mkdir packaging
-          tar czf ../packaging/gbdk-2020-Linux.tar.gz gbdk
+          mkdir package
+          tar czf package/gbdk-2020-Linux.tar.gz gbdk
 
       - name: Store build
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.name }} build
-          path: packaging/
+          path: package/
