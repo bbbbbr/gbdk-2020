@@ -95,7 +95,7 @@ jobs:
         if: matrix.name == 'Windows-x64'
         shell: msys2 {0}
         run: |
-          set SDCCDIR=`pwd`/sdcc
+          set SDCCDIR=%CD%\sdcc
           cd gbdk-2020
           make
           cd ..
