@@ -59,6 +59,14 @@ jobs:
           make
           cd ..
 
+      - name: Pre-Package build Linux/MacOS
+        if: (matrix.name == 'Linux-64') || (matrix.name == 'MacOS-64')
+        shell: bash
+        run: |
+          echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.tar.gz gbdk" >> $GITHUB_ENV
+          echo "MY_DATE=2020-10-07T12:00:00+01:00" >> $GITHUB_ENV
+          echo "action_state=yellow" >> $GITHUB_ENV
+
       - name: Package build Linux/MacOS
         if: (matrix.name == 'Linux-64') || (matrix.name == 'MacOS-64')
         shell: bash
@@ -66,11 +74,8 @@ jobs:
           cd gbdk-2020
           mkdir package
           cd build          
-          echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.tar.gz gbdk" >> $GITHUB_ENV
           echo ${{ env.BUILD_PACKAGE_FILENAME }}
-          echo "MY_DATE=2020-10-07T12:00:00+01:00" >> $GITHUB_ENV
           echo ${{ env.MY_DATE }}
-          echo "action_state=yellow" >> $GITHUB_ENV
           echo "${{ env.action_state }}"
           tar czf ../package/${{ env.BUILD_PACKAGE_FILENAME }} gbdk
           cd ..
