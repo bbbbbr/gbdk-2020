@@ -81,6 +81,18 @@ jobs:
         run: |
           echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.zip" >> $GITHUB_ENV          
 
+      - name: Set the value
+        if: matrix.name == 'Windows-x64'
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+          
+      - name: Use the value
+        if: matrix.name == 'Windows-x64'
+        id: step_two
+        run: |
+          echo "${{ env.action_state }}" # This will output 'yellow'
+
       - name: Build GBDK-2020 Linux/MacOS
         if: (matrix.name == 'Linux-x64') || (matrix.name == 'MacOS-x64')
         shell: bash
