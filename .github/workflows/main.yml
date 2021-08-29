@@ -67,6 +67,11 @@ jobs:
           mkdir package
           cd build          
           echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.tar.gz gbdk" >> $GITHUB_ENV
+          echo ${{ env.BUILD_PACKAGE_FILENAME }}
+          echo "MY_DATE=2020-10-07T12:00:00+01:00" >> $GITHUB_ENV
+          echo ${{ env.MY_DATE }}
+          echo "action_state=yellow" >> $GITHUB_ENV
+          echo "${{ env.action_state }}"
           tar czf ../package/${{ env.BUILD_PACKAGE_FILENAME }} gbdk
           cd ..
           cd ..
