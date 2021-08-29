@@ -73,21 +73,20 @@ jobs:
         if: (matrix.name == 'Linux-x64') || (matrix.name == 'MacOS-x64')
         shell: bash
         run: |
-          echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.tar.gz" >> $GITHUB_ENV
-          export SDCCDIR=`pwd`/sdcc
+          echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.tar.gz" >> $GITHUB_ENV          
 
       # Needs to be in a separate step than build so that setting the environment var takes effect
       - name: Pre-Build Windows
         if: matrix.name == 'Windows-x64'
         shell: msys2 {0}
         run: |
-          echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.zip" >> $GITHUB_ENV
-          set SDCCDIR=`pwd`/sdcc
+          echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.zip" >> $GITHUB_ENV          
 
       - name: Build GBDK-2020 Linux/MacOS
         if: (matrix.name == 'Linux-x64') || (matrix.name == 'MacOS-x64')
         shell: bash
         run: |
+          export SDCCDIR=`pwd`/sdcc
           cd gbdk-2020
           make
           cd ..
@@ -96,6 +95,7 @@ jobs:
         if: matrix.name == 'Windows-x64'
         shell: msys2 {0}
         run: |
+          set SDCCDIR=`pwd`/sdcc
           cd gbdk-2020
           make
           cd ..
