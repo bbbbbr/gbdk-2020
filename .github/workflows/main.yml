@@ -17,13 +17,13 @@ jobs:
       matrix:
         os:
           - ubuntu-20.04
-          # - macos-10.15
+          - macos-10.15
           # - windows-2019
         include:
           - os: ubuntu-20.04
             name: Linux-64
-          # - os: macos-10.15
-          #   name: Mac-64
+          - os: macos-10.15
+            name: MacOS-64
           # - os: windows-2019
           #   name: Windows-64
       fail-fast: false
@@ -37,6 +37,13 @@ jobs:
           bunzip2 sdcc.tar.bz2
           tar xvf sdcc.tar
 
+      - name: MacOS Depends
+        if: matrix.name == 'MacOS-64'
+        run: |
+          curl -Lo sdcc.tar.bz2 'https://github.com/bbbbbr/gbdk-2020/releases/download/sdcc_12539/sdcc-snapshot-x86_64-apple-macosx-20210718-12548.tar.bz2'
+          bunzip2 sdcc.tar.bz2
+          tar xvf sdcc.tar
+
       - name: Check out GBDK-2020
         uses: actions/checkout@v2
         with:
@@ -44,7 +51,7 @@ jobs:
           submodules: false # This is intentionally not "recursive", change if needed
 
       - name: Build GBDK-2020
-        if: matrix.name == 'Linux-64'
+        if: (matrix.name == 'Linux-64') || (matrix.name == 'MacOS-64')
         shell: bash
         run: |
           export SDCCDIR=`pwd`/sdcc
@@ -53,13 +60,13 @@ jobs:
           cd ..
 
       - name: Package build
-        if: matrix.name == 'Linux-64'
+        if: (matrix.name == 'Linux-64') || (matrix.name == 'MacOS-64')
         shell: bash
         run: |
           cd gbdk-2020
           mkdir package
           cd build
-          tar czf ../package/gbdk-2020-Linux.tar.gz gbdk
+          tar czf ../package/gbdk-2020-${{ matrix.name }}.tar.gz gbdk
           cd ..
           cd ..
 
