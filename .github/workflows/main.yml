@@ -53,13 +53,11 @@ jobs:
           7z x sdcc.zip
           
       - name: Set the value
-        if: matrix.name == 'Windows-x64'
         id: step_one
         run: |
           echo "action_state=yellow" >> $GITHUB_ENV
           
       - name: Use the value
-        if: matrix.name == 'Windows-x64'
         id: step_two
         run: |
           echo "${{ env.action_state }}" # This will output 'yellow'
