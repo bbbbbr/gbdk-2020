@@ -97,7 +97,7 @@ jobs:
         run: |
           set SDCCDIR=%CD%\sdcc
           cd gbdk-2020
-          msys2 -c 'uname -a'
+          msys2 -c 'make'
           make
           cd ..
 
