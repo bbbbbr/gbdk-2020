@@ -30,6 +30,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
 
+# ==== OS Specific Dependencies ====
+
       - name: Linux Depends
         if: matrix.name == 'Linux-x64'
         run: |
@@ -49,7 +51,19 @@ jobs:
         run: |
           curl -Lo sdcc.zip 'https://github.com/bbbbbr/gbdk-2020/releases/download/sdcc_12539/sdcc-snapshot-x86_64-w64-mingw32-20210711-12539.zip'
           7z x sdcc.zip
-
+          
+      - name: Set the value
+        if: matrix.name == 'Windows-x64'
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+          
+      - name: Use the value
+        if: matrix.name == 'Windows-x64'
+        id: step_two
+        run: |
+          echo "${{ env.action_state }}" # This will output 'yellow'
+          
       - name: Windows Depends MSYS2/MinGW64
         if: matrix.name == 'Windows-x64'
         uses: msys2/setup-msys2@v2
@@ -61,6 +75,9 @@ jobs:
           install: >-
             base-devel
             mingw-w64-x86_64-toolchain
+
+
+# ==== Build Steps ====
 
       - name: Check out GBDK-2020
         uses: actions/checkout@v2
@@ -80,18 +97,6 @@ jobs:
         if: matrix.name == 'Windows-x64'
         run: |
           echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.zip" >> $GITHUB_ENV          
-
-      - name: Set the value
-        if: matrix.name == 'Windows-x64'
-        id: step_one
-        run: |
-          echo "action_state=yellow" >> $GITHUB_ENV
-          
-      - name: Use the value
-        if: matrix.name == 'Windows-x64'
-        id: step_two
-        run: |
-          echo "${{ env.action_state }}" # This will output 'yellow'
 
       - name: Build GBDK-2020 Linux/MacOS
         if: (matrix.name == 'Linux-x64') || (matrix.name == 'MacOS-x64')
