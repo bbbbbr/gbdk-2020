@@ -78,7 +78,7 @@ jobs:
       # Needs to be in a separate step than build so that setting the environment var takes effect
       - name: Pre-Build Windows
         if: matrix.name == 'Windows-x64'
-        shell: msys2 {0}
+        shell: cmd
         run: |
           echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.zip" >> $GITHUB_ENV          
 
@@ -93,10 +93,11 @@ jobs:
 
       - name: Build GBDK-2020 Windows
         if: matrix.name == 'Windows-x64'
-        shell: msys2 {0}
+        shell: cmd
         run: |
           set SDCCDIR=%CD%\sdcc
           cd gbdk-2020
+          msys2 -c 'uname -a'
           make
           cd ..
 
@@ -113,7 +114,7 @@ jobs:
 
       - name: Package build Windows
         if: matrix.name == 'Windows-x64'
-        shell: msys2 {0}
+        shell: cmd
         run: |
           cd gbdk-2020
           mkdir package
