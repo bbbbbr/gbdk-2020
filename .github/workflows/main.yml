@@ -55,7 +55,7 @@ jobs:
         uses: msys2/setup-msys2@v2
         with:
           msystem: MINGW64
-          path-type: strict
+          path-type: minimal #strict
           release: false
           update: false
           install: >-
@@ -78,7 +78,6 @@ jobs:
       # Needs to be in a separate step than build so that setting the environment var takes effect
       - name: Pre-Build Windows
         if: matrix.name == 'Windows-x64'
-        shell: cmd
         run: |
           echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.zip" >> $GITHUB_ENV          
 
