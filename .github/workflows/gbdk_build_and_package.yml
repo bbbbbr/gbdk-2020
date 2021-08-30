@@ -1,4 +1,4 @@
-name: CI
+name: GBDK-2020 Build and Package
 
 # Controls when the workflow will run
 on:
