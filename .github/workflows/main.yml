@@ -2,13 +2,13 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Default branch only: Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   # Triggers the workflow on push or pull request events but only for the develop branch
-  push:
-    branches: [ build ]
-  pull_request:
-    branches: [ build ]
+  # push:
+  #   branches: [ build ]
+  # pull_request:
+  #   branches: [ build ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,12 +26,11 @@ jobs:
             name: MacOS-x64
           - os: windows-2019
             name: Windows-x64
-      fail-fast: false
+#      fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
 
-# ==== OS Specific Dependencies ====
-
+      # ==== OS Specific Dependencies ====
       - name: Linux Depends
         if: matrix.name == 'Linux-x64'
         run: |
@@ -64,29 +63,29 @@ jobs:
             base-devel
             mingw-w64-x86_64-toolchain
 
-
-# ==== Build Steps ====
-
+      # ==== Build Steps ====
       - name: Check out GBDK-2020
         uses: actions/checkout@v2
         with:
           path: gbdk-2020
           submodules: false
-
+      
+      # ==== Pre-Build: Set environment vars ====
       # Needs to be in a separate step than build so that setting the environment var takes effect
+      #
       - name: Pre-Build Linux/MacOS
         if: (matrix.name == 'Linux-x64') || (matrix.name == 'MacOS-x64')
         shell: bash
         run: |
           echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.tar.gz" >> $GITHUB_ENV          
 
-      # Needs to be in a separate step than build so that setting the environment var takes effect
       - name: Pre-Build Windows
         if: matrix.name == 'Windows-x64'
         shell: bash        
         run: |
           echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.zip" >> $GITHUB_ENV          
 
+      # ==== Builds ====
       - name: Build GBDK-2020 Linux/MacOS
         if: (matrix.name == 'Linux-x64') || (matrix.name == 'MacOS-x64')
         shell: bash
@@ -106,6 +105,7 @@ jobs:
           make
           cd ..
 
+      # ==== Packaging ====
       - name: Package build Linux/MacOS
         if: (matrix.name == 'Linux-x64') || (matrix.name == 'MacOS-x64')
         shell: bash
