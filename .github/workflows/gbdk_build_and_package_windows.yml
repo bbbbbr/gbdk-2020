@@ -1,4 +1,4 @@
-name: GBDK-2020 Build and Package Windows
+name: Build & Package: Windows
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -43,7 +43,7 @@ jobs:
       - name: Pre-Build setup
         shell: bash        
         run: |
-          echo "BUILD_PACKAGE_FILENAME=gbdk-2020-${{ matrix.name }}.zip" >> $GITHUB_ENV          
+          echo "BUILD_PACKAGE_FILENAME=gbdk-2020-Windows-x64.zip" >> $GITHUB_ENV
 
       # ==== Run GBDK Build ====
       - name: Build GBDK-2020
@@ -52,7 +52,6 @@ jobs:
           set SDCCDIR=%CD%\sdcc
           cd gbdk-2020
           msys2 -c 'make'
-          # make
           cd ..
 
       # ==== Packaging ====
@@ -67,8 +66,7 @@ jobs:
           cd ..
 
       - name: Store the Build
-        if: (matrix.name == 'Linux-64') || (matrix.name == 'MacOS-64') || ('Windows-x64')
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ matrix.name }} build
+          name: Windows-x64 build
           path: gbdk-2020/package/${{ env.BUILD_PACKAGE_FILENAME }}
