@@ -1,6 +1,5 @@
 name: GBDK-2020 Build and Package
 
-# Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -10,7 +9,6 @@ on:
   # pull_request:
   #   branches: [ build ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     strategy:
@@ -34,7 +32,8 @@ jobs:
       - name: Linux Depends
         if: matrix.name == 'Linux-x64'
         run: |
-          curl -Lo sdcc.tar.bz2 'https://github.com/bbbbbr/gbdk-2020/releases/download/sdcc_12539/sdcc-snapshot-amd64-unknown-linux2.5-20210711-12539.tar.bz2'
+          # curl -Lo sdcc.tar.bz2 'https://github.com/bbbbbr/gbdk-2020/releases/download/sdcc_12539/sdcc-snapshot-amd64-unknown-linux2.5-20210711-12539.tar.bz2'
+          curl -Lo sdcc.tar.bz2 https://github.com/bbbbbr/gbdk2020-sdcc/releases/download/sdcc-12539-patched/sdcc-amd64-linux2.5-20210711-12539--sms-gg-patched.tar.bz2
           bunzip2 sdcc.tar.bz2
           tar xvf sdcc.tar
 
@@ -48,7 +47,8 @@ jobs:
       - name: Windows-x64 Depends
         if: matrix.name == 'Windows-x64'
         run: |
-          curl -Lo sdcc.zip 'https://github.com/bbbbbr/gbdk-2020/releases/download/sdcc_12539/sdcc-snapshot-x86_64-w64-mingw32-20210711-12539.zip'
+          # curl -Lo sdcc.zip 'https://github.com/bbbbbr/gbdk-2020/releases/download/sdcc_12539/sdcc-snapshot-x86_64-w64-mingw32-20210711-12539.zip'
+          curl -Lo sdcc.zip https://github.com/bbbbbr/gbdk2020-sdcc/releases/download/sdcc-12539-patched/sdcc-x86_64-w64-mingw32-20210711-12539--sms-gg-patched.zip
           7z x sdcc.zip
           
       - name: Windows Depends MSYS2/MinGW64
@@ -102,7 +102,6 @@ jobs:
           set SDCCDIR=%CD%\sdcc
           cd gbdk-2020
           msys2 -c 'make'
-          make
           cd ..
 
       # ==== Packaging ====
