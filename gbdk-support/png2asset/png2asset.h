@@ -3,6 +3,11 @@
 
 #define RGBA32_SZ 4 // RGBA 8:8:8:8 is 4 bytes per pixel
 
+#define ATTRIB_TILE_DIVIDE_NES_2         2 // 16x16 attributes with 8x8 tiles
+#define ATTRIB_PACKED_TILE_DIVIDE_NES_4  4 // 32x32 blocks containing 16x16 attribute regions over 8x8 tiles
+#define ATTRIBUTE_HEIGHT_NES            15
+#define ATTRIBUTE_ALIGNED_HEIGHT_NES    16
+
 enum {
     SPR_NONE,
     SPR_8x8,
@@ -94,15 +99,29 @@ struct PNGImage
     unsigned int w;
     unsigned int h;
 
+    bool use_nes_attributes = false;
+
     // Default tile size
     int tile_w = 8;
     int tile_h = 16;
 
-    // TODO: embed these instead of deriving them many places in the code
-    // int attribute_w_factor = 1;
-    // int attribute_h_factor = 1;
-    // int get_attribute_tile_w() { tile_w * attribute_w_factor; }
-    // int get_attribute_tile_h() { tile_h * attribute_h_factor; }
+    int map_attributes_divide_w = 1;
+    int map_attributes_divide_h = 1;
+
+    int    map_attributes_tile_w() const { return (tile_w * map_attributes_divide_w); }
+    int    map_attributes_tile_h() const { return (tile_h * map_attributes_divide_h); }
+    size_t map_attributes_width()  const { return (w / map_attributes_tile_w()); }
+    size_t map_attributes_height() const { return (h / map_attributes_tile_h()); }
+
+    // For all platforms except NES the below are the same as map_attributes_width/height
+    //
+    // For NES this is post-alignment
+    size_t map_attributes_final_width;
+    size_t map_attributes_final_height;
+    // For NES this is post-alignment AND packed
+    size_t map_attributes_packed_width;
+    size_t map_attributes_packed_height;
+
 
     size_t colors_per_pal;  // Number of colors per palette (ex: CGB has 4 colors per palette x 8 palettes total)
     size_t total_color_count; // Total number of colors across all palettes (palette_count x colors_per_pal)
@@ -162,8 +181,21 @@ public:
         else
             return ExtractGBTile(x, y, tile_w, tile_h, tile, 0); // No buffer offset for normal tile extraction
     }
-// private:
-//     bool zero_palette = false;
+
+    void CopySettingsTo(PNGImage& destImage) {
+        destImage.colors_per_pal = colors_per_pal;
+        destImage.tile_w = tile_w;
+        destImage.tile_h = tile_h;
+
+        destImage.map_attributes_divide_w = map_attributes_divide_w;
+        destImage.map_attributes_divide_h = map_attributes_divide_h;
+
+        destImage.map_attributes_final_width = map_attributes_final_width;
+        destImage.map_attributes_final_height = map_attributes_final_height;
+
+        destImage.map_attributes_packed_width = map_attributes_packed_width;
+        destImage.map_attributes_packed_height = map_attributes_packed_height;
+    }
 };
 
 #endif

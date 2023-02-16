@@ -44,13 +44,7 @@ bool export_c_file(void);
 
 	bool export_as_map = false;
 	bool use_map_attributes = false;
-	bool use_2x2_map_attributes = false;
-	bool pack_map_attributes = false;
 	bool convert_rgb_to_nes = false;
-	size_t map_attributes_width = 0;
-	size_t map_attributes_height = 0;
-	size_t map_attributes_packed_width = 0;
-	size_t map_attributes_packed_height = 0;
 	int sprite_mode = SPR_8x16;
 
 	int bpp = 2;
@@ -392,58 +386,143 @@ int FindOrCreateSubPalette(const SetPal& pal, vector< SetPal >& palettes, size_t
 //
 // Returns: array of attributes. This always has *per-tile* dimensions, even when half_resolution is true.
 //
-int* BuildPalettesAndAttributes(const PNGImage& image32, vector< SetPal >& palettes, bool half_resolution)
+int* BuildPalettesAndAttributes(const PNGImage& image32, vector< SetPal >& palettes)
 {
-	int* palettes_per_tile = new int[(image32.w / image32.tile_w) * (image32.h / image32.tile_h)];
-	int sx = half_resolution ? 2 : 1;
-	int sy = half_resolution ? 2 : 1;
-	for (unsigned int y = 0; y < image32.h; y += image32.tile_h * sy)
+	int* palettes_per_tile = new int[(image32.w / image32.map_attributes_tile_w()) * (image32.h / image32.map_attributes_tile_h())];
+	for (unsigned int y = 0; y < image32.h; y += image32.map_attributes_tile_h())
 	{
-		for (unsigned int x = 0; x < image32.w; x += image32.tile_w * sx)
+		for (unsigned int x = 0; x < image32.w; x += image32.map_attributes_tile_w())
 		{
-			//Get palette colors on (x, y, image32.tile_w, image32.tile_h)
-			SetPal pal = GetPaletteColors(image32, (x / sx) * sx, (y / sy) * sy, sx * image32.tile_w, sy * image32.tile_h);
+			// Get palette colors on (x, y, image32.tile_w, image32.tile_h)
+			SetPal pal = GetPaletteColors(image32, x, y, image32.map_attributes_tile_w(), image32.map_attributes_tile_h());
 
 			int subPalIndex = FindOrCreateSubPalette(pal, palettes, image32.colors_per_pal);
 			if (subPalIndex < 0)
 			{
 				printf("Error: more than %d colors found in tile at x:%d, y:%d of size w:%d, h:%d\n",
 					(unsigned int)image32.colors_per_pal,
-					(x / sx) * sx,
-					(y / sy) * sy,
-					sx * image32.tile_w,
-					sy * image32.tile_h);
+					x, y, image32.map_attributes_tile_w(), image32.map_attributes_tile_h());
 				subPalIndex = 0; // Force to sub-palette 0, to allow getting a partially-incorrect output image
 			}
-			// Assign single or multiple entries in palettes_per_tile, to keep it independent of
-			// of half_resolution parameter
-			int dx = ((x / image32.tile_w) / sx) * sx;
-			int dy = ((y / image32.tile_h) / sy) * sy;
-			int w = (image32.w / image32.tile_w);
-			for (int yy = 0; yy < sy; yy++)
-			{
-				for (int xx = 0; xx < sx; xx++)
-				{
-					palettes_per_tile[(dy + yy) * w + dx + xx] = subPalIndex;
-				}
-			}
+			// Write the pal index to the attribute map
+			int dx = x / image32.map_attributes_tile_w();
+			int dy = y / image32.map_attributes_tile_h();
+			int w = image32.w / image32.map_attributes_tile_w();
+			palettes_per_tile[(w * dy) + dx] = subPalIndex;
 		}
 	}
 	return palettes_per_tile;
 }
 
-unsigned char GetMapAttribute(size_t x, size_t y)
+unsigned char GetMapAttribute(const PNGImage& image, size_t x, size_t y)
 {
-	if (x < map_attributes_width && y < map_attributes_height)
-		return map_attributes[y * map_attributes_width + x];
+	if ((x < image.map_attributes_width()) && (y < image.map_attributes_height()))
+		return map_attributes[(y * image.map_attributes_width()) + x];
 	else
 		return 0;
 }
 
-void ReduceMapAttributes2x2(const vector< SetPal >& palettes)
+unsigned char GetMapAttribute_TEMP(const PNGImage& image, size_t x, size_t y)
 {
-	size_t w = (map_attributes_width + 1) / 2;
-	size_t h = (map_attributes_height + 1) / 2;
+	if ((x < image.map_attributes_final_width()) && (y < image.map_attributes_final_height()))
+		return map_attributes[(y * image.map_attributes_final_width) + x];
+	else
+		return 0;
+}
+
+// Translate Aligned NES attribute map coordinates into regular attribute coordinates
+unsigned char GetMapAttribute_AlignedNES(const PNGImage& image, size_t x, size_t y)
+{
+	// Return an empty value if it's on an aligned row (every 16th)
+	// or a padded last column (padded column will exceed width)
+	//
+	// Otherwise translate the Y coordinate to remove padded alignment rows
+
+	if ((((y + 1) % ATTRIBUTE_ALIGNED_HEIGHT_NES) == 0) ||
+	    (x >= image.map_attributes_width()))
+		return 0;
+	else
+		return GetMapAttribute(image, x, y - (y / 16));
+}
+
+
+// Aligns and Packs NES attributes into their final form
+//
+// Alters:
+// * image.map_attributes_final_width & height
+// * image.map_attributes_packed_width & height
+//
+// The logical order is 1) Align then 2) Pack.
+// Alignment is performed through GetMapAttribute_AlignedNES() as the packing happens.
+//
+// Aligns map attribute data properly for NES and set_bkg_submap_attributes
+// Namely:
+// * Width aligned to multiples of 2 to reflect the NES's packed attribute table
+// * Every 16th row is blank to reflect the unused row in the NES's packed attribute table
+//
+// Packs multiple 2-bit map attributes into one byte:
+// * NES attributes are packed for blocks of 4x4 tiles (one byte per block)
+// * Each block has four attribute quadrants of 2x2 tiles (2 bits per quadrant)
+//
+//       Tiles
+//        0   1     2   3
+//     |------------------|
+//   0 | TL:1..0 | TR:3..2|
+//   1 |         |        |
+//     |------------------|
+//   2 | BL:5..4 | BR:7..6|
+//   3 |         |        |
+//      ------------------
+//
+void NES_AlignAndPackMapAttributes(PNGImage& image)
+{
+	// Scale difference between unpacked and packed attributes
+	// Basically "2" for NES since attrib map is 1/2 tile map, packed is 1/2 attrib map
+	const size_t step = ATTRIB_PACKED_TILE_DIVIDE_NES_4 / ATTRIB_TILE_DIVIDE_NES_2;
+
+	size_t map_attributes_aligned_width  = image.map_attributes_width() + (image.map_attributes_width() % 2); // Round up to nearest multiple of 2
+	size_t map_attributes_aligned_height = ((image.map_attributes_height() + ATTRIBUTE_HEIGHT_NES - 1) / ATTRIBUTE_HEIGHT_NES) * ATTRIBUTE_ALIGNED_HEIGHT_NES;
+// size_t height = last_nametable ? (image.map_attributes_height() - i * ATTRIBUTE_HEIGHT) : ATTRIBUTE_HEIGHT;
+	image.map_attributes_packed_width    = map_attributes_aligned_width / step;
+	image.map_attributes_packed_height   = map_attributes_aligned_height / step;
+
+	vector< unsigned char > map_attributes_new;
+	map_attributes_new.resize(image.map_attributes_packed_width * image.map_attributes_packed_height);
+
+	for (size_t y = 0; y < image.map_attributes_packed_height; y++)
+	{
+		for (size_t x = 0; x < image.map_attributes_packed_width; x++)
+		{
+			// NES alignment translation gets handled in GetMapAttribute_AlignedNES()
+/*			unsigned char a_tl = GetMapAttribute_AlignedNES(image, (step * x) + 0, (step * y) + 0);
+			unsigned char a_tr = GetMapAttribute_AlignedNES(image, (step * x) + 1, (step * y) + 0);
+			unsigned char a_bl = GetMapAttribute_AlignedNES(image, (step * x) + 0, (step * y) + 1);
+			unsigned char a_br = GetMapAttribute_AlignedNES(image, (step * x) + 1, (step * y) + 1);
+*/
+			unsigned char a_tl = GetMapAttribute(image, (step * x) + 0, (step * y) + 0);
+			unsigned char a_tr = GetMapAttribute(image, (step * x) + 1, (step * y) + 0);
+			unsigned char a_bl = GetMapAttribute(image, (step * x) + 0, (step * y) + 1);
+			unsigned char a_br = GetMapAttribute(image, (step * x) + 1, (step * y) + 1);
+			unsigned char packed_bits = (a_br << 6) | (a_bl << 4) | (a_tr << 2) | (a_tl << 0);
+			map_attributes_new[(image.map_attributes_packed_width * y) + x] = packed_bits;
+		}
+	}
+
+	// The aligned width becomes the final width (when multiplied up)
+	image.map_attributes_final_width  = map_attributes_aligned_width;
+	image.map_attributes_final_height = map_attributes_aligned_height;
+	// Overwrite old attributes
+	map_attributes = map_attributes_new;
+}
+
+// =========================================
+
+
+
+void ReduceMapAttributes2x2(PNGImage& image, const vector< SetPal >& palettes)
+{
+	size_t w = ((image.w / 8)+ 1) / 2;
+	size_t h = ((image.h / 8) + 1) / 2;
 	vector< unsigned char > map_attributes_2x2;
 	map_attributes_2x2.resize(w * h);
 	for (size_t y = 0; y < h; y++)
@@ -451,14 +530,15 @@ void ReduceMapAttributes2x2(const vector< SetPal >& palettes)
 		for (size_t x = 0; x < w; x++)
 		{
 			// Use only Top-left attribute, ignoring the other three as they should now be identical
-			map_attributes_2x2[y * w + x] = GetMapAttribute(2 * x, 2 * y);
+			map_attributes_2x2[y * w + x] = GetMapAttribute(image, 2 * x, 2 * y);
 		}
 	}
 	// Overwrite old attributes
-	map_attributes_width = w;
-	map_attributes_height = h;
+	image.map_attributes_final_width = w;
+	image.map_attributes_final_height = h;
 	map_attributes = map_attributes_2x2;
 }
+
 
 //
 // Aligns map attribute data to be aligned properly for NES and set_bkg_submap_attributes
@@ -466,30 +546,30 @@ void ReduceMapAttributes2x2(const vector< SetPal >& palettes)
 // * Width aligned to multiples of 2 to reflect the NES's packed attribute table
 // * Every 16th row is blank to reflect the unused row in the NES's packed attribute table
 //
-void AlignMapAttributes()
+void AlignMapAttributes(PNGImage& image)
 {
 	const size_t ATTRIBUTE_HEIGHT = 15;
 	const size_t ATTRIBUTE_ALIGNED_HEIGHT = 16;
 	vector< unsigned char > map_attributes_aligned;
-	size_t map_attributes_aligned_width = 2 * ((map_attributes_width + 1) / 2);
-	size_t num_vertical_nametables = (map_attributes_height + ATTRIBUTE_HEIGHT - 1) / ATTRIBUTE_HEIGHT;
+	size_t map_attributes_aligned_width = 2 * ((image.map_attributes_final_width + 1) / 2);
+	size_t num_vertical_nametables = (image.map_attributes_final_height + ATTRIBUTE_HEIGHT - 1) / ATTRIBUTE_HEIGHT;
 	map_attributes_aligned.resize(map_attributes_aligned_width * (num_vertical_nametables * ATTRIBUTE_ALIGNED_HEIGHT));
 	for (size_t i = 0; i < num_vertical_nametables; i++)
 	{
 		bool last_nametable = (i == num_vertical_nametables - 1);
-		size_t height = last_nametable ? (map_attributes_height - i * ATTRIBUTE_HEIGHT) : ATTRIBUTE_HEIGHT;
+		size_t height = last_nametable ? (image.map_attributes_final_height - i * ATTRIBUTE_HEIGHT) : ATTRIBUTE_HEIGHT;
 		for (size_t y = 0; y < height; y++)
 		{
-			for (size_t x = 0; x < map_attributes_width; x++)
+			for (size_t x = 0; x < image.map_attributes_final_width; x++)
 			{
 				map_attributes_aligned[(i * ATTRIBUTE_ALIGNED_HEIGHT + y) * map_attributes_aligned_width + x] =
-					map_attributes[(i * ATTRIBUTE_HEIGHT + y) * map_attributes_width + x];
+					map_attributes[(i * ATTRIBUTE_HEIGHT + y) * image.map_attributes_final_width + x];
 			}
 		}
 	}
 	// Overwrite old attributes
-	map_attributes_width = map_attributes_aligned_width;
-	map_attributes_height = num_vertical_nametables * ATTRIBUTE_ALIGNED_HEIGHT;
+	image.map_attributes_final_width = map_attributes_aligned_width;
+	image.map_attributes_final_height = num_vertical_nametables * ATTRIBUTE_ALIGNED_HEIGHT;
 	map_attributes = map_attributes_aligned;
 }
 
@@ -497,27 +577,32 @@ void AlignMapAttributes()
 // Pack map attributes
 // (NES packs multiple 2-bit entries into one byte)
 //
-void PackMapAttributes()
+void PackMapAttributes(PNGImage& image)
 {
 	vector< unsigned char > map_attributes_packed;
-	map_attributes_packed_width = (map_attributes_width + 1) / 2;
-	map_attributes_packed_height = (map_attributes_height + 1) / 2;
-	map_attributes_packed.resize(map_attributes_packed_width * map_attributes_packed_height);
-	for (size_t y = 0; y < map_attributes_packed_height; y++)
+	image.map_attributes_packed_width = (image.map_attributes_final_width + 1) / 2;
+	image.map_attributes_packed_height = (image.map_attributes_final_height + 1) / 2;
+	map_attributes_packed.resize(image.map_attributes_packed_width * image.map_attributes_packed_height);
+	for (size_t y = 0; y < image.map_attributes_packed_height; y++)
 	{
-		for (size_t x = 0; x < map_attributes_packed_width; x++)
+		for (size_t x = 0; x < image.map_attributes_packed_width; x++)
 		{
-			unsigned char a_tl = GetMapAttribute(2 * x + 0, 2 * y + 0);
-			unsigned char a_tr = GetMapAttribute(2 * x + 1, 2 * y + 0);
-			unsigned char a_bl = GetMapAttribute(2 * x + 0, 2 * y + 1);
-			unsigned char a_br = GetMapAttribute(2 * x + 1, 2 * y + 1);
+			unsigned char a_tl = GetMapAttribute_TEMP(image, 2 * x + 0, 2 * y + 0);
+			unsigned char a_tr = GetMapAttribute_TEMP(image, 2 * x + 1, 2 * y + 0);
+			unsigned char a_bl = GetMapAttribute_TEMP(image, 2 * x + 0, 2 * y + 1);
+			unsigned char a_br = GetMapAttribute_TEMP(image, 2 * x + 1, 2 * y + 1);
 			unsigned char packed_bits = (a_br << 6) | (a_bl << 4) | (a_tr << 2) | (a_tl << 0);
-			map_attributes_packed[map_attributes_packed_width * y + x] = packed_bits;
+			map_attributes_packed[image.map_attributes_packed_width * y + x] = packed_bits;
 		}
 	}
 	// Overwrite old attributes
 	map_attributes = map_attributes_packed;
 }
+
+
+// ================================================================
+
+
 
 bool GetSourceTileset(bool repair_indexed_pal, bool keep_palette_order, unsigned int max_palettes, vector< SetPal >& palettes) {
 
@@ -564,7 +649,7 @@ bool GetSourceTileset(bool repair_indexed_pal, bool keep_palette_order, unsigned
 		}
 
 		if (repair_indexed_pal)
-			if (!image_indexed_repair_tile_palettes(source_tileset_image, use_2x2_map_attributes))
+			if (!image_indexed_repair_tile_palettes(source_tileset_image))
 				return 1;
 	}
 	else {
@@ -577,10 +662,8 @@ bool GetSourceTileset(bool repair_indexed_pal, bool keep_palette_order, unsigned
 			return false;
 		}
 
-		image32.colors_per_pal = source_tileset_image.colors_per_pal;
-		image32.tile_w = source_tileset_image.tile_w;
-		image32.tile_h = source_tileset_image.tile_h;
-		int* palettes_per_tile = BuildPalettesAndAttributes(image32, palettes, use_2x2_map_attributes);
+		source_tileset_image.CopySettingsTo(image32);
+		int* palettes_per_tile = BuildPalettesAndAttributes(image32, palettes);
 
 		//Create the indexed image
 		source_tileset_image.data.clear();
@@ -793,8 +876,9 @@ int main(int argc, char* argv[])
 		else if (!strcmp(argv[i], "-use_nes_attributes"))
 		{
 			use_map_attributes = true;
-			use_2x2_map_attributes = true;
-			pack_map_attributes = true;
+			image.use_nes_attributes = true;
+			image.map_attributes_divide_w = ATTRIB_TILE_DIVIDE_NES_2;
+			image.map_attributes_divide_h = ATTRIB_TILE_DIVIDE_NES_2;
 		}
 		else if (!strcmp(argv[i], "-use_nes_colors"))
 		{
@@ -887,13 +971,9 @@ int main(int argc, char* argv[])
 	// So the 'GetSourceTileset' function can pre-populate it from the source tileset
 	vector< SetPal > palettes;
 
-	// Copy some settings into optional source tileset image
-	source_tileset_image.colors_per_pal = image.colors_per_pal;
-	source_tileset_image.tile_w = image.tile_w;
-	source_tileset_image.tile_h = image.tile_h;
-
 	if (use_source_tileset) {
-
+		// Copy some settings into optional source tileset image
+		image.CopySettingsTo(source_tileset_image);
 		if (!GetSourceTileset(repair_indexed_pal, keep_palette_order, max_palettes, palettes)) {
 			return 1;
 		}
@@ -939,7 +1019,7 @@ int main(int argc, char* argv[])
 
 
 		if (repair_indexed_pal)
-			if (!image_indexed_repair_tile_palettes(image, use_2x2_map_attributes))
+			if (!image_indexed_repair_tile_palettes(image))
 				return 1;
 
 		// TODO: Enable dimension check
@@ -972,9 +1052,7 @@ int main(int argc, char* argv[])
 	else
 	{
 		PNGImage image32;
-		image32.colors_per_pal = image.colors_per_pal;
-		image32.tile_w = image.tile_w;
-		image32.tile_h = image.tile_h;
+		image.CopySettingsTo(image32);
 
 		unsigned error = lodepng::decode(image32.data, image32.w, image32.h, state, buffer); //decode as 32 bit
 		if(error)
@@ -990,7 +1068,7 @@ int main(int argc, char* argv[])
 			return 1;
 		}
 
-		int* palettes_per_tile = BuildPalettesAndAttributes(image32, palettes, use_2x2_map_attributes);
+		int* palettes_per_tile = BuildPalettesAndAttributes(image32, palettes);
 
 		//Create the indexed image
 		image.data.clear();
@@ -1058,25 +1136,22 @@ int main(int argc, char* argv[])
 			}
 		}
 	}
-	map_attributes_width = image.w / 8;
-	map_attributes_height = image.h / 8;
-	// Optionally perform 2x2 reduction on attributes (NES attribute table has this format)
-	if(use_2x2_map_attributes)
-	{
-		// NES attribute map dimensions are half-resolution 
-		ReduceMapAttributes2x2(palettes);
-	}
+
 	// Optionally align and pack map attributes into NES PPU format
-	if (pack_map_attributes)
+	if (image.use_nes_attributes)
 	{
-		AlignMapAttributes();
-		PackMapAttributes();
+		// NES_AlignAndPackMapAttributes(image);
+		ReduceMapAttributes2x2(image, palettes);
+		AlignMapAttributes(image);
+		PackMapAttributes(image);
 	}
 	else
 	{
-		// Use original attribute dimensions for packed
-		map_attributes_packed_width = map_attributes_width;
-		map_attributes_packed_height = map_attributes_height;
+		// Otherwise use original attrib dimensions for final and packed sizes
+		image.map_attributes_final_width  = image.map_attributes_width();
+		image.map_attributes_final_height = image.map_attributes_height();
+		image.map_attributes_packed_width  = image.map_attributes_width();
+		image.map_attributes_packed_height = image.map_attributes_height();
 	}
 
 	// === EXPORT ===
@@ -1155,11 +1230,10 @@ bool export_h_file(void) {
 
 				if (use_map_attributes)
 				{
-					int scale = use_2x2_map_attributes ? 2 : 1;
-					fprintf(file, "#define %s_MAP_ATTRIBUTES_WIDTH %d\n", data_name.c_str(), (int)(scale * map_attributes_width));
-					fprintf(file, "#define %s_MAP_ATTRIBUTES_HEIGHT %d\n", data_name.c_str(), (int)(scale * map_attributes_height));
-					fprintf(file, "#define %s_MAP_ATTRIBUTES_PACKED_WIDTH %d\n", data_name.c_str(), (int)map_attributes_packed_width);
-					fprintf(file, "#define %s_MAP_ATTRIBUTES_PACKED_HEIGHT %d\n", data_name.c_str(), (int)map_attributes_packed_height);
+					fprintf(file, "#define %s_MAP_ATTRIBUTES_WIDTH %d\n", data_name.c_str(), (int)image.map_attributes_final_width);
+					fprintf(file, "#define %s_MAP_ATTRIBUTES_HEIGHT %d\n", data_name.c_str(), (int)image.map_attributes_final_height);
+					fprintf(file, "#define %s_MAP_ATTRIBUTES_PACKED_WIDTH %d\n", data_name.c_str(), (int)image.map_attributes_packed_width);
+					fprintf(file, "#define %s_MAP_ATTRIBUTES_PACKED_HEIGHT %d\n", data_name.c_str(), (int)image.map_attributes_packed_height);
 				}
 
 				if(use_structs)
@@ -1318,16 +1392,16 @@ bool export_c_file(void) {
 				for(MetaSprite::iterator it2 = (*it).begin(); it2 != (*it).end(); ++ it2)
 				{                    
 					int pal_idx = (*it2).props & 0xF;
-                    int flip_x = ((*it2).props >> 5) & 1;
-                    int flip_y = ((*it2).props >> 6) & 1;
+					int flip_x = ((*it2).props >> 5) & 1;
+					int flip_y = ((*it2).props >> 6) & 1;
 					fprintf(file,
-					        "\tMETASPR_ITEM(%d, %d, %d, S_PAL(%d)%s%s),\n",
-					        (*it2).offset_y,
-					        (*it2).offset_x,
-					        (*it2).offset_idx,
-					        pal_idx,
-					        flip_x ? " | S_FLIPX" : "",
-					        flip_y ? " | S_FLIPY" : "");
+							"\tMETASPR_ITEM(%d, %d, %d, S_PAL(%d)%s%s),\n",
+							(*it2).offset_y,
+							(*it2).offset_x,
+							(*it2).offset_idx,
+							pal_idx,
+							flip_x ? " | S_FLIPX" : "",
+							flip_y ? " | S_FLIPY" : "");
 				}
 				fprintf(file, "\tMETASPR_TERM\n");
 				fprintf(file, "};\n\n");
@@ -1430,23 +1504,23 @@ bool export_c_file(void) {
 				fprintf(file, "\n");
 				fprintf(file, "const unsigned char %s_map_attributes[%d] = {\n", data_name.c_str(), (unsigned int)map_attributes.size());
 				if (output_transposed) {
-					for (size_t i = 0; i < map_attributes_packed_width; ++i)
+					for (size_t i = 0; i < image.map_attributes_packed_width; ++i)
 					{
 						fprintf(file, "\t");
-						for (size_t j = 0; j < map_attributes_packed_height; ++j)
+						for (size_t j = 0; j < image.map_attributes_packed_height; ++j)
 						{
-							fprintf(file, "0x%02x,", map_attributes[j * map_attributes_packed_width + i]);
+							fprintf(file, "0x%02x,", map_attributes[j * image.map_attributes_packed_width + i]);
 						}
 						fprintf(file, "\n");
 					}
 				}
 				else {
-					for (size_t j = 0; j < map_attributes_packed_height; ++j)
+					for (size_t j = 0; j < image.map_attributes_packed_height; ++j)
 					{
 						fprintf(file, "\t");
-						for (size_t i = 0; i < map_attributes_packed_width; ++i)
+						for (size_t i = 0; i < image.map_attributes_packed_width; ++i)
 						{
-							fprintf(file, "0x%02x,", map_attributes[j * map_attributes_packed_width + i]);
+							fprintf(file, "0x%02x,", map_attributes[j * image.map_attributes_packed_width + i]);
 						}
 						fprintf(file, "\n");
 					}

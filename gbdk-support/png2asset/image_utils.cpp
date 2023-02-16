@@ -68,7 +68,6 @@ bool image_indexed_ensure_8bpp(vector<uint8_t> & src_image_data, int width, int 
 
 
 
-
 // Returns the sub-palette number for a pixel in a indexed 8bpp image
 static int pixel_get_palette_num(const PNGImage& image, int x, int y) {
 
@@ -77,13 +76,13 @@ static int pixel_get_palette_num(const PNGImage& image, int x, int y) {
 
 
 // Verifies that a tile uses only colors within it's sub-palette in a indexed 8bpp image
-static bool tile_palette_is_ok(const PNGImage& image, int x, int y, int tile_w, int tile_h) {
+static bool tile_palette_is_ok(const PNGImage& image, int x, int y) {
 
     // Get palette from first pixel in tile, use that as reference
     int prev_palette_num = pixel_get_palette_num(image, x, y);
 
-    for (int tile_y = 0; tile_y < tile_h; tile_y++) {
-        for (int tile_x = 0; tile_x < tile_w; tile_x++) {
+    for (int tile_y = 0; tile_y < image.map_attributes_tile_h(); tile_y++) {
+        for (int tile_x = 0; tile_x < image.map_attributes_tile_w(); tile_x++) {
 
             // If any pixels have a different palette than it's a failure
             if (prev_palette_num != pixel_get_palette_num(image, x + tile_x, y + tile_y)) {
@@ -123,26 +122,26 @@ static int pixel_find_color_in_palette(const PNGImage& image, int x, int y, int 
 // Tries to remap a tile to a new palette. Fails if any color in tile isn't in palette
 // Note: For any color that does match, tile color indexed gets remapped even if the rest
 //       of the match fails. That's ok because the new color is visually identical to previous.
-static bool tile_palette_try_repair(PNGImage& image, int x, int y, int tile_w, int tile_h, int pal_num) {
+static bool tile_palette_try_repair(PNGImage& image, int x, int y, int pal_num) {
 
     uint8_t new_color;
 
-    // For each pixel in the tile, try to find an exact color match in the palette
-    for (int tile_y = 0; tile_y < tile_h; tile_y++) {
-        for (int tile_x = 0; tile_x < tile_w; tile_x++) {
+        // For each pixel in the tile, try to find an exact color match in the palette
+        for (int tile_y = 0; tile_y < image.map_attributes_tile_h(); tile_y++) {
+            for (int tile_x = 0; tile_x < image.map_attributes_tile_w(); tile_x++) {
 
-            // Update pixel if exact match was found
+                // Update pixel if exact match was found
             // Otherwise quit as soon as possible to reduce processing
             if (pixel_find_color_in_palette(image, x + tile_x, y + tile_y, pal_num, &new_color))
-                image.data[((y + tile_y) * image.w) + x + tile_x] = new_color;
-            else
+                    image.data[((y + tile_y) * image.w) + x + tile_x] = new_color;
+                else
                 return false; // Failed, tile color not present in palette
+            }
         }
-    }
 
     // printf("  + png2asset: Info: repaired tile at %d x %d to palette make%d\n", x, y, pal_num);
     return true; // Success, found a perfect match
-}
+        }
 
 
 // Checks all palettes to see if the tile's colors can be remapped to them.
@@ -154,7 +153,7 @@ static bool tile_palette_repair(PNGImage& image, int x, int y, int tile_w, int t
             return true; // Success
 
     printf("png2asset: Error: tile (%dx%d) at %d,%d - %d,%d uses unique colors from different palettes, "
-           "cannot repair palette\n", x / tile_w, y / tile_h, x, y, x + tile_w - 1, y + tile_h - 1);
+           "cannot repair palette\n", x / image.map_attributes_tile_w(), y / image.map_attributes_tile_h(), x, y, x + image.map_attributes_tile_w() - 1, y + image.map_attributes_tile_h() - 1);
 
     // If no exact palette match was found then signal failure
     return false; // Failure
@@ -165,28 +164,14 @@ static bool tile_palette_repair(PNGImage& image, int x, int y, int tile_w, int t
 // Must find a palette that contains all colors in tile, fails otherwise
 //
 // Image passed in must be: indexed 8bpp
-bool image_indexed_repair_tile_palettes(PNGImage & image, bool use_2x2_map_attributes) {
+bool image_indexed_repair_tile_palettes(PNGImage & image) {
 
-    // TODO: Optional, but need to pass in vars
-    // if ((colortype != LCT_PALETTE) || (bitdepth != 8)) {
-    //     printf("png2asset: Error: repair_tile_palettes only works with indexed png images in 8 bits per pixel mode");
-    //     return false;
-    // }
-
-    int tile_w = image.tile_w;
-    int tile_h = image.tile_h;
-
-    if (use_2x2_map_attributes) {
-        tile_w *= 2;
-        tile_h *= 2;
-    }
-
-    for (int y = 0; y < (int)image.h; y += tile_h) {
-        for (int x = 0; x < (int)image.w; x += tile_w) {
+    for (int y = 0; y < (int)image.h; y += image.map_attributes_tile_h()) {
+        for (int x = 0; x < (int)image.w; x += image.map_attributes_tile_w()) {
             // If tile has no palette errors leave it as is
             // but if there are errors then try to repair it
-            if (!tile_palette_is_ok(image, x, y, tile_w, tile_h)) {
-                if (!tile_palette_repair(image, x, y, tile_w, tile_h)) {
+            if (!tile_palette_is_ok(image, x, y)) {
+                if (!tile_palette_repair(image, x, y)) {
                     return false; // Return Failure
                 }
             }
