@@ -33,6 +33,10 @@ void main(void)
         BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
     }
 
+    // To exit APA mode and remove the mid-screen LCD ISR, use:
+    // CRITICAL {
+    //   remove_LCD(drawing_lcd);
+    // }
 
     // Loop forever
     while(1) {

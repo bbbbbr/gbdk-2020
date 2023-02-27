@@ -2,6 +2,7 @@
 
         .area	_HOME
 
+_drawing_lcd::
 .drawing_lcd::
         ld hl, #rLCDC
         ldh a, (rLYC)

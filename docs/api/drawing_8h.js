@@ -14,6 +14,7 @@ var drawing_8h =
     [ "M_FILL", "drawing_8h.html#aad3d180e0f12d6a6e5278fe0163f4c3e", null ],
     [ "SIGNED", "drawing_8h.html#a4dec4d9b2bace4f5bc6e6337f4086837", null ],
     [ "UNSIGNED", "drawing_8h.html#a08cbc66092284f7da94279f986a0aae9", null ],
+    [ "drawing_lcd", "drawing_8h.html#a82977c124b13c8882408365d4819cfcf", null ],
     [ "gprint", "drawing_8h.html#aef65e5faa0adb82768fca06aafbe50e8", null ],
     [ "gprintln", "drawing_8h.html#afeb7c0a887fe3d18659175de77a787a5", null ],
     [ "gprintn", "drawing_8h.html#a9d70278d1d09fdc24ea6bd9788dbd96a", null ],

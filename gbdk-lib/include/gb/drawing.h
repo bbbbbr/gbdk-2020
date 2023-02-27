@@ -8,9 +8,12 @@
     Note: The standard text printf() and putchar() cannot be used
     in APA mode - use gprintf() and wrtchr() instead.
 
-    Note: Using drawing.h will cause it's custom VBL and LCD ISRs
-    (`drawing_vbl` and `drawing_lcd`) to be installed. Changing
-    the mode (`mode(M_TEXT_OUT);`) will cause them to be de-installed.
+    Note: Using drawing.h will cause it's custom LCD ISR (`drawing_lcd`)
+    to be installed. This ISR handler changes the tile data source at
+    start-of-frame and mid-frame so that 384 background tiles can be
+    used instead of the typical 256.
+
+    To exit APA mode and remove the LCD ISR, use `remove_LCD(drawing_lcd);`
 
     The valid coordinate ranges are from (x,y) 0,0 to 159,143.
     There is no built-in clipping, so drawing outside valid
@@ -57,6 +60,10 @@
 #define UNSIGNED 0
 
 #include <types.h>
+
+/** APA LCD interrupt handler
+*/
+void drawing_lcd(void);
 
 /** Print the string 'str' with no interpretation
     @see gotogxy()

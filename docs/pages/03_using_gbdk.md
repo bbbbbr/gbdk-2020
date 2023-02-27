@@ -74,7 +74,7 @@ Including @ref stdio.h and using functions such as @ref printf() will use a larg
 ## Default Interrupt Service Handlers (ISRs)
   - V-Blank: A default V-Blank ISR is installed on startup which copies the Shadow OAM to the hardware OAM and increments the global @ref sys_time variable once per frame.
   - Serial Link I/O: If any of the GBDK serial link functions are used such as @ref send_byte() and @ref receive_byte(), the default SIO serial link handler will be installed automatically at compile-time.
-  - APA Graphics Mode: When this mode is used (via @ref drawing.h) custom VBL and LCD ISRs handlers will be installed (`drawing_vbl` and `drawing_lcd`). Changing the mode to (`mode(M_TEXT_OUT);`) will cause them to be de-installed. These handlers are used to change the tile data source at start-of-frame and mid-frame so that 384 background tiles can be used instead of the typical 256.
+  - APA Graphics Mode: When this mode is used (via @ref drawing.h) a custom LCD ISR handler will be installed (`drawing_lcd`). To exit APA mode and remove the ISR, use `remove_LCD(drawing_lcd);` This ISR handler changes the tile data source at start-of-frame and mid-frame so that 384 background tiles can be used instead of the typical 256.
 
 
 ## Ensuring Safe Access to Graphics Memory
@@ -83,7 +83,7 @@ There are certain times during each video frame when memory and registers relati
 The ISR return behavior @ref isr_nowait_info "can be turned off" using the @ref nowait_int_handler.
 
 For more details see the related Pandocs section: https://gbdev.io/pandocs/Accessing_VRAM_and_OAM.html
-
+\
 
 # Copying Functions to RAM and HIRAM
 See the `ram_function` example project included with GBDK which demonstrates copying functions to RAM and HIRAM.

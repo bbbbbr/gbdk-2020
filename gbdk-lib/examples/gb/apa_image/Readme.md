@@ -16,6 +16,13 @@ png2asset is called with these values in order to produce a compatible image:
 - `tiles_only`             : Only keep tiles, no map (since APA mode expects tiles in linear order)
 - `bpp 2`                  : Use 2bpp output
 
+To exit APA mode and remove the LCD ISR, use 
+```
+CRITICAL {
+    remove_LCD(drawing_lcd);
+}
+set_interrupts(IE_REG & ~LCD_IFLAG);
+```
 
 Pixel art originally by RodrixAP under Creative Commons Attribution 2.0 Generic (CC BY 2.0)
 
