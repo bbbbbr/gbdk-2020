@@ -17,16 +17,15 @@ using namespace std;
 int decodePNG(vector<unsigned char>& out_image, unsigned long& image_width, unsigned long& image_height, const unsigned char* in_png, size_t in_size, bool convert_to_rgba32 = true);
 void loadFile(vector<unsigned char>& buffer, const std::string& filename);
 
-bool export_map_binary();
+int filename_get_dot_pos(string fname);
+int filename_get_slash_pos(string fname);
+bool export_map_binary(bool, bool, string);
 bool export_h_file(void);
 bool export_c_file(void);
 
 // TODO: Moved these vars to global scope (from giant main()) as start of breaking main into functions
 //       They should get encapsulated
 	string output_filename_h;
-	string output_filename_bin;
-	string output_filename_attributes_bin;
-	string output_filename_tiles_bin;
 	string data_name;
 	//default values for some params
 	int  sprite_w = 0;
@@ -58,6 +57,21 @@ bool export_c_file(void);
 	unsigned int tile_origin = 0; // Default to no tile index offset
 
 extern unsigned char rgb_to_nes[64];
+
+int filename_get_slash_pos(string fname) {
+	int slash_pos = (int)fname.find_last_of('/');
+	if(slash_pos == -1)
+		slash_pos = (int)fname.find_last_of('\\');
+	return slash_pos;
+}
+
+int filename_get_dot_pos(string fname) {
+	int slash_pos = (int)fname.find_last_of('/');
+	if(slash_pos == -1)
+		slash_pos = (int)fname.find_last_of('\\');
+	int dot_pos = (int)fname.find_first_of('.', slash_pos == -1 ? 0 : slash_pos);
+	return dot_pos;
+}
 
 
 struct MTTile
@@ -878,15 +892,10 @@ int main(int argc, char* argv[])
 		sprite_mode = SPR_NONE;
 	}
 
-	int slash_pos = (int)output_filename.find_last_of('/');
-	if(slash_pos == -1)
-		slash_pos = (int)output_filename.find_last_of('\\');
-	int dot_pos = (int)output_filename.find_first_of('.', slash_pos == -1 ? 0 : slash_pos);
+	int dot_pos = filename_get_dot_pos(output_filename);
+	int slash_pos = filename_get_slash_pos(output_filename);
 
 	output_filename_h = output_filename.substr(0, dot_pos) + ".h";
-	output_filename_bin = output_filename.substr(0, dot_pos) + "_map.bin";
-	output_filename_attributes_bin = output_filename.substr(0, dot_pos) + "_map_attributes.bin";
-	output_filename_tiles_bin = output_filename.substr(0, dot_pos) + "_tiles.bin";
 	data_name = output_filename.substr(slash_pos + 1, dot_pos - 1 - slash_pos);
 	replace(data_name.begin(), data_name.end(), '-', '_');
 
@@ -1093,7 +1102,7 @@ int main(int argc, char* argv[])
 
 	if ((export_as_map) && (output_binary)) {
 		// Handle special case of binary map export
-		export_map_binary();
+		export_map_binary(includeTileData, includedMapOrMetaspriteData, output_filename);
 	} else {
 		// Normal source file export
 		if (export_c_file() == false) return 1; // Exit with Fail
@@ -1491,10 +1500,31 @@ bool export_c_file(void) {
 }
 
 
-bool export_map_binary() {
+bool export_map_binary(bool includeTileData, bool includedMapOrMetaspriteData, string output_filename) {
 
-		std::ofstream mapBinaryFile, mapAttributesBinaryfile,tilesBinaryFile;
-		mapBinaryFile.open(output_filename_bin, std::ios_base::binary);
+	// Prepare filename
+	string output_filename_bin;
+	string output_filename_attributes_bin;
+	string output_filename_tiles_bin;
+
+	int dot_pos = filename_get_dot_pos(output_filename);
+
+	if (!includeTileData) { // implied -maps_only, so use output name directly
+		output_filename_bin = output_filename;
+		output_filename_attributes_bin = output_filename + ".attributes.bin";
+	} else {
+		output_filename_bin = output_filename.substr(0, dot_pos) + "_map.bin";
+		output_filename_attributes_bin = output_filename.substr(0, dot_pos) + "_map_attributes.bin";
+	}
+
+	if (!includedMapOrMetaspriteData)  // implied -tiless_only, so use output name directly
+		output_filename_tiles_bin = output_filename;
+	else
+		output_filename_tiles_bin = output_filename.substr(0, dot_pos) + "_tiles.bin";
+
+	std::ofstream mapBinaryFile, mapAttributesBinaryfile,tilesBinaryFile;
+
+	if (includeTileData) {
 		tilesBinaryFile.open(output_filename_tiles_bin, std::ios_base::binary);
 
 		for (vector< Tile >::iterator it = tiles.begin() + source_tileset_size; it != tiles.end(); ++it)
@@ -1510,9 +1540,15 @@ bool export_map_binary() {
 
 		}
 
+		tilesBinaryFile.close();
+	}
+
+
+	if (includedMapOrMetaspriteData) {
+		mapBinaryFile.open(output_filename_bin, std::ios_base::binary);
 
 		// Open our file for writing attributes if specified
-		if (use_map_attributes)mapAttributesBinaryfile.open(output_filename_attributes_bin, std::ios_base::binary);
+		if (use_map_attributes) mapAttributesBinaryfile.open(output_filename_attributes_bin, std::ios_base::binary);
 
 		int columns = image.w >> 3;
 		int rows = image.h >> 3;
@@ -1541,13 +1577,12 @@ bool export_map_binary() {
 
 			// Write the arrays as-is, row-by-row
 			mapBinaryFile.write((const char*)(&map[0]), rows * columns);
-			if (use_map_attributes)mapAttributesBinaryfile.write((const char*)(&map_attributes[0]), rows * columns);
+			if (use_map_attributes) mapAttributesBinaryfile.write((const char*)(&map_attributes[0]), rows * columns);
 		}
 
-		// Finalize the files
 		mapBinaryFile.close();
-		tilesBinaryFile.close();
-		if (use_map_attributes)mapAttributesBinaryfile.close();
+		if (use_map_attributes) mapAttributesBinaryfile.close();
+	}
 
 	return true; // success
 }
