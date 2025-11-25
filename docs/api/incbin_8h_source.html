@@ -109,17 +109,17 @@ $(document).ready(function(){initNavTree('incbin_8h_source.html',''); initResiza
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;<a class="code" href="stdint_8h.html">stdint.h</a>&gt;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="incbin_8h.html#a51ab79f8ee37368158b1887b65ef97ec">   25</a></span><span class="preprocessor">#define INCBIN_EXTERN(VARNAME)  extern const uint8_t VARNAME[]; \</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="incbin_8h.html#INCBIN_EXTERN">   25</a></span><span class="preprocessor">#define INCBIN_EXTERN(VARNAME)  extern const uint8_t VARNAME[]; \</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">extern const void __size_ ## VARNAME; \</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">extern const void __bank_ ## VARNAME;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="incbin_8h.html#aeacb5370285c0d4308d0fe5f29da8d15">   37</a></span><span class="preprocessor">#define INCBIN_SIZE(VARNAME) ( (uint16_t) &amp; __size_ ## VARNAME )</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="incbin_8h.html#INCBIN_SIZE">   37</a></span><span class="preprocessor">#define INCBIN_SIZE(VARNAME) ( (uint16_t) &amp; __size_ ## VARNAME )</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#ifndef BANK</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="incbin_8h.html#a42705001e2b9897f5167b67fb36c69dd">   48</a></span><span class="preprocessor">#define BANK(VARNAME) ( (uint8_t) &amp; __bank_ ## VARNAME )</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="incbin_8h.html#BANK">   48</a></span><span class="preprocessor">#define BANK(VARNAME) ( (uint8_t) &amp; __bank_ ## VARNAME )</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="incbin_8h.html#af34047ed60abd6453f819c2a5230cd2b">   74</a></span><span class="preprocessor">#define INCBIN(VARNAME, FILEPATH) void __func_ ## VARNAME(void) __banked __naked { \</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="incbin_8h.html#INCBIN">   74</a></span><span class="preprocessor">#define INCBIN(VARNAME, FILEPATH) void __func_ ## VARNAME(void) __banked __naked { \</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">__asm \</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">_ ## VARNAME:: \</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">1$: \</span></div>

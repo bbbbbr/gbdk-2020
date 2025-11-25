@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['b_0',['b',['../union__fixed.html#ac0efdf5ee7302ad64dbc51cabc3659d3',1,'_fixed::b()'],['../gb_8h.html#a4c2e4adef74067fdbb49005bc73de937',1,'b():&#160;gb.h'],['../gbdk_2emu__debug_8h.html#a4c2e4adef74067fdbb49005bc73de937',1,'b():&#160;emu_debug.h'],['../msx_8h.html#a4c2e4adef74067fdbb49005bc73de937',1,'b():&#160;msx.h'],['../sms_8h.html#a4c2e4adef74067fdbb49005bc73de937',1,'b():&#160;sms.h']]],
-  ['bcpd_5freg_1',['BCPD_REG',['../gb_2hardware_8h.html#a1fc8ff37ffe1c431364e1ef7c3961b30',1,'hardware.h']]],
-  ['bcps_5freg_2',['BCPS_REG',['../gb_2hardware_8h.html#a28fa1ca08ef1c8ed97280bc5e60bdd99',1,'hardware.h']]],
-  ['bgp_5freg_3',['BGP_REG',['../gb_2hardware_8h.html#af577ba87ec3d13d7415e4c4a53cdf997',1,'hardware.h']]],
-  ['bkg_5fscroll_5fx_4',['bkg_scroll_x',['../nes_2hardware_8h.html#a406100d23af09b16e4b43a2d0eefe741',1,'hardware.h']]],
-  ['bkg_5fscroll_5fy_5',['bkg_scroll_y',['../nes_2hardware_8h.html#ad6629a16788cf8cc495555d7fae64d9f',1,'hardware.h']]]
+  ['b_0',['b',['../union__fixed.html#b',1,'_fixed::b()'],['../gb_8h.html#b',1,'b():&#160;gb.h'],['../gbdk_2emu__debug_8h.html#b',1,'b():&#160;emu_debug.h'],['../msx_8h.html#b',1,'b():&#160;msx.h'],['../sms_8h.html#b',1,'b():&#160;sms.h']]],
+  ['bcpd_5freg_1',['BCPD_REG',['../gb_2hardware_8h.html#BCPD_REG',1,'hardware.h']]],
+  ['bcps_5freg_2',['BCPS_REG',['../gb_2hardware_8h.html#BCPS_REG',1,'hardware.h']]],
+  ['bgp_5freg_3',['BGP_REG',['../gb_2hardware_8h.html#BGP_REG',1,'hardware.h']]],
+  ['bkg_5fscroll_5fx_4',['bkg_scroll_x',['../nes_2hardware_8h.html#bkg_scroll_x',1,'hardware.h']]],
+  ['bkg_5fscroll_5fy_5',['bkg_scroll_y',['../nes_2hardware_8h.html#bkg_scroll_y',1,'hardware.h']]]
 ];

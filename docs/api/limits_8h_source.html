@@ -133,35 +133,35 @@ $(document).ready(function(){initNavTree('limits_8h_source.html',''); initResiza
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#ifndef __SDC51_LIMITS_H</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define __SDC51_LIMITS_H 1</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="limits_8h.html#a308d9dd2c0028ddb184b455bbd7865de">   32</a></span><span class="preprocessor">#define CHAR_BIT    8    </span><span class="comment">/* bits in a char */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="limits_8h.html#a8c13fdd8c2840edf0cb04a65297037bb">   33</a></span><span class="preprocessor">#define SCHAR_MAX   127</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="limits_8h.html#aa05d197000ad5c143ada0fcd9379b236">   34</a></span><span class="preprocessor">#define SCHAR_MIN  -128</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="limits_8h.html#a4066e640ee269d5d8f83ff6643b7af5f">   35</a></span><span class="preprocessor">#define UCHAR_MAX   0xff</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="limits_8h.html#CHAR_BIT">   32</a></span><span class="preprocessor">#define CHAR_BIT    8    </span><span class="comment">/* bits in a char */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="limits_8h.html#SCHAR_MAX">   33</a></span><span class="preprocessor">#define SCHAR_MAX   127</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="limits_8h.html#SCHAR_MIN">   34</a></span><span class="preprocessor">#define SCHAR_MIN  -128</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="limits_8h.html#UCHAR_MAX">   35</a></span><span class="preprocessor">#define UCHAR_MAX   0xff</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#ifdef __SDCC_CHAR_UNSIGNED</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define CHAR_MAX    UCHAR_MAX</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define CHAR_MIN    0</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="limits_8h.html#a778eefd6535a9d4b752fca5dd0af58db">   41</a></span><span class="preprocessor">#define CHAR_MAX    SCHAR_MAX</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="limits_8h.html#a5d707bd32338557ced18c6ac76ca1b3a">   42</a></span><span class="preprocessor">#define CHAR_MIN    SCHAR_MIN</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="limits_8h.html#CHAR_MAX">   41</a></span><span class="preprocessor">#define CHAR_MAX    SCHAR_MAX</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="limits_8h.html#CHAR_MIN">   42</a></span><span class="preprocessor">#define CHAR_MIN    SCHAR_MIN</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#if defined(__STDC_VERSION__) &amp;&amp; __STDC_VERSION__ &gt;= 199409L</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define MB_LEN_MAX  4</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="limits_8h.html#a21658776274b3d146c674318b635a334">   49</a></span><span class="preprocessor">#define INT_MIN     (-32767 - 1)</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="limits_8h.html#a9ec306f36d50c7375e74f0d1c55a3a67">   50</a></span><span class="preprocessor">#define INT_MAX     32767</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="limits_8h.html#a1f758438cb1c7bcf55da2431f5e319e6">   51</a></span><span class="preprocessor">#define SHRT_MAX    INT_MAX</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="limits_8h.html#ae59de266aceffa1c258ac13f45fe0d18">   52</a></span><span class="preprocessor">#define SHRT_MIN    INT_MIN</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="limits_8h.html#ac998ea02fbd821fc123d60445ce76f38">   53</a></span><span class="preprocessor">#define UINT_MAX    0xffff</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="limits_8h.html#a4c5cca78586f61bea3640a1563a43819">   54</a></span><span class="preprocessor">#define UINT_MIN    0</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="limits_8h.html#a689b119da994dece91d44b5aeac643ed">   55</a></span><span class="preprocessor">#define USHRT_MAX   UINT_MAX</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="limits_8h.html#a57f617d9cf5cce12e8499f7512ebd948">   56</a></span><span class="preprocessor">#define USHRT_MIN   UINT_MIN</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="limits_8h.html#ae8a44c5a7436466221e0f3859d02420f">   57</a></span><span class="preprocessor">#define LONG_MIN    (-2147483647L-1)</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="limits_8h.html#a50fece4db74f09568b2938db583c5655">   58</a></span><span class="preprocessor">#define LONG_MAX    2147483647L</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="limits_8h.html#a41c51926a1997aab3503f9083935e06c">   59</a></span><span class="preprocessor">#define ULONG_MAX   0xffffffff</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="limits_8h.html#a174a3b1d61499b676a2ad2efc8f224c5">   60</a></span><span class="preprocessor">#define ULONG_MIN   0</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="limits_8h.html#INT_MIN">   49</a></span><span class="preprocessor">#define INT_MIN     (-32767 - 1)</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="limits_8h.html#INT_MAX">   50</a></span><span class="preprocessor">#define INT_MAX     32767</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="limits_8h.html#SHRT_MAX">   51</a></span><span class="preprocessor">#define SHRT_MAX    INT_MAX</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="limits_8h.html#SHRT_MIN">   52</a></span><span class="preprocessor">#define SHRT_MIN    INT_MIN</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="limits_8h.html#UINT_MAX">   53</a></span><span class="preprocessor">#define UINT_MAX    0xffff</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="limits_8h.html#UINT_MIN">   54</a></span><span class="preprocessor">#define UINT_MIN    0</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="limits_8h.html#USHRT_MAX">   55</a></span><span class="preprocessor">#define USHRT_MAX   UINT_MAX</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="limits_8h.html#USHRT_MIN">   56</a></span><span class="preprocessor">#define USHRT_MIN   UINT_MIN</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="limits_8h.html#LONG_MIN">   57</a></span><span class="preprocessor">#define LONG_MIN    (-2147483647L-1)</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="limits_8h.html#LONG_MAX">   58</a></span><span class="preprocessor">#define LONG_MAX    2147483647L</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="limits_8h.html#ULONG_MAX">   59</a></span><span class="preprocessor">#define ULONG_MAX   0xffffffff</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="limits_8h.html#ULONG_MIN">   60</a></span><span class="preprocessor">#define ULONG_MIN   0</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#if defined(__STDC_VERSION__) &amp;&amp; __STDC_VERSION__ &gt;= 199901L</span></div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#define LLONG_MIN   (-9223372036854775807LL-1)</span></div>

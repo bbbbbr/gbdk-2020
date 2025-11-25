@@ -124,32 +124,32 @@ GBDK-2020 4.4.0</h2>
 </ul>
 </li>
 <li>Library<ul>
-<li>Added export of <code>_vbl_done</code> (<a class="el" href="sms_8h.html#a559dbd32dba6867c1ee4e481077b62ab">VBL_DONE</a>), a flag indicating the VBlank ISR has run</li>
+<li>Added export of <code>_vbl_done</code> (<a class="el" href="sms_8h.html#VBL_DONE">VBL_DONE</a>), a flag indicating the VBlank ISR has run</li>
 <li>Game Boy<ul>
 <li>Added MBC7 related register and flag definitions<ul>
-<li><a class="el" href="gb_2hardware_8h.html#a72f13bc5e9d5d2c2bd837566062007a4">rMBC7_SRAM_ENABLE_1</a>, <a class="el" href="gb_2hardware_8h.html#a0f49339112f87fecc29a8e0d7f6636bb">rMBC7_SRAM_ENABLE_2</a>, <a class="el" href="gb_2hardware_8h.html#aee53ec47dc1fcc0b5eb4e8e4e8505a30">rMBC7_LATCH_1</a>, <a class="el" href="gb_2hardware_8h.html#abe4c4490be3e52a9e4096421af3d37e1">rMBC7_LATCH_2</a>, <a class="el" href="gb_2hardware_8h.html#a9e24325500b1b08daf1fefe60d7dc030">rMBC7_ACCEL_X_LO</a>, <a class="el" href="gb_2hardware_8h.html#a33690469970c7f845600e56902e8bfe0">rMBC7_ACCEL_X_HI</a>, <a class="el" href="gb_2hardware_8h.html#a16ec6767bce0ca8c46ac6f67727e4640">rMBC7_ACCEL_Y_LO</a>, <a class="el" href="gb_2hardware_8h.html#a1faf3ac761847699c2c60ce044387b39">rMBC7_ACCEL_Y_HI</a></li>
-<li><a class="el" href="gb_2hardware_8h.html#aa2c85246f3b42c2e140bf58cbd0cec80">MBC7_LATCH_ERASE</a>, <a class="el" href="gb_2hardware_8h.html#a5aa863850a6e5fa1a919deac86c33192">MBC7_LATCH_CAPTURE</a>, <a class="el" href="gb_2hardware_8h.html#a6e5aa02c219181b3432ae317abfaf122">MBC7_SRAM_ENABLE_KEY_1</a>, <a class="el" href="gb_2hardware_8h.html#ae5bdbf27e6fc9ecee7fcf493ca3907f2">MBC7_SRAM_ENABLE_KEY_2</a></li>
+<li><a class="el" href="gb_2hardware_8h.html#rMBC7_SRAM_ENABLE_1">rMBC7_SRAM_ENABLE_1</a>, <a class="el" href="gb_2hardware_8h.html#rMBC7_SRAM_ENABLE_2">rMBC7_SRAM_ENABLE_2</a>, <a class="el" href="gb_2hardware_8h.html#rMBC7_LATCH_1">rMBC7_LATCH_1</a>, <a class="el" href="gb_2hardware_8h.html#rMBC7_LATCH_2">rMBC7_LATCH_2</a>, <a class="el" href="gb_2hardware_8h.html#rMBC7_ACCEL_X_LO">rMBC7_ACCEL_X_LO</a>, <a class="el" href="gb_2hardware_8h.html#rMBC7_ACCEL_X_HI">rMBC7_ACCEL_X_HI</a>, <a class="el" href="gb_2hardware_8h.html#rMBC7_ACCEL_Y_LO">rMBC7_ACCEL_Y_LO</a>, <a class="el" href="gb_2hardware_8h.html#rMBC7_ACCEL_Y_HI">rMBC7_ACCEL_Y_HI</a></li>
+<li><a class="el" href="gb_2hardware_8h.html#MBC7_LATCH_ERASE">MBC7_LATCH_ERASE</a>, <a class="el" href="gb_2hardware_8h.html#MBC7_LATCH_CAPTURE">MBC7_LATCH_CAPTURE</a>, <a class="el" href="gb_2hardware_8h.html#MBC7_SRAM_ENABLE_KEY_1">MBC7_SRAM_ENABLE_KEY_1</a>, <a class="el" href="gb_2hardware_8h.html#MBC7_SRAM_ENABLE_KEY_2">MBC7_SRAM_ENABLE_KEY_2</a></li>
 </ul>
 </li>
-<li>Fixed possible halt bug when using <a class="el" href="hblankcpy_8h.html#a6d0127b6bf7926f3329ae255b116ffb7">hblank_copy_vram()</a></li>
+<li>Fixed possible halt bug when using <a class="el" href="hblankcpy_8h.html#hblank_copy_vram">hblank_copy_vram()</a></li>
 </ul>
 </li>
 <li>NES<ul>
-<li>Added <a class="el" href="gb_8h.html#a79b9feff94d525e0237be22dcefd5850">delay()</a> and <a class="el" href="gb_8h.html#a3aea9deb2a0bfea9ff05a898f4822e31">reset()</a> functions for compatibility</li>
-<li>Added Timer interrupt emulation: <a class="el" href="gb_8h.html#aa1b9d8d215e844834d2be5c10969d712">add_TIM()</a> , <a class="el" href="gb_8h.html#a623f1ed8ee1d48bfa6e884d546991a6f">remove_TIM()</a></li>
+<li>Added <a class="el" href="gb_8h.html#delay">delay()</a> and <a class="el" href="gb_8h.html#reset">reset()</a> functions for compatibility</li>
+<li>Added Timer interrupt emulation: <a class="el" href="gb_8h.html#add_TIM">add_TIM()</a> , <a class="el" href="gb_8h.html#remove_TIM">remove_TIM()</a></li>
 <li>Improved LCD ISR support for less graphics glitches</li>
 <li>Improved palette function code size (smaller)</li>
 <li>Changed LCD bkg_scroll_y to be relative to the current scanline for higher compatibility with Game Boy SCY_REG and LCD handlers<ul>
 <li>Align coordinates and scanline counting in LCD ISR implementation with GB, add SCX / SCY / LYC defines</li>
 </ul>
 </li>
-<li>Fixed bug with <a class="el" href="gb_8h.html#a711fa26feecc76dc51482b0f77062859">set_bkg_1bpp_data()</a> not working in buffered mode</li>
+<li>Fixed bug with <a class="el" href="gb_8h.html#set_bkg_1bpp_data">set_bkg_1bpp_data()</a> not working in buffered mode</li>
 <li>Fixed bug with multiple column attribute updates</li>
-<li>Fixed bugs with non-multiple-of-2 (/4) map width in <a class="el" href="gb_8h.html#a1cefe143b3861632897e0c989401bce7">set_bkg_submap_attributes()</a></li>
+<li>Fixed bugs with non-multiple-of-2 (/4) map width in <a class="el" href="gb_8h.html#set_bkg_submap_attributes">set_bkg_submap_attributes()</a></li>
 </ul>
 </li>
 <li>SMS/GG<ul>
-<li>Added Timer interrupt emulation: <a class="el" href="gb_8h.html#aa1b9d8d215e844834d2be5c10969d712">add_TIM()</a> , <a class="el" href="gb_8h.html#a623f1ed8ee1d48bfa6e884d546991a6f">remove_TIM()</a></li>
+<li>Added Timer interrupt emulation: <a class="el" href="gb_8h.html#add_TIM">add_TIM()</a> , <a class="el" href="gb_8h.html#remove_TIM">remove_TIM()</a></li>
 <li>Improved metasprite Y clipping</li>
 <li>Changed from unsigned (<code>uint16_t</code>) to signed int16 (<code>int16_t</code>) for coordinates with the family of <code>...metasprite...()</code> functions</li>
 </ul>
@@ -240,12 +240,12 @@ GBDK-2020 4.3.0</h2>
 </ul>
 </li>
 <li>Library<ul>
-<li>Added <a class="el" href="gb_8h.html#a4093fb5f45f807fe8d4a45121f3fffc5">get_system()</a> which indicates system speed<ul>
-<li><a class="el" href="sms_8h.html#a99bca2df4c6fde16a659797b4e584036">SYSTEM_60HZ</a>, <a class="el" href="sms_8h.html#ad6329c19927cf02579e2503e40c0bbde">SYSTEM_50HZ</a>, <a class="el" href="nes_8h.html#aa370f208d677a232346ddf00a8ef7243">SYSTEM_BITS_DENDY</a>, <a class="el" href="nes_8h.html#a1e73068b3ffdb8436eaa3362f104ba74">SYSTEM_BITS_NTSC</a>, <a class="el" href="nes_8h.html#a599f3df346be94f25498749e2442bde8">SYSTEM_BITS_PAL</a>, <a class="el" href="msx_2hardware_8h.html#ae6888157a94fca2f1a1b5136494f2e07">SYSTEM_NTSC</a></li>
+<li>Added <a class="el" href="gb_8h.html#get_system">get_system()</a> which indicates system speed<ul>
+<li><a class="el" href="sms_8h.html#SYSTEM_60HZ">SYSTEM_60HZ</a>, <a class="el" href="sms_8h.html#SYSTEM_50HZ">SYSTEM_50HZ</a>, <a class="el" href="nes_8h.html#SYSTEM_BITS_DENDY">SYSTEM_BITS_DENDY</a>, <a class="el" href="nes_8h.html#SYSTEM_BITS_NTSC">SYSTEM_BITS_NTSC</a>, <a class="el" href="nes_8h.html#SYSTEM_BITS_PAL">SYSTEM_BITS_PAL</a>, <a class="el" href="msx_2hardware_8h.html#SYSTEM_NTSC">SYSTEM_NTSC</a></li>
 </ul>
 </li>
-<li>Changed to new calling convention for <a class="el" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf()</a>, <a class="el" href="stdio_8h.html#a440c82287022737c4f2866786ba8a154">sprintf()</a>, <a class="el" href="stdlib_8h.html#af15d7205d8d10c4820f997ce5c526279">abs()</a></li>
-<li>Changed <a class="el" href="gbdk_2emu__debug_8h.html#a910b2802e154473f2e10201f5722bc10">EMU_printf()</a> to remove dependency on stdio.h added similar <a class="el" href="gbdk_2emu__debug_8h.html#a322fb0f357e31e5f275d6c1b2c71d1e7">EMU_fmtbuf()</a></li>
+<li>Changed to new calling convention for <a class="el" href="stdio_8h.html#printf">printf()</a>, <a class="el" href="stdio_8h.html#sprintf">sprintf()</a>, <a class="el" href="stdlib_8h.html#abs">abs()</a></li>
+<li>Changed <a class="el" href="gbdk_2emu__debug_8h.html#EMU_printf">EMU_printf()</a> to remove dependency on stdio.h added similar <a class="el" href="gbdk_2emu__debug_8h.html#EMU_fmtbuf">EMU_fmtbuf()</a></li>
 <li>Fixed <a class="el" href="gbdk_2emu__debug_8h.html">emu_debug.h</a> macros missing a trailing space</li>
 <li>NES<ul>
 <li>Added PAL support (detects NTSC/PAL/Dendy on reset to adjust fake LCD ISR timings)</li>
@@ -255,51 +255,51 @@ GBDK-2020 4.3.0</h2>
 <li>NMI optimization: Skip OAM DMA and delay routines when display is off, to increase unbuffered performance</li>
 <li>NMI optimization: Save 8 cycles of stripe setup cost in vram transfer buffer execution</li>
 <li>ZP memory optimization: Make gbdk-nes functions use its own dedicated overlay segment</li>
-<li>Fixed <code>_map_tile_offset</code> not being applied for <a class="el" href="gb_8h.html#a811c386cac0df2d260aacb5a43608be5">set_bkg_based_tiles()</a></li>
+<li>Fixed <code>_map_tile_offset</code> not being applied for <a class="el" href="gb_8h.html#set_bkg_based_tiles">set_bkg_based_tiles()</a></li>
 <li>Fixed VRAM transfer buffer bug (ensure stack page cleared on reset)</li>
 <li>Fixed support for 4-player controllers using fourscore</li>
-<li>Fixed <a class="el" href="msx_8h.html#a7d5ed1aed79d8fd2894893d7f6f9b835">set_sprite_palette()</a> to index from <code>0..3</code> instead of <code>4..7</code></li>
-<li>Fixed <a class="el" href="sms_2metasprites_8h.html#a58afd65e58ef341df1a9f82564162063">move_metasprite</a> to initialize Y index register to zero</li>
-<li>Fixed <a class="el" href="sms_8h.html#aebc8751fa428e9845ea25b1060ebe772">waitpadup</a> to wait for button release instead of press</li>
+<li>Fixed <a class="el" href="msx_8h.html#set_sprite_palette">set_sprite_palette()</a> to index from <code>0..3</code> instead of <code>4..7</code></li>
+<li>Fixed <a class="el" href="sms_2metasprites_8h.html#move_metasprite">move_metasprite</a> to initialize Y index register to zero</li>
+<li>Fixed <a class="el" href="sms_8h.html#waitpadup">waitpadup</a> to wait for button release instead of press</li>
 <li>Updated libc to latest from sdcc 4.4.0</li>
 </ul>
 </li>
 <li>SMS/GG<ul>
-<li>Added <a class="el" href="sms_8h.html#a495bc9f405f916f02ad5d97e6e730134">SHOW_SPRITES</a>, <a class="el" href="sms_8h.html#a69ef98aee664b8abd8d1a3d45f016dda">HIDE_SPRITES</a> (no hiding mid-frame)</li>
-<li>Added <a class="el" href="sms_8h.html#a33caf10f6d1a7cbb6bd07b899c1a545f">S_BANK</a> tile attribute</li>
-<li>Added 6 button controller support in <a class="el" href="gb_8h.html#a4344fefd260763e12703138066841b19">joypad()</a></li>
+<li>Added <a class="el" href="sms_8h.html#SHOW_SPRITES">SHOW_SPRITES</a>, <a class="el" href="sms_8h.html#HIDE_SPRITES">HIDE_SPRITES</a> (no hiding mid-frame)</li>
+<li>Added <a class="el" href="sms_8h.html#S_BANK">S_BANK</a> tile attribute</li>
+<li>Added 6 button controller support in <a class="el" href="gb_8h.html#joypad">joypad()</a></li>
 <li>Added BCD support</li>
 <li>Added ability to move VDP SAT and name table to other locations by writing to VDP R2 and VDP R5.<ul>
 <li>Set name table to 0x1800 and SAT to 0x1F00 by default to free up some sprite tile space</li>
 <li>Added R5_SAT_0x1F00 definition for the R5 value controlling SAT position in VRAM</li>
 </ul>
 </li>
-<li>Added <a class="el" href="msx_8h.html#a63369a199a979eb3dbba71449659148d">__WRITE_VDP_REG_UNSAFE()</a> VDP macro while interrupts are disabled (such as in ISR handlers)</li>
+<li>Added <a class="el" href="msx_8h.html#__WRITE_VDP_REG_UNSAFE">__WRITE_VDP_REG_UNSAFE()</a> VDP macro while interrupts are disabled (such as in ISR handlers)</li>
 <li>Added Game Gear registers and definitions<ul>
-<li><code>GG_STATE</code>: <a class="el" href="sms_2hardware_8h.html#ac47372b55b9220014f56cd5d82ad4f6a">GGSTATE_STT</a>, <a class="el" href="sms_2hardware_8h.html#afbcd35f381a5a019f0ba68c125a3b0b6">GGSTATE_NJAP</a>, <a class="el" href="sms_2hardware_8h.html#a57ce09982f2d20989540a1c4f207f992">GGSTATE_NNTS</a></li>
+<li><code>GG_STATE</code>: <a class="el" href="sms_2hardware_8h.html#GGSTATE_STT">GGSTATE_STT</a>, <a class="el" href="sms_2hardware_8h.html#GGSTATE_NJAP">GGSTATE_NJAP</a>, <a class="el" href="sms_2hardware_8h.html#GGSTATE_NNTS">GGSTATE_NNTS</a></li>
 <li><code>GG_EXT_7BIT</code></li>
 <li><code>GG_EXT_CTL</code>: GGEXT_NINIT</li>
 <li><code>GG_SIO_SEND</code></li>
 <li><code>GG_SIO_RECV</code></li>
-<li><code>GG_SIO_CTL</code>: <a class="el" href="sms_2hardware_8h.html#a48bb341314dd449f124e5a9a91767cc2">SIOCTL_TXFL</a>, <a class="el" href="sms_2hardware_8h.html#a2f356619237cafd166d4399d8fca63d8">SIOCTL_RXRD</a>, <a class="el" href="sms_2hardware_8h.html#ae27ff078ad5f80282990bfb1cf5e1d32">SIOCTL_FRER</a>, <a class="el" href="sms_2hardware_8h.html#af6b2cc143f1d9fab08b2d3bdef0e2f1c">SIOCTL_INT</a>, <a class="el" href="sms_2hardware_8h.html#a81b3ebb1ebbac6306433abe460ef51c5">SIOCTL_TON</a>, <a class="el" href="sms_2hardware_8h.html#af89fbd7f16c6bff2f901c7c25e575d21">SIOCTL_RON</a>, <a class="el" href="sms_2hardware_8h.html#af18f1262a706e3c6d105afbca4834ce9">SIOCTL_BS0</a>, <a class="el" href="sms_2hardware_8h.html#a84c7c86e1754d8a7286359d01bab97ad">SIOCTL_BS1</a></li>
-<li><code>GG_SOUND_PAN</code>: <a class="el" href="sms_2hardware_8h.html#a8a4901a3e61f815a324b37e7b6f32671">SOUNDPAN_TN1R</a>, <a class="el" href="sms_2hardware_8h.html#aacc641896defa2bf9881929494034e8a">SOUNDPAN_TN2R</a>, <a class="el" href="sms_2hardware_8h.html#a81a154f1bd5456a4e489e96c5a4e2990">SOUNDPAN_TN3R</a>, <a class="el" href="sms_2hardware_8h.html#a4de80c85263c705ad0df9e9c92c0b2df">SOUNDPAN_NOSR</a>, <a class="el" href="sms_2hardware_8h.html#aaa16ce1f58e3ffe5937d721a8c22cdc7">SOUNDPAN_TN1L</a>, <a class="el" href="sms_2hardware_8h.html#a2dd3ef5009c788164624e6fa3545a2a4">SOUNDPAN_TN2L</a>, <a class="el" href="sms_2hardware_8h.html#a0236f56bdd69aa9a2321b635d586002e">SOUNDPAN_TN3L</a>, <a class="el" href="sms_2hardware_8h.html#a45b27027ec712d80c1a4c3e0deb548c3">SOUNDPAN_NOSL</a></li>
+<li><code>GG_SIO_CTL</code>: <a class="el" href="sms_2hardware_8h.html#SIOCTL_TXFL">SIOCTL_TXFL</a>, <a class="el" href="sms_2hardware_8h.html#SIOCTL_RXRD">SIOCTL_RXRD</a>, <a class="el" href="sms_2hardware_8h.html#SIOCTL_FRER">SIOCTL_FRER</a>, <a class="el" href="sms_2hardware_8h.html#SIOCTL_INT">SIOCTL_INT</a>, <a class="el" href="sms_2hardware_8h.html#SIOCTL_TON">SIOCTL_TON</a>, <a class="el" href="sms_2hardware_8h.html#SIOCTL_RON">SIOCTL_RON</a>, <a class="el" href="sms_2hardware_8h.html#SIOCTL_BS0">SIOCTL_BS0</a>, <a class="el" href="sms_2hardware_8h.html#SIOCTL_BS1">SIOCTL_BS1</a></li>
+<li><code>GG_SOUND_PAN</code>: <a class="el" href="sms_2hardware_8h.html#SOUNDPAN_TN1R">SOUNDPAN_TN1R</a>, <a class="el" href="sms_2hardware_8h.html#SOUNDPAN_TN2R">SOUNDPAN_TN2R</a>, <a class="el" href="sms_2hardware_8h.html#SOUNDPAN_TN3R">SOUNDPAN_TN3R</a>, <a class="el" href="sms_2hardware_8h.html#SOUNDPAN_NOSR">SOUNDPAN_NOSR</a>, <a class="el" href="sms_2hardware_8h.html#SOUNDPAN_TN1L">SOUNDPAN_TN1L</a>, <a class="el" href="sms_2hardware_8h.html#SOUNDPAN_TN2L">SOUNDPAN_TN2L</a>, <a class="el" href="sms_2hardware_8h.html#SOUNDPAN_TN3L">SOUNDPAN_TN3L</a>, <a class="el" href="sms_2hardware_8h.html#SOUNDPAN_NOSL">SOUNDPAN_NOSL</a></li>
 </ul>
 </li>
 <li>Optimized native tile data loading routines</li>
-<li>Improved <a class="el" href="sms_8h.html#aa2ddf9662320c4a9d00fd4a94d347570">WRITE_VDP_DATA</a> macro so it does not need <code>di</code>/<code>ei</code> protection</li>
+<li>Improved <a class="el" href="sms_8h.html#WRITE_VDP_DATA">WRITE_VDP_DATA</a> macro so it does not need <code>di</code>/<code>ei</code> protection</li>
 <li>Improved palette initialization in crt0</li>
 <li>Fixed tilemap wrapping over the low bound of the VDP name table</li>
-<li>Fixed <a class="el" href="gb_8h.html#a6c59aa9a4f9ea42bed6ca6940b2741fe">scroll_sprite()</a></li>
+<li>Fixed <a class="el" href="gb_8h.html#scroll_sprite">scroll_sprite()</a></li>
 <li>Fixed missing sms.h in sms/metasprites.h</li>
 <li>Fixed scroll glitch due to accessing VDP too fast</li>
 </ul>
 </li>
 <li>Z80 shared SMS/GG/MSX<ul>
-<li>Added <a class="el" href="gb_2hardware_8h.html#afa1e18e47bf68ce68d7807fff6edf16b">DIV_REG</a> emulation for the Z80 systems, may be useful for seeding RNG</li>
+<li>Added <a class="el" href="gb_2hardware_8h.html#DIV_REG">DIV_REG</a> emulation for the Z80 systems, may be useful for seeding RNG</li>
 <li>Changed VDP to reduce chances of dangerous ISR nesting (see SDCC issue <a href="https://sourceforge.net/p/sdcc/bugs/3721/">https://sourceforge.net/p/sdcc/bugs/3721/</a>)</li>
 <li>Changed to allow nested locking of the shadow SAT copying on VBlank</li>
-<li>Optimized <a class="el" href="asm_2mos6502_2string_8h.html#a216d2a9dfabd49eb459363d672a4512f">memcpy()</a> for larger amounts of data</li>
-<li>Fixed <a class="el" href="gb_8h.html#abb680388b5bcbf0c69526d7017ffe8d2">waitpad()</a></li>
+<li>Optimized <a class="el" href="asm_2mos6502_2string_8h.html#memcpy">memcpy()</a> for larger amounts of data</li>
+<li>Fixed <a class="el" href="gb_8h.html#waitpad">waitpad()</a></li>
 <li>Fixed return result of "`set_tile x, y`" family functions</li>
 <li>Fixed to not allow interrupts to fire durint crt0 initialization code</li>
 </ul>
@@ -309,10 +309,10 @@ GBDK-2020 4.3.0</h2>
 </ul>
 </li>
 <li>Game Boy<ul>
-<li>Added HBlank copy routines: <a class="el" href="hblankcpy_8h.html#a6d0127b6bf7926f3329ae255b116ffb7">hblank_copy_vram()</a>, <a class="el" href="hblankcpy_8h.html#a76fcbe1a2a022d4cd36b473e24ba9abd">hblank_cpy_vram()</a>, <a class="el" href="hblankcpy_8h.html#a49bc3430f31b23fa03cd771ace74c8ba">hblank_copy()</a></li>
-<li>Added <a class="el" href="gb_2hardware_8h.html#a9a23aa4755bbd3994d2b3b8dd77c5b50">SCF_START</a>, <a class="el" href="gb_2hardware_8h.html#a72d6af50641c36bd38ba5dfee229a032">SCF_SOURCE</a>, <a class="el" href="gb_2hardware_8h.html#a934eba7bd84d8082bb934a609686d6d6">SCF_SPEED</a> aliases for SIO (Serial/Link port) control register control constants</li>
-<li>Added clamping and changed to new SDCC calling convention for <a class="el" href="msx_8h.html#adcd40a58f7c7d348d506cc400cd94739">set_bkg_tile_xy()</a>, <a class="el" href="msx_8h.html#a95d929d964d9988f4dc5a25ed399ae08">set_win_tile_xy()</a></li>
-<li>Added <a class="el" href="sms_8h.html#a33caf10f6d1a7cbb6bd07b899c1a545f">S_BANK</a> tile attribute</li>
+<li>Added HBlank copy routines: <a class="el" href="hblankcpy_8h.html#hblank_copy_vram">hblank_copy_vram()</a>, <a class="el" href="hblankcpy_8h.html#hblank_cpy_vram">hblank_cpy_vram()</a>, <a class="el" href="hblankcpy_8h.html#hblank_copy">hblank_copy()</a></li>
+<li>Added <a class="el" href="gb_2hardware_8h.html#SCF_START">SCF_START</a>, <a class="el" href="gb_2hardware_8h.html#SCF_SOURCE">SCF_SOURCE</a>, <a class="el" href="gb_2hardware_8h.html#SCF_SPEED">SCF_SPEED</a> aliases for SIO (Serial/Link port) control register control constants</li>
+<li>Added clamping and changed to new SDCC calling convention for <a class="el" href="msx_8h.html#set_bkg_tile_xy">set_bkg_tile_xy()</a>, <a class="el" href="msx_8h.html#set_win_tile_xy">set_win_tile_xy()</a></li>
+<li>Added <a class="el" href="sms_8h.html#S_BANK">S_BANK</a> tile attribute</li>
 <li>Fixed 8-bit signed modulus</li>
 </ul>
 </li>
@@ -366,14 +366,14 @@ GBDK-2020 4.3.0</h2>
 <li>Added Reading SNES joypads on NES example</li>
 <li>Added Game Boy Printer example</li>
 <li>Added Joypad testing example</li>
-<li>Added Display System example to demonstrate <a class="el" href="gb_8h.html#a4093fb5f45f807fe8d4a45121f3fffc5">get_system()</a></li>
+<li>Added Display System example to demonstrate <a class="el" href="gb_8h.html#get_system">get_system()</a></li>
 <li>Added Platformer example</li>
 <li>Added <code>GBDK_DEBUG</code> Makefile environment var for turning on/off debug flags</li>
 <li>Changed wav sample: play waveforms on the SMS/GG PSG</li>
-<li>Changed Random Number example: only call <a class="el" href="rand_8h.html#a964538799843c0ba5bd01151ef7e2640">initrand()</a> once</li>
+<li>Changed Random Number example: only call <a class="el" href="rand_8h.html#initrand">initrand()</a> once</li>
 <li>Changed Large Map: support modified initial camera position</li>
-<li>Changed all examples: use <a class="el" href="asm_2types_8h.html#aa8480aed89a168ec484727f5ac985cd0">BANKED</a> macro instead of <code>__banked</code><ul>
-<li>Also change some to use <a class="el" href="sms_8h.html#ae042588f20bf5a2349c8ad8716245233">CURRENT_BANK</a> instead of <code>_current_bank</code></li>
+<li>Changed all examples: use <a class="el" href="asm_2types_8h.html#BANKED">BANKED</a> macro instead of <code>__banked</code><ul>
+<li>Also change some to use <a class="el" href="sms_8h.html#CURRENT_BANK">CURRENT_BANK</a> instead of <code>_current_bank</code></li>
 </ul>
 </li>
 <li>Fixes for SMS/GG: Fonts, Large Map, gbdecompress</li>
@@ -403,23 +403,23 @@ GBDK-2020 4.2.0</h2>
 </li>
 <li>Library<ul>
 <li>Added <code>NORETURN</code> definition (for <code>_Noreturn</code>)</li>
-<li>Added: <a class="el" href="gb_8h.html#a0bcf384938628c4ab52e63b2df8f78f8">set_bkg_attributes()</a>, <a class="el" href="gb_8h.html#a1cefe143b3861632897e0c989401bce7">set_bkg_submap_attributes()</a>, <a class="el" href="sms_8h.html#a4d5a69c2f61a3b7e8656548132a872d7">set_bkg_attribute_xy()</a></li>
+<li>Added: <a class="el" href="gb_8h.html#set_bkg_attributes">set_bkg_attributes()</a>, <a class="el" href="gb_8h.html#set_bkg_submap_attributes">set_bkg_submap_attributes()</a>, <a class="el" href="sms_8h.html#set_bkg_attribute_xy">set_bkg_attribute_xy()</a></li>
 <li>The following new functions replace old ones. The old functions will continue to work for now, but migration to new versions is strongly encouraged.<ul>
-<li><a class="el" href="gb_8h.html#af57b77452ef377da18e4fbf0288013d1">vsync()</a>: replaces <a class="el" href="gb_8h.html#a815f8ecad32d14b786a8ed1168518773">wait_vbl_done()</a></li>
-<li><a class="el" href="cgb_8h.html#a2a89f4110072dbe76805e7b07299788d">set_default_palette()</a>: replaces <a class="el" href="cgb_8h.html#a6b334e5e452d0650aded17199be1514a">cgb_compatibility()</a></li>
+<li><a class="el" href="gb_8h.html#vsync">vsync()</a>: replaces <a class="el" href="gb_8h.html#wait_vbl_done">wait_vbl_done()</a></li>
+<li><a class="el" href="cgb_8h.html#set_default_palette">set_default_palette()</a>: replaces <a class="el" href="cgb_8h.html#cgb_compatibility">cgb_compatibility()</a></li>
 </ul>
 </li>
 <li>metasprites: added metasprite functions which can set base sprite property parameter (<code>__current_base_prop</code>) for GB/GBC and NES<ul>
-<li><a class="el" href="gb_2metasprites_8h.html#a4de12dbe1868a2a408e8ef583ccc9df1">move_metasprite_flipy()</a>: replaces <a class="el" href="gb_2metasprites_8h.html#a27e3bb17d0458b60b1f0433f66301f46">move_metasprite_hflip()</a></li>
-<li><a class="el" href="gb_2metasprites_8h.html#a061cc1e8214c86414dc1d5017b9c8be2">move_metasprite_flipx()</a>: replaces <a class="el" href="gb_2metasprites_8h.html#aa8ff2df0679ebb0b6e0a8f6d83127e1a">move_metasprite_vflip()</a></li>
-<li><a class="el" href="gb_2metasprites_8h.html#a21a071eea8fb69b577cfcd86aad5bdac">move_metasprite_flipxy()</a>: replaces <a class="el" href="gb_2metasprites_8h.html#a32a61acd4a76d1de5814f7b94c8bc23f">move_metasprite_hvflip()</a></li>
-<li><a class="el" href="gb_2metasprites_8h.html#a6a320e8632e35cba926e089b035146e1">move_metasprite_ex()</a>: (replaces <a class="el" href="gb_2metasprites_8h.html#a77475e913bf0a19df28bdbf9d1cf392b">move_metasprite()</a></li>
+<li><a class="el" href="gb_2metasprites_8h.html#move_metasprite_flipy">move_metasprite_flipy()</a>: replaces <a class="el" href="gb_2metasprites_8h.html#move_metasprite_hflip">move_metasprite_hflip()</a></li>
+<li><a class="el" href="gb_2metasprites_8h.html#move_metasprite_flipx">move_metasprite_flipx()</a>: replaces <a class="el" href="gb_2metasprites_8h.html#move_metasprite_vflip">move_metasprite_vflip()</a></li>
+<li><a class="el" href="gb_2metasprites_8h.html#move_metasprite_flipxy">move_metasprite_flipxy()</a>: replaces <a class="el" href="gb_2metasprites_8h.html#move_metasprite_hvflip">move_metasprite_hvflip()</a></li>
+<li><a class="el" href="gb_2metasprites_8h.html#move_metasprite_ex">move_metasprite_ex()</a>: (replaces <a class="el" href="gb_2metasprites_8h.html#move_metasprite">move_metasprite()</a></li>
 </ul>
 </li>
 <li>NES<ul>
 <li>Added support for much of the GBDK API</li>
 <li>Banking support (library and sdcc toolchain)</li>
-<li>Added <a class="el" href="nes_8h.html#a0254d6e23d4202cb070b1fe54c6a7210">set_bkg_attributes_nes16x16()</a>, <a class="el" href="nes_8h.html#aadba8b700b97ec97dc9c488496619fd9">set_bkg_submap_attributes_nes16x16()</a>, <a class="el" href="nes_8h.html#a7b7c27e672467f08097f744f3530bbc7">set_bkg_attribute_xy_nes16x16()</a></li>
+<li>Added <a class="el" href="nes_8h.html#set_bkg_attributes_nes16x16">set_bkg_attributes_nes16x16()</a>, <a class="el" href="nes_8h.html#set_bkg_submap_attributes_nes16x">set_bkg_submap_attributes_nes16x16()</a>, <a class="el" href="nes_8h.html#set_bkg_attribute_xy_nes16x16">set_bkg_attribute_xy_nes16x16()</a></li>
 </ul>
 </li>
 <li>SMS/GG<ul>
@@ -429,9 +429,9 @@ GBDK-2020 4.2.0</h2>
 </li>
 <li>Game Boy<ul>
 <li>Minor crt0 optimizations</li>
-<li>Faster <a class="el" href="gb_8h.html#a2dd9f335a197647264f01a713bd31a70">vmemcpy()</a>, <a class="el" href="gb_8h.html#a6148e40610bc542991df842c6b19e4c9">set_data()</a>, <a class="el" href="gb_8h.html#a77d34577e9f97ffaf8463c752115722b">get_data()</a></li>
+<li>Faster <a class="el" href="gb_8h.html#vmemcpy">vmemcpy()</a>, <a class="el" href="gb_8h.html#set_data">set_data()</a>, <a class="el" href="gb_8h.html#get_data">get_data()</a></li>
 <li>Fixed hide_sprites_range(39u, 40u); overflow shadow OAM</li>
-<li>Increased <a class="el" href="sgb_8h.html#a84e1f2ab7dce1faabd3d271b6bf8df8c">sgb_transfer()</a> maximum packet length to 7 x 16 bytes</li>
+<li>Increased <a class="el" href="sgb_8h.html#sgb_transfer">sgb_transfer()</a> maximum packet length to 7 x 16 bytes</li>
 <li>Convert gb_decompress routines to the new calling convention</li>
 <li>Convert rle_decompress routines to the new calling convention</li>
 <li>Removed legacy MBC register definitions <code>.MBC1_ROM_PAGE</code> and <code>.MBC_ROM_PAGE</code></li>
@@ -484,7 +484,7 @@ GBDK-2020 4.2.0</h2>
 <li>Added <a class="el" href="docs_supported_consoles.html#using_cgb_features">Using Game Boy Color Features</a></li>
 <li>Updated <a class="el" href="docs_supported_consoles.html#megaduck_sound_register_value_changes">MegaDuck hardware documentation</a></li>
 <li>Added <a class="el" href="docs_coding_guidelines.html#banked_calling_convention">Banked Calling Convention</a></li>
-<li>Added mention of <a class="el" href="sms_8h.html#a8b77608c87a9aef65a03531482b2163b">MAX_HARDWARE_SPRITES</a></li>
+<li>Added mention of <a class="el" href="sms_8h.html#MAX_HARDWARE_SPRITES">MAX_HARDWARE_SPRITES</a></li>
 </ul>
 </li>
 </ul>
@@ -493,7 +493,7 @@ GBDK-2020 4.1.1</h2>
 <p >2022/11</p><ul>
 <li>Includes SDCC version 13350 with GBDK-2020 patches for Z80</li>
 <li>Library<ul>
-<li>Fixed <a class="el" href="cgb_8h.html#a4a118ad3ee36468a3fa616977a64864e">RGB()</a> and <a class="el" href="cgb_8h.html#a7d2ed0f10b2b74123a544327bbfd7564">RGB8()</a> macros</li>
+<li>Fixed <a class="el" href="cgb_8h.html#RGB">RGB()</a> and <a class="el" href="cgb_8h.html#RGB8">RGB8()</a> macros</li>
 </ul>
 </li>
 </ul>
@@ -522,15 +522,15 @@ GBDK-2020 4.1.0</h2>
 <li>Library<ul>
 <li>SGB: Use longer wait between the SGB packet transfers</li>
 <li>SMS/GG: less garbage on screen when clearing VRAM in the init code</li>
-<li>SMS/GG: Added <a class="el" href="cgb_8h.html#a6b334e5e452d0650aded17199be1514a">cgb_compatibility()</a> to set default palette with the four shades of gray</li>
-<li>Fixed: <a class="el" href="gb_8h.html#adcdec4034a14abc5be9bb88c29b947c9">get_sprite_data()</a>, <a class="el" href="gb_8h.html#a5c13238dfec416439d75b133a272e6df">get_bkg_data()</a> , <a class="el" href="gb_8h.html#a7ef32e7c1669aba48f235500a495baba">get_win_data()</a> when <a class="el" href="gb_2hardware_8h.html#a731588b96fb8cdbeb7e68c089373e6f8">LCDCF_BG8000</a> bit of <a class="el" href="gb_2hardware_8h.html#a6515fdfaa50eeb7e63faeea54f77cd6b">LCDC_REG</a> is set</li>
+<li>SMS/GG: Added <a class="el" href="cgb_8h.html#cgb_compatibility">cgb_compatibility()</a> to set default palette with the four shades of gray</li>
+<li>Fixed: <a class="el" href="gb_8h.html#get_sprite_data">get_sprite_data()</a>, <a class="el" href="gb_8h.html#get_bkg_data">get_bkg_data()</a> , <a class="el" href="gb_8h.html#get_win_data">get_win_data()</a> when <a class="el" href="gb_2hardware_8h.html#LCDCF_BG8000">LCDCF_BG8000</a> bit of <a class="el" href="gb_2hardware_8h.html#LCDC_REG">LCDC_REG</a> is set</li>
 <li>Fixed ISR chain lengths. VBL: 4 user handlers, LCD: 3 user handlers, SIO/TIM/JOY: 4 user handlers</li>
 <li>Added new constants for the Game Boy Color (CGB):<ul>
-<li><a class="el" href="gb_2hardware_8h.html#ad21d032f4ab5d5cf21c4d455c4513046">VBK_BANK_0</a>, <a class="el" href="gb_2hardware_8h.html#afb1c02277ab645e83e2ee339e2f6a64f">VBK_BANK_1</a></li>
-<li><a class="el" href="sms_2hardware_8h.html#a6b6b917fd4f396ba028bb18631165781">VBK_TILES</a>, <a class="el" href="sms_2hardware_8h.html#a418a105f4c7d4bf1cbc556eab72c27ca">VBK_ATTRIBUTES</a></li>
-<li><a class="el" href="gb_2hardware_8h.html#a893093832dbc9cb2221ef08068fd3658">BKGF_PRI</a>, <a class="el" href="gb_2hardware_8h.html#ac4f649cbcf7dd8cefda526aee7b2e29a">BKGF_YFLIP</a>, <a class="el" href="gb_2hardware_8h.html#a2916f86ab672a027a8cca3e2ba96f15b">BKGF_XFLIP</a>, <a class="el" href="gb_2hardware_8h.html#a07da4325be4f00825b0df8f7b562c009">BKGF_BANK0</a>, <a class="el" href="gb_2hardware_8h.html#a5b751c3e980ea453002074eadb885697">BKGF_BANK1</a></li>
-<li><a class="el" href="gb_2hardware_8h.html#a4a771645b1215477023c89c8ea7e939d">BKGF_CGB_PAL0</a>, <a class="el" href="gb_2hardware_8h.html#a55225c84026779ae4596ceb319e2f111">BKGF_CGB_PAL1</a>, <a class="el" href="gb_2hardware_8h.html#af3ccbb599ddbe72ce3e5e7f82552ceb1">BKGF_CGB_PAL2</a>, <a class="el" href="gb_2hardware_8h.html#a1ee798f12c60156325284722d9a1a15a">BKGF_CGB_PAL3</a>, <a class="el" href="gb_2hardware_8h.html#adb3a50ad5e3fc54bf332e4156c218e2b">BKGF_CGB_PAL4</a>, <a class="el" href="gb_2hardware_8h.html#a458910105b4cd6c2f84e8a658d1a5c86">BKGF_CGB_PAL5</a>, <a class="el" href="gb_2hardware_8h.html#a563317d0bc48caf19a0ffe15100ca7fd">BKGF_CGB_PAL6</a>, <a class="el" href="gb_2hardware_8h.html#a7966b3d048fb1f1e348cc17f81fd5b04">BKGF_CGB_PAL7</a></li>
-<li><a class="el" href="sms_2hardware_8h.html#a6b6b917fd4f396ba028bb18631165781">VBK_TILES</a>, <a class="el" href="sms_2hardware_8h.html#a418a105f4c7d4bf1cbc556eab72c27ca">VBK_ATTRIBUTES</a></li>
+<li><a class="el" href="gb_2hardware_8h.html#VBK_BANK_0">VBK_BANK_0</a>, <a class="el" href="gb_2hardware_8h.html#VBK_BANK_1">VBK_BANK_1</a></li>
+<li><a class="el" href="sms_2hardware_8h.html#VBK_TILES">VBK_TILES</a>, <a class="el" href="sms_2hardware_8h.html#VBK_ATTRIBUTES">VBK_ATTRIBUTES</a></li>
+<li><a class="el" href="gb_2hardware_8h.html#BKGF_PRI">BKGF_PRI</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_YFLIP">BKGF_YFLIP</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_XFLIP">BKGF_XFLIP</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_BANK0">BKGF_BANK0</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_BANK1">BKGF_BANK1</a></li>
+<li><a class="el" href="gb_2hardware_8h.html#BKGF_CGB_PAL0">BKGF_CGB_PAL0</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_CGB_PAL1">BKGF_CGB_PAL1</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_CGB_PAL2">BKGF_CGB_PAL2</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_CGB_PAL3">BKGF_CGB_PAL3</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_CGB_PAL4">BKGF_CGB_PAL4</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_CGB_PAL5">BKGF_CGB_PAL5</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_CGB_PAL6">BKGF_CGB_PAL6</a>, <a class="el" href="gb_2hardware_8h.html#BKGF_CGB_PAL7">BKGF_CGB_PAL7</a></li>
+<li><a class="el" href="sms_2hardware_8h.html#VBK_TILES">VBK_TILES</a>, <a class="el" href="sms_2hardware_8h.html#VBK_ATTRIBUTES">VBK_ATTRIBUTES</a></li>
 </ul>
 </li>
 </ul>
@@ -629,30 +629,30 @@ GBDK-2020 4.0.6</h2>
 </ul>
 </li>
 <li>Library<ul>
-<li>Added <a class="el" href="asm_2mos6502_2string_8h.html#a89f352da4604926eb5a5dabae5ec09e9">memcmp()</a></li>
-<li>Added <a class="el" href="gb_8h.html#a617176cc314371eeddcd8903584d62f0">add_low_priority_TIM()</a> function for timer interrupts which allow nesting for GB/CGB</li>
-<li>Added <a class="el" href="gb_8h.html#a811c386cac0df2d260aacb5a43608be5">set_bkg_based_tiles()</a>, <a class="el" href="gb_8h.html#abc8bc5808620a9717263b8c9ec2237f0">set_bkg_based_submap()</a>, <a class="el" href="gb_8h.html#a739a212609ae60c9c56c095f96b4ea80">set_win_based_tiles()</a>, <a class="el" href="gb_8h.html#a1b8a1026983cb2b2c0bd46334b4692a0">set_win_based_submap()</a> for when a map's tiles don't start at VRAM index zero</li>
-<li>Added <a class="el" href="time_8h.html#aa7387b2120ad01dff4b9ece4d2ea0c39">clock()</a> for SMS/GG</li>
+<li>Added <a class="el" href="asm_2mos6502_2string_8h.html#memcmp">memcmp()</a></li>
+<li>Added <a class="el" href="gb_8h.html#add_low_priority_TIM">add_low_priority_TIM()</a> function for timer interrupts which allow nesting for GB/CGB</li>
+<li>Added <a class="el" href="gb_8h.html#set_bkg_based_tiles">set_bkg_based_tiles()</a>, <a class="el" href="gb_8h.html#set_bkg_based_submap">set_bkg_based_submap()</a>, <a class="el" href="gb_8h.html#set_win_based_tiles">set_win_based_tiles()</a>, <a class="el" href="gb_8h.html#set_win_based_submap">set_win_based_submap()</a> for when a map's tiles don't start at VRAM index zero</li>
+<li>Added <a class="el" href="time_8h.html#clock">clock()</a> for SMS/GG</li>
 <li>Added macro definitions for SDCC features:<ul>
 <li><code>#define SFR __sfr</code></li>
-<li><code>#define <a class="el" href="asm_2types_8h.html#a66d3e9555a86fa871932c5f60834c67e">AT(A)</a> __at(A)</code></li>
+<li><code>#define <a class="el" href="asm_2types_8h.html#AT">AT(A)</a> __at(A)</code></li>
 </ul>
 </li>
 <li>Added check for OAM overflow to metasprite calls for GB/CGB</li>
-<li>Added constant definitions <a class="el" href="sms_2hardware_8h.html#a6777f1ed2475b5ba6aa60b9a16fa02d3">PSG_LATCH</a>, <a class="el" href="sms_2hardware_8h.html#ad8a903de6b38e08e1591fc5ef278381c">PSG_CH0</a>, <a class="el" href="sms_2hardware_8h.html#addc12c4ee03ea787b826e337f1acd317">PSG_CH1</a>, <a class="el" href="sms_2hardware_8h.html#aaeefb1ac1fb4d0d2324b8ee7f4953226">PSG_CH2</a>, <a class="el" href="sms_2hardware_8h.html#ac760259fb86ee72abb5922018ae0db42">PSG_CH3</a>, <a class="el" href="sms_2hardware_8h.html#a3d806ff027bffa67c4dfc5967f87c1d1">PSG_VOLUME</a> for SMS/GG</li>
+<li>Added constant definitions <a class="el" href="sms_2hardware_8h.html#PSG_LATCH">PSG_LATCH</a>, <a class="el" href="sms_2hardware_8h.html#PSG_CH0">PSG_CH0</a>, <a class="el" href="sms_2hardware_8h.html#PSG_CH1">PSG_CH1</a>, <a class="el" href="sms_2hardware_8h.html#PSG_CH2">PSG_CH2</a>, <a class="el" href="sms_2hardware_8h.html#PSG_CH3">PSG_CH3</a>, <a class="el" href="sms_2hardware_8h.html#PSG_VOLUME">PSG_VOLUME</a> for SMS/GG</li>
 <li>Renamed <code>bgb_emu.h</code> to <code>emu_debug.h</code> and BGB_* functions to EMU_*.<ul>
 <li>Aliases for the BGB_* ones and a <code>bgb_emu.h</code> shim are present for backward compatibility</li>
 </ul>
 </li>
 <li>Changed headers to wrap SDCC specific features (such as <code>NONBANKED</code>) with <code>#ifdef __SDCC</code></li>
-<li>Changed <a class="el" href="rand_8h.html#aec33f1e833f8bee2678dc33873af870d">rand()</a> and <a class="el" href="rand_8h.html#a4a5e355fc122d90d6225503b5ed796ad">arand()</a> to return <code>uint8_t</code> instead of <code>int8_t</code> (closer to the standard)</li>
-<li>Fixed declaration for <a class="el" href="gb_2hardware_8h.html#a271367a0bf840e5422b3a7ed541776f8">PCM_SAMPLE</a> and definition for <a class="el" href="gb_2hardware_8h.html#a2fe41a6e0abb211cc00a8fca90543966">AUD3WAVE</a></li>
+<li>Changed <a class="el" href="rand_8h.html#rand">rand()</a> and <a class="el" href="rand_8h.html#arand">arand()</a> to return <code>uint8_t</code> instead of <code>int8_t</code> (closer to the standard)</li>
+<li>Fixed declaration for <a class="el" href="gb_2hardware_8h.html#PCM_SAMPLE">PCM_SAMPLE</a> and definition for <a class="el" href="gb_2hardware_8h.html#AUD3WAVE">AUD3WAVE</a></li>
 <li>Fixed definition of <code>size_t</code> to be <code>unsigned int</code> instead of <code>int</code></li>
-<li>Fixed <a class="el" href="gb_8h.html#a2dd9f335a197647264f01a713bd31a70">vmemcpy()</a> and <a class="el" href="asm_2mos6502_2string_8h.html#a40963306ad440c9bad92c26d912408e0">memmove()</a> for SMS/GG</li>
+<li>Fixed <a class="el" href="gb_8h.html#vmemcpy">vmemcpy()</a> and <a class="el" href="asm_2mos6502_2string_8h.html#memmove">memmove()</a> for SMS/GG</li>
 <li>Fixed random number generation for SMS/GG</li>
 <li>Fixed letter <code>U</code> appearing as <code>K</code> for min font</li>
 <li>Fixed define name in crash_handler.h</li>
-<li>Exposed <a class="el" href="rand_8h.html#a7aab2f4a234108a5eae48e0d26380ae7">__rand_seed</a></li>
+<li>Exposed <a class="el" href="rand_8h.html#__rand_seed">__rand_seed</a></li>
 </ul>
 </li>
 <li>Toolchain / Utilities<ul>
@@ -676,9 +676,9 @@ GBDK-2020 4.0.6</h2>
 </li>
 <li>Examples<ul>
 <li>Added logo example (cross-platform)</li>
-<li>Added <a class="el" href="isr_8h.html#a73769fed9338af86fdb7df35d7b82620">ISR_VECTOR</a> example of a raw ISR vector with no dispatcher for GB/CGB</li>
+<li>Added <a class="el" href="isr_8h.html#ISR_VECTOR">ISR_VECTOR</a> example of a raw ISR vector with no dispatcher for GB/CGB</li>
 <li>Changed sgb_border example to use png2asset for graphics</li>
-<li>Changed use of <a class="el" href="gb_8h.html#ae6bc65c789195b4c19ee8765b1a2aa28">set_interrupts()</a> in examples so it's outside critical sections (since it disables/enables interrupts)</li>
+<li>Changed use of <a class="el" href="gb_8h.html#set_interrupts">set_interrupts()</a> in examples so it's outside critical sections (since it disables/enables interrupts)</li>
 <li>Changed cross-platform auto-banks example to use .h header files</li>
 <li>Changed SGB border example to also work with SGB on PAL SNES</li>
 </ul>
@@ -710,17 +710,17 @@ GBDK-2020 4.0.5</h2>
 <li>Fixed error when calling get_bkg_tile_xy: &lsquo;?ASlink-Warning-Undefined Global &rsquo;.set_tile_xy' referenced by module ` ?ASlink-Warning-Byte PCR relocation error for symbol .set_tile_xy</li>
 <li>Variables in static storage are now initialized to zero per C standard (but remaining WRAM is not cleared)</li>
 <li>Added many new register flag constants and names. For example:<ul>
-<li><a class="el" href="gb_2hardware_8h.html#a8b576a1fe1473ac4aff8afecb28035cb">rLCDC</a> is a new alias for <a class="el" href="gb_2hardware_8h.html#a6515fdfaa50eeb7e63faeea54f77cd6b">LCDC_REG</a></li>
-<li><a class="el" href="gb_2hardware_8h.html#a13a5f08b9aae68f8fa57a8aa7705b732">LCDCF_WINON</a>, <a class="el" href="gb_2hardware_8h.html#a582ece3b5f6cc49d47b2ad3e16d47374">LCDCF_WINOFF</a>, <a class="el" href="gb_2hardware_8h.html#ae1de721c95ddc8f29ba9b9deaee8d68c">LCDCF_B_WINON</a></li>
+<li><a class="el" href="gb_2hardware_8h.html#rLCDC">rLCDC</a> is a new alias for <a class="el" href="gb_2hardware_8h.html#LCDC_REG">LCDC_REG</a></li>
+<li><a class="el" href="gb_2hardware_8h.html#LCDCF_WINON">LCDCF_WINON</a>, <a class="el" href="gb_2hardware_8h.html#LCDCF_WINOFF">LCDCF_WINOFF</a>, <a class="el" href="gb_2hardware_8h.html#LCDCF_B_WINON">LCDCF_B_WINON</a></li>
 </ul>
 </li>
-<li>Added <a class="el" href="gb_8h.html#a42705001e2b9897f5167b67fb36c69dd">BANK()</a>, <a class="el" href="gb_8h.html#a086293f2afb4c7945460a4496b20aea3">BANKREF()</a>, <a class="el" href="gb_8h.html#a261bba55a07b802baf99346feadd9852">BANKREF_EXTERN()</a></li>
-<li>Added <a class="el" href="incbin_8h.html#af34047ed60abd6453f819c2a5230cd2b">INCBIN()</a>, <a class="el" href="gb_8h.html#a42705001e2b9897f5167b67fb36c69dd">BANK()</a>, <a class="el" href="incbin_8h.html#aeacb5370285c0d4308d0fe5f29da8d15">INCBIN_SIZE()</a>, <a class="el" href="incbin_8h.html#a51ab79f8ee37368158b1887b65ef97ec">INCBIN_EXTERN()</a></li>
-<li>Added generic <a class="el" href="gb_8h.html#af61262bbc05629f31020afce67e1b9ea">SWITCH_ROM()</a> and <a class="el" href="gb_8h.html#a121feb0c32d124562f52398aa9656e7b">SWITCH_RAM()</a></li>
-<li>Added <a class="el" href="gbdk_2emu__debug_8h.html#a892ddea0cd396141c1ae05e384303cbf">BGB_printf()</a> and updated emulator debug output.</li>
-<li>Added <a class="el" href="gb_8h.html#a68651e50243349b48164a8ad983dca4e">set_native_tile_data()</a>, <a class="el" href="gb_8h.html#a55f82ff980398dd97036fd936ebd727e">set_tile_map()</a>, <a class="el" href="sms_8h.html#adcb394299a1033616fc7d2faec8bd6ad">set_1bpp_colors</a>, <a class="el" href="sms_8h.html#a4d5f74eed0489ebfdc2410ee3f9f7f04">set_bkg_1bpp_data</a>, <a class="el" href="sms_8h.html#a2cc121fbeb5570248531b85a8f0b5b97">set_sprite_1bpp_data</a>, <a class="el" href="sms_8h.html#aa224c9bac27c7fd268e62bdf33338a84">set_2bpp_palette</a>, <a class="el" href="sms_8h.html#aa7ba76e4d44dbf19da351fd1ea8e3023">set_bkg_2bpp_data</a>, <a class="el" href="sms_8h.html#a10ee2919fcab7a5c482816ed718d1c4a">set_sprite_2bpp_data</a>, <a class="el" href="sms_8h.html#ab752b1bb0f58da2a6d52e9747c4b3dd8">set_tile_2bpp_data</a> (sms/gg only), <a class="el" href="sms_8h.html#a551fa0b4eb3f30b067a6367a60472095">set_bkg_4bpp_data</a> (sms/gg only), <a class="el" href="sms_8h.html#ad9f5644f83d1b513d83c14bf83a18ce6">set_sprite_4bpp_data</a> (sms/gg only)</li>
-<li>Added RLE decompression support: <a class="el" href="rledecompress_8h.html#a37405d6a4fdb8c43031be8eae02c85a3">rle_init()</a>, <a class="el" href="rledecompress_8h.html#a02fe4c30c8bc890a80aa3c5d09853038">rle_decompress()</a>,</li>
-<li>Changed <a class="el" href="stdlib_8h.html#aad7352ea9374d44ceeb8ce43b28ead3d">itoa()</a>, <a class="el" href="stdlib_8h.html#aa0c7dfc0d7cbe70b55d666f932936c03">uitoa()</a>, <a class="el" href="stdlib_8h.html#abe35410b75494a817a48cec9eda0ec63">ltoa()</a>, <a class="el" href="stdlib_8h.html#ac9ed3277a16730242d0679b74c5e6c43">ultoa()</a> to now require a radix value (base) argument to be passed. On the Game Boy and Analogue Pocket the parameter is required but not utilized.</li>
+<li>Added <a class="el" href="gb_8h.html#BANK">BANK()</a>, <a class="el" href="gb_8h.html#BANKREF">BANKREF()</a>, <a class="el" href="gb_8h.html#BANKREF_EXTERN">BANKREF_EXTERN()</a></li>
+<li>Added <a class="el" href="incbin_8h.html#INCBIN">INCBIN()</a>, <a class="el" href="gb_8h.html#BANK">BANK()</a>, <a class="el" href="incbin_8h.html#INCBIN_SIZE">INCBIN_SIZE()</a>, <a class="el" href="incbin_8h.html#INCBIN_EXTERN">INCBIN_EXTERN()</a></li>
+<li>Added generic <a class="el" href="gb_8h.html#SWITCH_ROM">SWITCH_ROM()</a> and <a class="el" href="gb_8h.html#SWITCH_RAM">SWITCH_RAM()</a></li>
+<li>Added <a class="el" href="gbdk_2emu__debug_8h.html#BGB_printf">BGB_printf()</a> and updated emulator debug output.</li>
+<li>Added <a class="el" href="gb_8h.html#set_native_tile_data">set_native_tile_data()</a>, <a class="el" href="gb_8h.html#set_tile_map">set_tile_map()</a>, <a class="el" href="sms_8h.html#set_1bpp_colors">set_1bpp_colors</a>, <a class="el" href="sms_8h.html#set_bkg_1bpp_data">set_bkg_1bpp_data</a>, <a class="el" href="sms_8h.html#set_sprite_1bpp_data">set_sprite_1bpp_data</a>, <a class="el" href="sms_8h.html#set_2bpp_palette">set_2bpp_palette</a>, <a class="el" href="sms_8h.html#set_bkg_2bpp_data">set_bkg_2bpp_data</a>, <a class="el" href="sms_8h.html#set_sprite_2bpp_data">set_sprite_2bpp_data</a>, <a class="el" href="sms_8h.html#set_tile_2bpp_data">set_tile_2bpp_data</a> (sms/gg only), <a class="el" href="sms_8h.html#set_bkg_4bpp_data">set_bkg_4bpp_data</a> (sms/gg only), <a class="el" href="sms_8h.html#set_sprite_4bpp_data">set_sprite_4bpp_data</a> (sms/gg only)</li>
+<li>Added RLE decompression support: <a class="el" href="rledecompress_8h.html#rle_init">rle_init()</a>, <a class="el" href="rledecompress_8h.html#rle_decompress">rle_decompress()</a>,</li>
+<li>Changed <a class="el" href="stdlib_8h.html#itoa">itoa()</a>, <a class="el" href="stdlib_8h.html#uitoa">uitoa()</a>, <a class="el" href="stdlib_8h.html#ltoa">ltoa()</a>, <a class="el" href="stdlib_8h.html#ultoa">ultoa()</a> to now require a radix value (base) argument to be passed. On the Game Boy and Analogue Pocket the parameter is required but not utilized.</li>
 </ul>
 </li>
 <li>Examples<ul>
@@ -778,11 +778,11 @@ GBDK-2020 4.0.4</h2>
 <p >2021/06</p><ul>
 <li>Library<ul>
 <li>Support SDCC INITIALIZER area (SDCC ~12207+)</li>
-<li>Added <a class="el" href="gb_8h.html#ae32250cfb4daaa1fff7250a0e3f0ad0f">get_vram_byte()</a> / <a class="el" href="gb_8h.html#a2e29fdca81c28c627c2591029722e71c">get_win_tile_xy()</a> / <a class="el" href="gb_8h.html#a55c6581dbe9300dc6df41730f090af51">get_bkg_tile_xy()</a></li>
-<li>Added <a class="el" href="gb_8h.html#abe4846d4570b4880b0e54b9e503f4d30">set_tile_data()</a></li>
+<li>Added <a class="el" href="gb_8h.html#get_vram_byte">get_vram_byte()</a> / <a class="el" href="gb_8h.html#get_win_tile_xy">get_win_tile_xy()</a> / <a class="el" href="gb_8h.html#get_bkg_tile_xy">get_bkg_tile_xy()</a></li>
+<li>Added <a class="el" href="gb_8h.html#set_tile_data">set_tile_data()</a></li>
 <li>Fixed SGB detection</li>
-<li>Fixed broken <a class="el" href="gb_8h.html#af9830fb188433cb0305c2cefb8f8ab11">get_tiles()</a> / <a class="el" href="gb_8h.html#a6224b2e4b72c062a2bb2959b0aaf860a">set_tiles()</a></li>
-<li>Fixed broken token handling in <a class="el" href="gb_2gbdecompress_8h.html#a7dc591cd36b8914ed8c1a5d3e9071feb">gb_decompress_sprite_data()</a> / <a class="el" href="gb_2gbdecompress_8h.html#a6817710d720988cd277261ce95de1597">gb_decompress_bkg_data()</a> / <a class="el" href="gb_2gbdecompress_8h.html#a986ffdd6668359bad530e606354ede38">gb_decompress_win_data()</a></li>
+<li>Fixed broken <a class="el" href="gb_8h.html#get_tiles">get_tiles()</a> / <a class="el" href="gb_8h.html#set_tiles">set_tiles()</a></li>
+<li>Fixed broken token handling in <a class="el" href="gb_2gbdecompress_8h.html#gb_decompress_sprite_data">gb_decompress_sprite_data()</a> / <a class="el" href="gb_2gbdecompress_8h.html#gb_decompress_bkg_data">gb_decompress_bkg_data()</a> / <a class="el" href="gb_2gbdecompress_8h.html#gb_decompress_win_data">gb_decompress_win_data()</a></li>
 <li>Changed all headers to use standard <code>stdint.h</code> types (ex: <code>uint8_t</code> instead of <code>UINT8</code>/<code>UBYTE</code>)</li>
 <li>Made sample.h, cgb.h and sgb.h independent from gb.h</li>
 </ul>
@@ -830,20 +830,20 @@ GBDK-2020 4.0.4</h2>
 GBDK-2020 4.0.3</h2>
 <p >2021/03</p><ul>
 <li>Library<ul>
-<li>Added <a class="el" href="gb_8h.html#a2a26d723b07d1a9893f57208a201df36">set_vram_byte()</a></li>
-<li>Added <a class="el" href="msx_8h.html#adcd40a58f7c7d348d506cc400cd94739">set_bkg_tile_xy()</a> / <a class="el" href="msx_8h.html#a95d929d964d9988f4dc5a25ed399ae08">set_win_tile_xy()</a></li>
-<li>Added <a class="el" href="gb_8h.html#a8cbefab8d342a6231ff96cbca6485265">get_bkg_xy_addr()</a> / <a class="el" href="msx_8h.html#a6eaafdbe6cf1695d30724ce75acb9412">get_win_xy_addr()</a></li>
-<li>Added <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a> / <a class="el" href="sms_8h.html#aee4ea0f9449d1a1834a8201358c6d5fe">set_win_submap()</a></li>
+<li>Added <a class="el" href="gb_8h.html#set_vram_byte">set_vram_byte()</a></li>
+<li>Added <a class="el" href="msx_8h.html#set_bkg_tile_xy">set_bkg_tile_xy()</a> / <a class="el" href="msx_8h.html#set_win_tile_xy">set_win_tile_xy()</a></li>
+<li>Added <a class="el" href="gb_8h.html#get_bkg_xy_addr">get_bkg_xy_addr()</a> / <a class="el" href="msx_8h.html#get_win_xy_addr">get_win_xy_addr()</a></li>
+<li>Added <a class="el" href="sms_8h.html#set_bkg_submap">set_bkg_submap()</a> / <a class="el" href="sms_8h.html#set_win_submap">set_win_submap()</a></li>
 <li>Added metasprite api support</li>
 <li>Added gb_decompress support</li>
-<li>Added <a class="el" href="stdlib_8h.html#a2807e26a012717736641384f91ab2563">calloc</a> / <a class="el" href="stdlib_8h.html#a9c36d0fe3ec4675cbffdc9b52f5fb399">malloc</a> / <a class="el" href="stdlib_8h.html#ad28fed1039f35d754710633141b4edf0">realloc</a> / <a class="el" href="stdlib_8h.html#afbedc913aa4651b3c3b4b3aecd9b4711">free</a> and generic <a class="el" href="asm_2z80_2string_8h.html#a40963306ad440c9bad92c26d912408e0">memmove</a></li>
-<li>Improved <a class="el" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf()</a>: ignore %0 padding and %1-9 width specifier instead of not printing, support upper case X</li>
-<li>Fixed <a class="el" href="drawing_8h.html#afe0ad8959a2867c4b60829d065660f1b">line()</a>: handle drawing when x1 is less than x2</li>
+<li>Added <a class="el" href="stdlib_8h.html#calloc">calloc</a> / <a class="el" href="stdlib_8h.html#malloc">malloc</a> / <a class="el" href="stdlib_8h.html#realloc">realloc</a> / <a class="el" href="stdlib_8h.html#free">free</a> and generic <a class="el" href="asm_2z80_2string_8h.html#memmove">memmove</a></li>
+<li>Improved <a class="el" href="stdio_8h.html#printf">printf()</a>: ignore %0 padding and %1-9 width specifier instead of not printing, support upper case X</li>
+<li>Fixed <a class="el" href="drawing_8h.html#line">line()</a>: handle drawing when x1 is less than x2</li>
 </ul>
 </li>
 <li>Examples<ul>
-<li>Added large_map: showing how to use <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a></li>
-<li>Added scroller: showing use of <a class="el" href="gb_8h.html#a8cbefab8d342a6231ff96cbca6485265">get_bkg_xy_addr()</a>, <a class="el" href="msx_8h.html#adcd40a58f7c7d348d506cc400cd94739">set_bkg_tile_xy()</a> and <a class="el" href="sms_8h.html#afe1bc7117a68cd0939c2d03baaa06b89">set_vram_byte</a></li>
+<li>Added large_map: showing how to use <a class="el" href="sms_8h.html#set_bkg_submap">set_bkg_submap()</a></li>
+<li>Added scroller: showing use of <a class="el" href="gb_8h.html#get_bkg_xy_addr">get_bkg_xy_addr()</a>, <a class="el" href="msx_8h.html#set_bkg_tile_xy">set_bkg_tile_xy()</a> and <a class="el" href="sms_8h.html#set_vram_byte">set_vram_byte</a></li>
 <li>Added gbdecompress: de-compressing tile data into vram</li>
 <li>Added metasprites: show creating a large sprite with the new metasprite api</li>
 <li>Added template projects</li>
@@ -875,7 +875,7 @@ GBDK-2020 4.0.2</h2>
 <li>safer copy-to-VRAM functions</li>
 <li>loading of 1bit data fixed, also now it is possible to specify pixel color</li>
 <li>Improved code generation for the GBDK Library with SDCC switch on by default: <code>--max-allocs-per-node 50000</code></li>
-<li>fixed wrong parameter offsets in <a class="el" href="gb_8h.html#a97b9f2fc6ac7cae97656aca940d65d44">hiramcpy()</a> (broken ram_function example)</li>
+<li>fixed wrong parameter offsets in <a class="el" href="gb_8h.html#hiramcpy">hiramcpy()</a> (broken ram_function example)</li>
 <li>Multiple minor improvements</li>
 </ul>
 </li>
@@ -896,7 +896,7 @@ GBDK-2020 4.0.1</h2>
 <li>new fill_*_rect() functions to clear rectangle areas</li>
 <li>runtime initialization code now does not initialize whole WRAM with zeros anymore, that allows BGB to raise exceptions when code tries to read WRAM that was not written before.</li>
 <li>enhanced SGB support<ul>
-<li><a class="el" href="gb_8h.html#ab7e35e1eff44ed78ad8f0015c6e85b4e">joypad_init()</a> / <a class="el" href="gb_8h.html#ab6634cc802b70972dc0ce0961ffc9693">joypad_ex()</a> support for multiple joypads</li>
+<li><a class="el" href="gb_8h.html#joypad_init">joypad_init()</a> / <a class="el" href="gb_8h.html#joypad_ex">joypad_ex()</a> support for multiple joypads</li>
 <li>SGB border example</li>
 </ul>
 </li>
@@ -927,7 +927,7 @@ GBDK-2020 4.0</h2>
 <li>itoa/ltoa functions were rewritten, div/mod is not required now which is about 10 times faster</li>
 <li>sprite functions are inline now, which is faster up to 12 times and produces the same or smaller code; .OAM symbol is renamed into _shadow_OAM that allows accessing shadow OAM directly from C code</li>
 <li>interrupt handling was revised, it is now possible to make dedicated ISR's, that is important for time-sensitive handlers such as HBlank.</li>
-<li>printf/sprintf were rewritten and splitted, print functions are twice faster now and also requre less rom space if you use <a class="el" href="stdio_8h.html#a440c82287022737c4f2866786ba8a154">sprintf()</a> only, say, in bgb_emu.h</li>
+<li>printf/sprintf were rewritten and splitted, print functions are twice faster now and also requre less rom space if you use <a class="el" href="stdio_8h.html#sprintf">sprintf()</a> only, say, in bgb_emu.h</li>
 <li>crash_handler.h - crash handler that allows to detect problems with ROMs after they are being released (adapted handler, originally written by ISSOtm)</li>
 <li>improved and fixed string.h</li>
 <li>many other improvements and fixes - thanks to all contributors!</li>
@@ -1100,7 +1100,7 @@ GBDK 2.91</h2>
 <h2><a class="anchor" id="autotoc_md267"></a>
 GBDK 2.1.5</h2>
 <p >17th Oct, 1999</p>
-<p >The compiler is the same, but some of the libraries have been improved. <a class="el" href="asm_2mos6502_2string_8h.html#a313175102214d45434bf045db18dddf0">memset()</a> and <a class="el" href="asm_2mos6502_2string_8h.html#a216d2a9dfabd49eb459363d672a4512f">memcpy()</a> are much faster, <a class="el" href="stdlib_8h.html#a9c36d0fe3ec4675cbffdc9b52f5fb399">malloc()</a> is fixed, and a high speed fixed block alternative <a class="el" href="stdlib_8h.html#a9c36d0fe3ec4675cbffdc9b52f5fb399">malloc()</a> was added.</p>
+<p >The compiler is the same, but some of the libraries have been improved. <a class="el" href="asm_2mos6502_2string_8h.html#memset">memset()</a> and <a class="el" href="asm_2mos6502_2string_8h.html#memcpy">memcpy()</a> are much faster, <a class="el" href="stdlib_8h.html#malloc">malloc()</a> is fixed, and a high speed fixed block alternative <a class="el" href="stdlib_8h.html#malloc">malloc()</a> was added.</p>
 <h2><a class="anchor" id="autotoc_md268"></a>
 GBDK 2.0b11 (DOS binary only) - 24 November 1997</h2>
 <ul>
@@ -1138,7 +1138,7 @@ GBDK 2.0b6</h2>
 <ul>
 <li>Added a peephole optimizer (with few rules at the moment).</li>
 <li>Changed the name of the hardware registers to match the "official" names.</li>
-<li>Added support for copying complete functions to RAM or HIRAM (<a class="el" href="asm_2mos6502_2string_8h.html#a216d2a9dfabd49eb459363d672a4512f">memcpy()</a> and <a class="el" href="gb_8h.html#a97b9f2fc6ac7cae97656aca940d65d44">hiramcpy()</a> functions). The compiler now automatically generates two symbol for the start and the end of each function, named start_X and end_X (where X is the name of the function). This enables to calculate the length of a function when copying it to RAM.</li>
+<li>Added support for copying complete functions to RAM or HIRAM (<a class="el" href="asm_2mos6502_2string_8h.html#memcpy">memcpy()</a> and <a class="el" href="gb_8h.html#hiramcpy">hiramcpy()</a> functions). The compiler now automatically generates two symbol for the start and the end of each function, named start_X and end_X (where X is the name of the function). This enables to calculate the length of a function when copying it to RAM.</li>
 <li>Added the ram_fn.c example which illustrates how to copy functions to RAM and HIRAM.</li>
 <li>Added support for installing IRQ handlers.</li>
 <li>Added the irq.c example which illustrates how to install IRQ handlers.</li>
@@ -1153,7 +1153,7 @@ GBDK 2.0b5</h2>
 <li>Fixed a bug in int comparison.</li>
 <li>Added a DTMF program written by Osamu Ohashi.</li>
 <li>Added a game (Deep Scan) written by a friend of Osamu.</li>
-<li>Modified the <a class="el" href="gb_8h.html#a79b9feff94d525e0237be22dcefd5850">delay()</a> function so that it takes a long parameter. It can be used to wait between 1 and 65536 milliseconds (0 = 65536). The pause() function has been removed.</li>
+<li>Modified the <a class="el" href="gb_8h.html#delay">delay()</a> function so that it takes a long parameter. It can be used to wait between 1 and 65536 milliseconds (0 = 65536). The pause() function has been removed.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md275"></a>
 GBDK 2.0b4</h2>
@@ -1166,7 +1166,7 @@ GBDK 2.0b4</h2>
 GBDK 2.0b3</h2>
 <ul>
 <li>GBDK can generate multiple-banks images, i.e. images greater than 32kB (see the banks example).</li>
-<li>It is possible to set the stack pointer at link time using the -Wl-g.STACK=# flag (where # is the address of the stack pointer). Several functions (e.g. show_bkg()) have been changed into macros (e.g. SHOW_BKG). The <a class="el" href="gb_8h.html#a79b9feff94d525e0237be22dcefd5850">delay()</a> function waits exactly 1 millisecond, and the pause() waits 256 milliseconds. Linking with the standard libraries is no more required. The lib/gb.lib (lib\gb.lib on DOS) text file contains a list of modules in which to look for undefined symbols. The linker will parse this file, and link your code with the required modules only. The stdio library has been split in several object files, and only necessary modules will be added to your code, thus reducing its size. The GBDK distribution can be located anywhere in your system if you use the -Wo-lccdir=GBDK-DIR flag when invoking lcc. Bug fixes.</li>
+<li>It is possible to set the stack pointer at link time using the -Wl-g.STACK=# flag (where # is the address of the stack pointer). Several functions (e.g. show_bkg()) have been changed into macros (e.g. SHOW_BKG). The <a class="el" href="gb_8h.html#delay">delay()</a> function waits exactly 1 millisecond, and the pause() waits 256 milliseconds. Linking with the standard libraries is no more required. The lib/gb.lib (lib\gb.lib on DOS) text file contains a list of modules in which to look for undefined symbols. The linker will parse this file, and link your code with the required modules only. The stdio library has been split in several object files, and only necessary modules will be added to your code, thus reducing its size. The GBDK distribution can be located anywhere in your system if you use the -Wo-lccdir=GBDK-DIR flag when invoking lcc. Bug fixes.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md277"></a>
 GBDK 2.0b2</h2>

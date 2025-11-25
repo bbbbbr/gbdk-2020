@@ -141,7 +141,7 @@ GBTD / GBMB, Arrays and the "const" keyword</h3>
 <p ><a class="anchor" id="best_practice_dont_read_vram"></a></p>
 <h2><a class="anchor" id="autotoc_md67"></a>
 Avoid Reading from VRAM</h2>
-<p >In general avoid reading from VRAM since that memory is not accessible at all times. If GBDK a API function which reads from VRAM (such as <a class="el" href="gb_8h.html#a55c6581dbe9300dc6df41730f090af51">get_bkg_tile_xy()</a>) is called during a video mode when VRAM is not accessible, then that function call will delay until VRAM becomes accessible again. This can cause unnecessary slowdowns when running programs on the Game Boy. It is also not supported by GBDK on the NES platform.</p>
+<p >In general avoid reading from VRAM since that memory is not accessible at all times. If GBDK a API function which reads from VRAM (such as <a class="el" href="gb_8h.html#get_bkg_tile_xy">get_bkg_tile_xy()</a>) is called during a video mode when VRAM is not accessible, then that function call will delay until VRAM becomes accessible again. This can cause unnecessary slowdowns when running programs on the Game Boy. It is also not supported by GBDK on the NES platform.</p>
 <p >Instead it is better to store things such as map data in general purpose RAM which does not have video mode access limitations.</p>
 <p >For more information about video modes and VRAM access see the pan docs:</p>
 <p ><a href="https://gbdev.io/pandocs/STAT.html#stat-modes">https://gbdev.io/pandocs/STAT.html#stat-modes</a></p>
@@ -193,8 +193,8 @@ Variables</h2>
 Code structure</h2>
 <ul>
 <li>Do not <code>#include</code> <code>.c</code> source files into other <code>.c</code> source files. Instead create <code>.h</code> header files for them and include those. <a href="https://www.tutorialspoint.com/cprogramming/c_header_files.htm">https://www.tutorialspoint.com/cprogramming/c_header_files.htm</a></li>
-<li>Instead of using a blocking <a class="el" href="gb_8h.html#a79b9feff94d525e0237be22dcefd5850">delay()</a> for things such as sprite animations/etc (which can prevent the rest of the game from continuing) many times it's better to use a counter which performs an action once every N frames. <a class="el" href="sms_8h.html#a78d2fd18666afec116f176d46debb4e7">sys_time</a> may be useful in these cases.</li>
-<li>When processing for a given frame is done and it is time to wait before starting the next frame, <a class="el" href="gb_8h.html#af57b77452ef377da18e4fbf0288013d1">vsync()</a> can be used. It uses HALT to put the CPU into a low power state until processing resumes. The CPU will wake up and resume processing at the end of the current frame when the Vertical Blanking interrupt is triggered.</li>
+<li>Instead of using a blocking <a class="el" href="gb_8h.html#delay">delay()</a> for things such as sprite animations/etc (which can prevent the rest of the game from continuing) many times it's better to use a counter which performs an action once every N frames. <a class="el" href="sms_8h.html#sys_time">sys_time</a> may be useful in these cases.</li>
+<li>When processing for a given frame is done and it is time to wait before starting the next frame, <a class="el" href="gb_8h.html#vsync">vsync()</a> can be used. It uses HALT to put the CPU into a low power state until processing resumes. The CPU will wake up and resume processing at the end of the current frame when the Vertical Blanking interrupt is triggered.</li>
 <li>Minimize use of multiplication, modulo with non-powers of 2, and division with non-powers of 2. These operations have no corresponding CPU instructions (software functions), and hence are time costly.<ul>
 <li>SDCC has some optimizations for:<ul>
 <li>Division by powers of 2. For example <code>n /= 4u</code> will be optimized to <code>n &gt;&gt;= 2</code>.</li>
@@ -211,10 +211,10 @@ Code structure</h2>
 <h2><a class="anchor" id="autotoc_md70"></a>
 GBDK API/Library</h2>
 <ul>
-<li>stdio.h: If you have other ways of printing text, avoid including <a class="el" href="stdio_8h.html">stdio.h</a> and using functions such as <a class="el" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf()</a>. Including it will use a large number of the background tiles for font characters. If stdio.h is not included then that space will be available for use with other tiles instead.</li>
+<li>stdio.h: If you have other ways of printing text, avoid including <a class="el" href="stdio_8h.html">stdio.h</a> and using functions such as <a class="el" href="stdio_8h.html#printf">printf()</a>. Including it will use a large number of the background tiles for font characters. If stdio.h is not included then that space will be available for use with other tiles instead.</li>
 <li>drawing.h: The Game Boy graphics hardware is not well suited to frame-buffer style graphics such as the kind provided in <a class="el" href="drawing_8h.html">drawing.h</a>. Due to that, most drawing functions (rectangles, circles, etc) will be slow . When possible it's much faster and more efficient to work with the tiles and tile maps that the Game Boy hardware is built around.</li>
-<li><a class="el" href="gb_8h.html#abb680388b5bcbf0c69526d7017ffe8d2">waitpad()</a> and <a class="el" href="sms_8h.html#aebc8751fa428e9845ea25b1060ebe772">waitpadup</a> check for input in a loop that doesn't HALT at all, so the CPU will be maxed out until it returns. One alternative is to write a function with a loop that checks input with <a class="el" href="gb_8h.html#a4344fefd260763e12703138066841b19">joypad()</a> and then waits a frame using <a class="el" href="gb_8h.html#af57b77452ef377da18e4fbf0288013d1">vsync()</a> (which idles the CPU while waiting) before checking input again.</li>
-<li><a class="el" href="gb_8h.html#a4344fefd260763e12703138066841b19">joypad()</a>: When testing for multiple different buttons, it's best to read the joypad state <em>once</em> into a variable and then test using that variable (instead of making multiple calls).</li>
+<li><a class="el" href="gb_8h.html#waitpad">waitpad()</a> and <a class="el" href="sms_8h.html#waitpadup">waitpadup</a> check for input in a loop that doesn't HALT at all, so the CPU will be maxed out until it returns. One alternative is to write a function with a loop that checks input with <a class="el" href="gb_8h.html#joypad">joypad()</a> and then waits a frame using <a class="el" href="gb_8h.html#vsync">vsync()</a> (which idles the CPU while waiting) before checking input again.</li>
+<li><a class="el" href="gb_8h.html#joypad">joypad()</a>: When testing for multiple different buttons, it's best to read the joypad state <em>once</em> into a variable and then test using that variable (instead of making multiple calls).</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md71"></a>
 Toolchain</h2>
@@ -263,27 +263,27 @@ Constants, Signed-ness and Overflows</h2>
 <p ><a class="anchor" id="docs_chars_varargs"></a></p>
 <h2><a class="anchor" id="autotoc_md73"></a>
 Chars and vararg functions</h2>
-<p >Parameters (chars, ints, etc) to <a class="el" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf</a> / <a class="el" href="stdio_8h.html#a440c82287022737c4f2866786ba8a154">sprintf</a> should always be explicitly cast to avoid type related parameter passing issues.</p>
-<p >For example, below will result in the likely unintended output: </p><div class="fragment"><div class="line"><a class="code hl_function" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf</a>(str_temp, <span class="stringliteral">&quot;%u, %d, %x\n&quot;</span>, <a class="code hl_define" href="stdint_8h.html#a3ea490c9b3617d4479bd80ef93cd5602">UINT16_MAX</a>, <a class="code hl_define" href="stdint_8h.html#ad4e9955955b27624963643eac448118a">INT16_MIN</a>, <a class="code hl_define" href="stdint_8h.html#a3ea490c9b3617d4479bd80ef93cd5602">UINT16_MAX</a>);</div>
+<p >Parameters (chars, ints, etc) to <a class="el" href="stdio_8h.html#printf">printf</a> / <a class="el" href="stdio_8h.html#sprintf">sprintf</a> should always be explicitly cast to avoid type related parameter passing issues.</p>
+<p >For example, below will result in the likely unintended output: </p><div class="fragment"><div class="line"><a class="code hl_function" href="stdio_8h.html#printf">printf</a>(str_temp, <span class="stringliteral">&quot;%u, %d, %x\n&quot;</span>, <a class="code hl_define" href="stdint_8h.html#UINT16_MAX">UINT16_MAX</a>, <a class="code hl_define" href="stdint_8h.html#INT16_MIN">INT16_MIN</a>, <a class="code hl_define" href="stdint_8h.html#UINT16_MAX">UINT16_MAX</a>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Will output: &quot;65535, 0, 8000&quot;</span></div>
-<div class="ttc" id="astdint_8h_html_a3ea490c9b3617d4479bd80ef93cd5602"><div class="ttname"><a href="stdint_8h.html#a3ea490c9b3617d4479bd80ef93cd5602">UINT16_MAX</a></div><div class="ttdeci">#define UINT16_MAX</div><div class="ttdef"><b>Definition:</b> stdint.h:133</div></div>
-<div class="ttc" id="astdint_8h_html_ad4e9955955b27624963643eac448118a"><div class="ttname"><a href="stdint_8h.html#ad4e9955955b27624963643eac448118a">INT16_MIN</a></div><div class="ttdeci">#define INT16_MIN</div><div class="ttdef"><b>Definition:</b> stdint.h:117</div></div>
-<div class="ttc" id="astdio_8h_html_a133c04c35a1c14c6f8d8078831705661"><div class="ttname"><a href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf</a></div><div class="ttdeci">void printf(const char *format,...)</div></div>
-</div><!-- fragment --><p> Instead this will give the intended output: </p><div class="fragment"><div class="line"><a class="code hl_function" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf</a>(str_temp, <span class="stringliteral">&quot;%u, %d, %x\n&quot;</span>, (<a class="code hl_typedef" href="stdint_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>)<a class="code hl_define" href="stdint_8h.html#a3ea490c9b3617d4479bd80ef93cd5602">UINT16_MAX</a>, (<a class="code hl_typedef" href="stdint_8h.html#a66634143db08bebe9b46ab4cb1fc6fd3">int16_t</a>)<a class="code hl_define" href="stdint_8h.html#ad4e9955955b27624963643eac448118a">INT16_MIN</a>, (<a class="code hl_typedef" href="stdint_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>)<a class="code hl_define" href="stdint_8h.html#a3ea490c9b3617d4479bd80ef93cd5602">UINT16_MAX</a>);</div>
+<div class="ttc" id="astdint_8h_html_INT16_MIN"><div class="ttname"><a href="stdint_8h.html#INT16_MIN">INT16_MIN</a></div><div class="ttdeci">#define INT16_MIN</div><div class="ttdef"><b>Definition:</b> stdint.h:117</div></div>
+<div class="ttc" id="astdint_8h_html_UINT16_MAX"><div class="ttname"><a href="stdint_8h.html#UINT16_MAX">UINT16_MAX</a></div><div class="ttdeci">#define UINT16_MAX</div><div class="ttdef"><b>Definition:</b> stdint.h:133</div></div>
+<div class="ttc" id="astdio_8h_html_printf"><div class="ttname"><a href="stdio_8h.html#printf">printf</a></div><div class="ttdeci">void printf(const char *format,...)</div></div>
+</div><!-- fragment --><p> Instead this will give the intended output: </p><div class="fragment"><div class="line"><a class="code hl_function" href="stdio_8h.html#printf">printf</a>(str_temp, <span class="stringliteral">&quot;%u, %d, %x\n&quot;</span>, (<a class="code hl_typedef" href="stdint_8h.html#uint16_t">uint16_t</a>)<a class="code hl_define" href="stdint_8h.html#UINT16_MAX">UINT16_MAX</a>, (<a class="code hl_typedef" href="stdint_8h.html#int16_t">int16_t</a>)<a class="code hl_define" href="stdint_8h.html#INT16_MIN">INT16_MIN</a>, (<a class="code hl_typedef" href="stdint_8h.html#uint16_t">uint16_t</a>)<a class="code hl_define" href="stdint_8h.html#UINT16_MAX">UINT16_MAX</a>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Will output: &quot;65535, -32768, FFFF&quot;</span></div>
-<div class="ttc" id="astdint_8h_html_a66634143db08bebe9b46ab4cb1fc6fd3"><div class="ttname"><a href="stdint_8h.html#a66634143db08bebe9b46ab4cb1fc6fd3">int16_t</a></div><div class="ttdeci">short int int16_t</div><div class="ttdef"><b>Definition:</b> stdint.h:44</div></div>
-<div class="ttc" id="astdint_8h_html_adf4d876453337156dde61095e1f20223"><div class="ttname"><a href="stdint_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a></div><div class="ttdeci">unsigned short int uint16_t</div><div class="ttdef"><b>Definition:</b> stdint.h:52</div></div>
+<div class="ttc" id="astdint_8h_html_int16_t"><div class="ttname"><a href="stdint_8h.html#int16_t">int16_t</a></div><div class="ttdeci">short int int16_t</div><div class="ttdef"><b>Definition:</b> stdint.h:44</div></div>
+<div class="ttc" id="astdint_8h_html_uint16_t"><div class="ttname"><a href="stdint_8h.html#uint16_t">uint16_t</a></div><div class="ttdeci">unsigned short int uint16_t</div><div class="ttdef"><b>Definition:</b> stdint.h:52</div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md74"></a>
 Chars</h3>
-<p >In standard C when <code>chars</code> are passed to a function with variadic arguments (varargs, those declared with <code>...</code> as a parameter), such as <a class="el" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf()</a>, those <code>chars</code> get automatically promoted to <code>ints</code>. For an 8 bit CPU such as the Game Boy's, this is not as efficient or desirable in most cases. So the default SDCC behavior, which GBDK-2020 expects, is that chars will remain chars and <em>not</em> get promoted to ints when <b>explicitly cast as chars while calling a varargs function</b>.</p>
+<p >In standard C when <code>chars</code> are passed to a function with variadic arguments (varargs, those declared with <code>...</code> as a parameter), such as <a class="el" href="stdio_8h.html#printf">printf()</a>, those <code>chars</code> get automatically promoted to <code>ints</code>. For an 8 bit CPU such as the Game Boy's, this is not as efficient or desirable in most cases. So the default SDCC behavior, which GBDK-2020 expects, is that chars will remain chars and <em>not</em> get promoted to ints when <b>explicitly cast as chars while calling a varargs function</b>.</p>
 <ul>
 <li>They must be explicitly re-cast when passing them to a varargs function, even though they are already declared as chars.</li>
 <li>Discussion in SDCC manual: <br  />
  <a href="http://sdcc.sourceforge.net/doc/sdccman.pdf#section.1.5">http://sdcc.sourceforge.net/doc/sdccman.pdf#section.1.5</a> <br  />
  <a href="http://sdcc.sourceforge.net/doc/sdccman.pdf#subsection.3.5.10">http://sdcc.sourceforge.net/doc/sdccman.pdf#subsection.3.5.10</a></li>
-<li>If SDCC is invoked with -std-cxx (&ndash;std-c89, &ndash;std-c99, &ndash;std-c11, etc) then it will conform to standard C behavior and calling functions such as <a class="el" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf()</a> with chars may not work as expected.</li>
+<li>If SDCC is invoked with -std-cxx (&ndash;std-c89, &ndash;std-c99, &ndash;std-c11, etc) then it will conform to standard C behavior and calling functions such as <a class="el" href="stdio_8h.html#printf">printf()</a> with chars may not work as expected.</li>
 </ul>
 <p >For example:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> i = 0x5A;</div>
@@ -291,14 +291,14 @@ Chars</h3>
 <div class="line"><span class="comment">// NO:</span></div>
 <div class="line"><span class="comment">// The char will get promoted to an int, producing incorrect printf output</span></div>
 <div class="line"><span class="comment">// The output will be: 5A 00</span></div>
-<div class="line"><a class="code hl_function" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf</a>(<span class="stringliteral">&quot;%hx %hx&quot;</span>, i, i);</div>
+<div class="line"><a class="code hl_function" href="stdio_8h.html#printf">printf</a>(<span class="stringliteral">&quot;%hx %hx&quot;</span>, i, i);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// YES:</span></div>
 <div class="line"><span class="comment">// The char will remain a char and printf output will be as expected</span></div>
 <div class="line"><span class="comment">// The output will be: 5A 5A</span></div>
-<div class="line"><a class="code hl_function" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf</a>(<span class="stringliteral">&quot;%hx %hx&quot;</span>, (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>)i, (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>)i);</div>
+<div class="line"><a class="code hl_function" href="stdio_8h.html#printf">printf</a>(<span class="stringliteral">&quot;%hx %hx&quot;</span>, (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>)i, (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>)i);</div>
 </div><!-- fragment --><p >Some functions that accept varargs:</p><ul>
-<li><a class="el" href="gbdk_2emu__debug_8h.html#a910b2802e154473f2e10201f5722bc10">EMU_printf</a>, <a class="el" href="drawing_8h.html#a5f7a0ed309f9526e9be285146559848c">gprintf()</a>, <a class="el" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf()</a>, <a class="el" href="stdio_8h.html#a440c82287022737c4f2866786ba8a154">sprintf()</a></li>
+<li><a class="el" href="gbdk_2emu__debug_8h.html#EMU_printf">EMU_printf</a>, <a class="el" href="drawing_8h.html#gprintf">gprintf()</a>, <a class="el" href="stdio_8h.html#printf">printf()</a>, <a class="el" href="stdio_8h.html#sprintf">sprintf()</a></li>
 </ul>
 <p >Also See:</p><ul>
 <li>Other cases of char to int promotion: <a href="http://sdcc.sourceforge.net/doc/sdccman.pdf#chapter.6">http://sdcc.sourceforge.net/doc/sdccman.pdf#chapter.6</a></li>

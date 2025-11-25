@@ -1,12 +1,12 @@
 var asm_2mos6502_2types_8h =
 [
-    [ "__SIZE_T_DEFINED", "asm_2mos6502_2types_8h.html#a8de3167f7b52ff5a2f538858cb5e32d3", null ],
-    [ "INT8", "asm_2mos6502_2types_8h.html#a7ebe70ceca856797319175e30bcf003d", null ],
-    [ "UINT8", "asm_2mos6502_2types_8h.html#ab27e9918b538ce9d8ca692479b375b6a", null ],
-    [ "INT16", "asm_2mos6502_2types_8h.html#a18f1c7ce6c452edd933189d52294af8d", null ],
-    [ "UINT16", "asm_2mos6502_2types_8h.html#a805c2c164bdd38d72a30c46e84fb568b", null ],
-    [ "INT32", "asm_2mos6502_2types_8h.html#a516ea33686d40a7f91f5644851ce7b5d", null ],
-    [ "UINT32", "asm_2mos6502_2types_8h.html#a0b39d6d754cb24c708b0f2bdbe88130e", null ],
-    [ "size_t", "asm_2mos6502_2types_8h.html#a7c94ea6f8948649f8d181ae55911eeaf", null ],
-    [ "clock_t", "asm_2mos6502_2types_8h.html#aeb756bd89bf86769edbefdef8135109f", null ]
+    [ "__SIZE_T_DEFINED", "asm_2mos6502_2types_8h.html#__SIZE_T_DEFINED", null ],
+    [ "INT8", "asm_2mos6502_2types_8h.html#INT8", null ],
+    [ "UINT8", "asm_2mos6502_2types_8h.html#UINT8", null ],
+    [ "INT16", "asm_2mos6502_2types_8h.html#INT16", null ],
+    [ "UINT16", "asm_2mos6502_2types_8h.html#UINT16", null ],
+    [ "INT32", "asm_2mos6502_2types_8h.html#INT32", null ],
+    [ "UINT32", "asm_2mos6502_2types_8h.html#UINT32", null ],
+    [ "size_t", "asm_2mos6502_2types_8h.html#size_t", null ],
+    [ "clock_t", "asm_2mos6502_2types_8h.html#clock_t", null ]
 ];

@@ -126,14 +126,14 @@ Graphics and Resources</h1>
 <ul>
 <li>How do I use a tile map when its tiles don't start at index zero?<ul>
 <li>The two main options are:<ul>
-<li>Use <a class="el" href="gb_8h.html#a811c386cac0df2d260aacb5a43608be5">set_bkg_based_tiles()</a>, <a class="el" href="gb_8h.html#abc8bc5808620a9717263b8c9ec2237f0">set_bkg_based_submap()</a>, <a class="el" href="gb_8h.html#a739a212609ae60c9c56c095f96b4ea80">set_win_based_tiles()</a>, <a class="el" href="gb_8h.html#a1b8a1026983cb2b2c0bd46334b4692a0">set_win_based_submap()</a> and provide a tile origin offset.</li>
+<li>Use <a class="el" href="gb_8h.html#set_bkg_based_tiles">set_bkg_based_tiles()</a>, <a class="el" href="gb_8h.html#set_bkg_based_submap">set_bkg_based_submap()</a>, <a class="el" href="gb_8h.html#set_win_based_tiles">set_win_based_tiles()</a>, <a class="el" href="gb_8h.html#set_win_based_submap">set_win_based_submap()</a> and provide a tile origin offset.</li>
 <li>Use <a class="el" href="docs_toolchain.html#utility_png2asset">utility_png2asset</a> with <code>-tile_origin</code> to create a map with the tile index offsets built in.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Is it normal for sprites to disappear when they reach the left border of the screen? (NES/SMS/MSX)<ul>
-<li>You can hide the leftmost column using <a class="el" href="sms_8h.html#a0659212acd317ccdebc0ecf435df330f">HIDE_LEFT_COLUMN</a> to work around this.</li>
+<li>You can hide the leftmost column using <a class="el" href="sms_8h.html#HIDE_LEFT_COLUMN">HIDE_LEFT_COLUMN</a> to work around this.</li>
 <li>The behavior is due to NES/SMS/MSX having 8-bit Sprite x coordinates while the screen width is also 256 pixels. GB/GG don't have this problem since their screen is smaller and the x-coordinates are larger than the visible screen. <br  />
 </li>
 </ul>
@@ -314,14 +314,14 @@ API / Utilities</h1>
 </li>
 </ul>
 </li>
-<li>Why are 8 bit numbers not printing correctly with <a class="el" href="stdio_8h.html#a133c04c35a1c14c6f8d8078831705661">printf()</a>?<ul>
+<li>Why are 8 bit numbers not printing correctly with <a class="el" href="stdio_8h.html#printf">printf()</a>?<ul>
 <li>To correctly pass chars/uint8s for printing, they must be explicitly re-cast as such when calling the function. See <a class="el" href="docs_coding_guidelines.html#docs_chars_varargs">docs_chars_varargs</a> for more details. <br  />
 </li>
 </ul>
 </li>
-<li>How can maps larger than 32x32 tiles be scrolled? &amp; Why is the map wrapping around to the left side when setting a map wider than 32 tiles with <a class="el" href="gb_8h.html#a1f5101f2b7bb0123c26a3e257f843626">set_bkg_data()</a>?<ul>
-<li>The hardware Background map is 32 x 32 tiles. The screen viewport that can be scrolled around that map is 20 x 18 tiles. In order to scroll around within a much larger map, new tiles must be loaded at the edges of the screen viewport in the direction that it is being scrolled. <a class="el" href="nes_8h.html#ac2c9fd8d613ad8ba52227c5a056e56fa">set_bkg_submap</a> can be used to load those rows and columns of tiles from the desired sub-region of the large map.</li>
-<li>See the "Large Map" example program and <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a>.</li>
+<li>How can maps larger than 32x32 tiles be scrolled? &amp; Why is the map wrapping around to the left side when setting a map wider than 32 tiles with <a class="el" href="gb_8h.html#set_bkg_data">set_bkg_data()</a>?<ul>
+<li>The hardware Background map is 32 x 32 tiles. The screen viewport that can be scrolled around that map is 20 x 18 tiles. In order to scroll around within a much larger map, new tiles must be loaded at the edges of the screen viewport in the direction that it is being scrolled. <a class="el" href="nes_8h.html#set_bkg_submap">set_bkg_submap</a> can be used to load those rows and columns of tiles from the desired sub-region of the large map.</li>
+<li>See the "Large Map" example program and <a class="el" href="sms_8h.html#set_bkg_submap">set_bkg_submap()</a>.</li>
 <li>Writes that exceed coordinate 31 of the Background tile map on the x or y axis will wrap around to the Left and Top edges. <br  />
 </li>
 </ul>

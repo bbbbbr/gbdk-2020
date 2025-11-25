@@ -120,7 +120,7 @@ MBC Banked cartridges (Memory Bank Controllers)</h2>
 <h2><a class="anchor" id="autotoc_md84"></a>
 Recommended MBC type</h2>
 <p ><a class="anchor" id="Recommended_MBC"></a> For most projects we recommend <b>MBC5</b>.</p><ul>
-<li>The <a class="el" href="gb_8h.html#af61262bbc05629f31020afce67e1b9ea">SWITCH_ROM()</a> / ref <a class="el" href="gb_8h.html#a121feb0c32d124562f52398aa9656e7b">SWITCH_RAM()</a> macros work with MBC5 (up to ROM bank 255, <a class="el" href="gb_8h.html#a6c15ebc660abd3a978137493ab63ffe9">SWITCH_ROM_MBC5_8M</a> may be used if a larger size is needed).</li>
+<li>The <a class="el" href="gb_8h.html#SWITCH_ROM">SWITCH_ROM()</a> / ref <a class="el" href="gb_8h.html#SWITCH_RAM">SWITCH_RAM()</a> macros work with MBC5 (up to ROM bank 255, <a class="el" href="gb_8h.html#SWITCH_ROM_MBC5_8M">SWITCH_ROM_MBC5_8M</a> may be used if a larger size is needed).</li>
 <li><b>MBC1 is not recommended</b>. Some banks in it's range are unavailable. See pandocs for more details. <a href="https://gbdev.io/pandocs/MBC1">https://gbdev.io/pandocs/MBC1</a></li>
 </ul>
 <h3><a class="anchor" id="autotoc_md85"></a>
@@ -254,9 +254,9 @@ MBC Type Chart</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">0xFF   </td><td class="markdownTableBodyNone">HuC1   </td><td class="markdownTableBodyNone">SRAM   </td><td class="markdownTableBodyNone">BATTERY   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">IR   </td><td class="markdownTableBodyNone">To Do   </td><td class="markdownTableBodyNone">To Do   </td></tr>
 </table>
-<p >1: Max possible size for MBC is shown. When used with generic <a class="el" href="gb_8h.html#af61262bbc05629f31020afce67e1b9ea">SWITCH_ROM()</a> the max size may be smaller. For example:</p><ul>
+<p >1: Max possible size for MBC is shown. When used with generic <a class="el" href="gb_8h.html#SWITCH_ROM">SWITCH_ROM()</a> the max size may be smaller. For example:</p><ul>
 <li>The max for MBC1 becomes <b>Bank 31</b> (512K)</li>
-<li>The max for MBC5 becomes <b>Bank 255</b> (4MB). To use the full 8MB size of MBC5 see <a class="el" href="gb_8h.html#a6c15ebc660abd3a978137493ab63ffe9">SWITCH_ROM_MBC5_8M()</a>.</li>
+<li>The max for MBC5 becomes <b>Bank 255</b> (4MB). To use the full 8MB size of MBC5 see <a class="el" href="gb_8h.html#SWITCH_ROM_MBC5_8M">SWITCH_ROM_MBC5_8M()</a>.</li>
 </ul>
 <p >2: For MBC1 some banks in it's range are unavailable. See pandocs for more details <a href="https://gbdev.io/pandocs/MBC1">https://gbdev.io/pandocs/MBC1</a></p>
 <p >3: No licensed cartridge makes use of this option. Exact behavior is unknown.</p>
@@ -269,9 +269,9 @@ MBC Type Chart</h2>
 <h2><a class="anchor" id="autotoc_md92"></a>
 Getting Bank Numbers</h2>
 <p >The bank number for a banked function, variable or source file can be stored and retrieved using the following macros:</p><ul>
-<li><a class="el" href="gb_8h.html#a086293f2afb4c7945460a4496b20aea3">BANKREF()</a>: create a reference for retrieving the bank number of a variable or function</li>
-<li><a class="el" href="gb_8h.html#a42705001e2b9897f5167b67fb36c69dd">BANK()</a>: retrieve a bank number using a reference created with <a class="el" href="gb_8h.html#a086293f2afb4c7945460a4496b20aea3">BANKREF()</a></li>
-<li><a class="el" href="gb_8h.html#a261bba55a07b802baf99346feadd9852">BANKREF_EXTERN()</a>: Make a <a class="el" href="gb_8h.html#a086293f2afb4c7945460a4496b20aea3">BANKREF()</a> reference residing in another source file accessible in the current file for use with <a class="el" href="gb_8h.html#a42705001e2b9897f5167b67fb36c69dd">BANK()</a>.</li>
+<li><a class="el" href="gb_8h.html#BANKREF">BANKREF()</a>: create a reference for retrieving the bank number of a variable or function</li>
+<li><a class="el" href="gb_8h.html#BANK">BANK()</a>: retrieve a bank number using a reference created with <a class="el" href="gb_8h.html#BANKREF">BANKREF()</a></li>
+<li><a class="el" href="gb_8h.html#BANKREF_EXTERN">BANKREF_EXTERN()</a>: Make a <a class="el" href="gb_8h.html#BANKREF">BANKREF()</a> reference residing in another source file accessible in the current file for use with <a class="el" href="gb_8h.html#BANK">BANK()</a>.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md93"></a>
 Banking and Functions</h2>
@@ -303,7 +303,7 @@ Banked Function Calls</h3>
 <li>When defined with the <code>BANKED</code> keyword. Example: <code>void my_function() BANKED { do stuff }</code> in a source file which has had its bank set (see above).</li>
 <li>Using <a class="el" href="docs_rombanking_mbcs.html#far_pointers">far_pointers</a></li>
 <li>When defined with an area set up using the <code>__addressmod</code> keyword (see the <code>banks_new</code> example project and the SDCC manual for details).</li>
-<li>Using <a class="el" href="gb_8h.html#af61262bbc05629f31020afce67e1b9ea">SWITCH_ROM()</a> (and related functions for other MBCs) to manually switch in the required bank and then call the function.</li>
+<li>Using <a class="el" href="gb_8h.html#SWITCH_ROM">SWITCH_ROM()</a> (and related functions for other MBCs) to manually switch in the required bank and then call the function.</li>
 </ul>
 <p >Non-banked functions (either in fixed Bank 0, or in an non-banked ROM with no MBC):</p><ul>
 <li>May call functions in any bank: <b>YES</b></li>
@@ -338,10 +338,10 @@ Variables in RAM</h2>
 Far Pointers</h2>
 <p ><a class="anchor" id="far_pointers"></a>Far pointers include a segment (bank) selector so they are able to point to addresses (functions or data) outside of the current bank (unlike normal pointers which are not bank-aware). A set of macros is provided by GBDK 2020 for working with far pointers.</p>
 <p ><b>Warning:</b> Do not call the far pointer function macros from inside interrupt routines (ISRs). The far pointer function macros use a global variable that would not get restored properly if a function called that way was interrupted by another one called the same way. However, they may be called recursively.</p>
-<p >See <a class="el" href="far__ptr_8h.html#a7f4ab1893ea392f8bf042a3b97de4730">FAR_CALL</a>, <a class="el" href="far__ptr_8h.html#a0c227677a96f9bf7e84a90922f2f8708">TO_FAR_PTR</a> and the <code>banks_farptr</code> example project.</p>
+<p >See <a class="el" href="far__ptr_8h.html#FAR_CALL">FAR_CALL</a>, <a class="el" href="far__ptr_8h.html#TO_FAR_PTR">TO_FAR_PTR</a> and the <code>banks_farptr</code> example project.</p>
 <h2><a class="anchor" id="autotoc_md99"></a>
 Bank switching</h2>
-<p >You can manually switch banks using the <a class="el" href="gb_8h.html#af61262bbc05629f31020afce67e1b9ea">SWITCH_ROM()</a>, <a class="el" href="gb_8h.html#a121feb0c32d124562f52398aa9656e7b">SWITCH_RAM()</a>, and other related macros. See <code>banks.c</code> project for an example.</p>
+<p >You can manually switch banks using the <a class="el" href="gb_8h.html#SWITCH_ROM">SWITCH_ROM()</a>, <a class="el" href="gb_8h.html#SWITCH_RAM">SWITCH_RAM()</a>, and other related macros. See <code>banks.c</code> project for an example.</p>
 <p >Note: You can only do a switch_rom_bank call from non-banked <code>_CODE</code> since otherwise you would switch out the code that was executing. Global routines that will be called without an expectation of bank switching should fit within the limited 16k of non-banked <code>_CODE</code>.</p>
 <p ><a class="anchor" id="wrapped_function_for_banked_data"></a></p>
 <h2><a class="anchor" id="autotoc_md100"></a>
@@ -352,35 +352,35 @@ Wrapper Function for Accessing Banked Data</h2>
 <li>And which can be called from code residing in any bank</li>
 </ul>
 <div class="fragment"><div class="line"><span class="comment">// This function is NONBANKED so it resides in fixed Bank 0</span></div>
-<div class="line"><span class="keywordtype">void</span> set_banked_bkg_data(<a class="code hl_typedef" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> first_tile, <a class="code hl_typedef" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> nb_tiles, <span class="keyword">const</span> <a class="code hl_typedef" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *data, <a class="code hl_typedef" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> bank) <a class="code hl_define" href="asm_2types_8h.html#a7ed081d8dfb6902784b2fc730bbb7f96">NONBANKED</a> </div>
+<div class="line"><span class="keywordtype">void</span> set_banked_bkg_data(<a class="code hl_typedef" href="stdint_8h.html#uint8_t">uint8_t</a> first_tile, <a class="code hl_typedef" href="stdint_8h.html#uint8_t">uint8_t</a> nb_tiles, <span class="keyword">const</span> <a class="code hl_typedef" href="stdint_8h.html#uint8_t">uint8_t</a> *data, <a class="code hl_typedef" href="stdint_8h.html#uint8_t">uint8_t</a> bank) <a class="code hl_define" href="asm_2types_8h.html#NONBANKED">NONBANKED</a> </div>
 <div class="line">{</div>
-<div class="line">    <a class="code hl_typedef" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> save = <a class="code hl_define" href="gb_8h.html#ae042588f20bf5a2349c8ad8716245233">CURRENT_BANK</a>;</div>
-<div class="line">    <a class="code hl_function" href="msx_8h.html#ac996706e2a5e73f010841437f26d4d4f">SWITCH_ROM</a>(bank);</div>
-<div class="line">    <a class="code hl_function" href="gb_8h.html#a1f5101f2b7bb0123c26a3e257f843626">set_bkg_data</a>(first_tile, nb_tiles, data);</div>
-<div class="line">    <a class="code hl_function" href="msx_8h.html#ac996706e2a5e73f010841437f26d4d4f">SWITCH_ROM</a>(save);</div>
+<div class="line">    <a class="code hl_typedef" href="stdint_8h.html#uint8_t">uint8_t</a> save = <a class="code hl_define" href="gb_8h.html#CURRENT_BANK">CURRENT_BANK</a>;</div>
+<div class="line">    <a class="code hl_function" href="msx_8h.html#SWITCH_ROM">SWITCH_ROM</a>(bank);</div>
+<div class="line">    <a class="code hl_function" href="gb_8h.html#set_bkg_data">set_bkg_data</a>(first_tile, nb_tiles, data);</div>
+<div class="line">    <a class="code hl_function" href="msx_8h.html#SWITCH_ROM">SWITCH_ROM</a>(save);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// And then it can be called from any bank:</span></div>
-<div class="line">set_banked_bkg_data(&lt;first tile&gt;, &lt;num tiles&gt;, tile_data, <a class="code hl_define" href="gb_8h.html#a42705001e2b9897f5167b67fb36c69dd">BANK</a>(tile_data));</div>
-<div class="ttc" id="aasm_2types_8h_html_a7ed081d8dfb6902784b2fc730bbb7f96"><div class="ttname"><a href="asm_2types_8h.html#a7ed081d8dfb6902784b2fc730bbb7f96">NONBANKED</a></div><div class="ttdeci">#define NONBANKED</div><div class="ttdef"><b>Definition:</b> types.h:40</div></div>
-<div class="ttc" id="agb_8h_html_a1f5101f2b7bb0123c26a3e257f843626"><div class="ttname"><a href="gb_8h.html#a1f5101f2b7bb0123c26a3e257f843626">set_bkg_data</a></div><div class="ttdeci">void set_bkg_data(uint8_t first_tile, uint8_t nb_tiles, const uint8_t *data) OLDCALL PRESERVES_REGS(b</div></div>
-<div class="ttc" id="agb_8h_html_a42705001e2b9897f5167b67fb36c69dd"><div class="ttname"><a href="gb_8h.html#a42705001e2b9897f5167b67fb36c69dd">BANK</a></div><div class="ttdeci">#define BANK(VARNAME)</div><div class="ttdef"><b>Definition:</b> gb.h:547</div></div>
-<div class="ttc" id="agb_8h_html_ae042588f20bf5a2349c8ad8716245233"><div class="ttname"><a href="gb_8h.html#ae042588f20bf5a2349c8ad8716245233">CURRENT_BANK</a></div><div class="ttdeci">#define CURRENT_BANK</div><div class="ttdef"><b>Definition:</b> gb.h:535</div></div>
-<div class="ttc" id="amsx_8h_html_ac996706e2a5e73f010841437f26d4d4f"><div class="ttname"><a href="msx_8h.html#ac996706e2a5e73f010841437f26d4d4f">SWITCH_ROM</a></div><div class="ttdeci">void SWITCH_ROM(uint8_t bank) Z88DK_FASTCALL PRESERVES_REGS(b</div></div>
-<div class="ttc" id="astdint_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition:</b> stdint.h:51</div></div>
+<div class="line">set_banked_bkg_data(&lt;first tile&gt;, &lt;num tiles&gt;, tile_data, <a class="code hl_define" href="gb_8h.html#BANK">BANK</a>(tile_data));</div>
+<div class="ttc" id="aasm_2types_8h_html_NONBANKED"><div class="ttname"><a href="asm_2types_8h.html#NONBANKED">NONBANKED</a></div><div class="ttdeci">#define NONBANKED</div><div class="ttdef"><b>Definition:</b> types.h:40</div></div>
+<div class="ttc" id="agb_8h_html_BANK"><div class="ttname"><a href="gb_8h.html#BANK">BANK</a></div><div class="ttdeci">#define BANK(VARNAME)</div><div class="ttdef"><b>Definition:</b> gb.h:547</div></div>
+<div class="ttc" id="agb_8h_html_CURRENT_BANK"><div class="ttname"><a href="gb_8h.html#CURRENT_BANK">CURRENT_BANK</a></div><div class="ttdeci">#define CURRENT_BANK</div><div class="ttdef"><b>Definition:</b> gb.h:535</div></div>
+<div class="ttc" id="agb_8h_html_set_bkg_data"><div class="ttname"><a href="gb_8h.html#set_bkg_data">set_bkg_data</a></div><div class="ttdeci">void set_bkg_data(uint8_t first_tile, uint8_t nb_tiles, const uint8_t *data) OLDCALL PRESERVES_REGS(b</div></div>
+<div class="ttc" id="amsx_8h_html_SWITCH_ROM"><div class="ttname"><a href="msx_8h.html#SWITCH_ROM">SWITCH_ROM</a></div><div class="ttdeci">void SWITCH_ROM(uint8_t bank) Z88DK_FASTCALL PRESERVES_REGS(b</div></div>
+<div class="ttc" id="astdint_8h_html_uint8_t"><div class="ttname"><a href="stdint_8h.html#uint8_t">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition:</b> stdint.h:51</div></div>
 </div><!-- fragment --><p ><a class="anchor" id="banking_current_bank"></a></p>
 <h2><a class="anchor" id="autotoc_md101"></a>
 Currently active bank: CURRENT_BANK</h2>
-<p >The global variable <a class="el" href="sms_8h.html#ae042588f20bf5a2349c8ad8716245233">CURRENT_BANK</a> (a macro for <a class="el" href="nes_8h.html#a06bab3f8bce032de0d21fbd86e14c3f3">_current_bank</a>) is updated automatically when calling <a class="el" href="gb_8h.html#af61262bbc05629f31020afce67e1b9ea">SWITCH_ROM()</a>, <a class="el" href="gb_8h.html#a19558f5bbc9fea767f945001ae9cd13f">SWITCH_ROM_MBC1()</a> and <a class="el" href="gb_8h.html#a92d040284342702026eb19dab59b586e">SWITCH_ROM_MBC5</a>, or when a <code>BANKED</code> function is called.</p>
+<p >The global variable <a class="el" href="sms_8h.html#CURRENT_BANK">CURRENT_BANK</a> (a macro for <a class="el" href="nes_8h.html#_current_bank">_current_bank</a>) is updated automatically when calling <a class="el" href="gb_8h.html#SWITCH_ROM">SWITCH_ROM()</a>, <a class="el" href="gb_8h.html#SWITCH_ROM_MBC1">SWITCH_ROM_MBC1()</a> and <a class="el" href="gb_8h.html#SWITCH_ROM_MBC5">SWITCH_ROM_MBC5</a>, or when a <code>BANKED</code> function is called.</p>
 <p >Normaly banked calls are used and the active bank does not need to be directly managed, but in the case that it does the following shows how to save and restore it.</p>
 <div class="fragment"><div class="line"><span class="comment">// The current bank can be saved</span></div>
-<div class="line"><a class="code hl_typedef" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _saved_bank = <a class="code hl_define" href="gb_8h.html#ae042588f20bf5a2349c8ad8716245233">CURRENT_BANK</a>;</div>
+<div class="line"><a class="code hl_typedef" href="stdint_8h.html#uint8_t">uint8_t</a> _saved_bank = <a class="code hl_define" href="gb_8h.html#CURRENT_BANK">CURRENT_BANK</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Call some function which changes the bank but does not restore it</span></div>
 <div class="line"><span class="comment">// ...</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// And then restored if needed</span></div>
-<div class="line"><a class="code hl_function" href="msx_8h.html#ac996706e2a5e73f010841437f26d4d4f">SWITCH_ROM</a>(_saved_bank);</div>
+<div class="line"><a class="code hl_function" href="msx_8h.html#SWITCH_ROM">SWITCH_ROM</a>(_saved_bank);</div>
 </div><!-- fragment --><p ><a class="anchor" id="rom_autobanking"></a></p>
 <h1><a class="anchor" id="autotoc_md102"></a>
 Auto-Banking</h1>
@@ -391,7 +391,7 @@ Auto-Banking</h1>
 <p >In the source files you want auto-banked, do the following:</p><ul>
 <li>Set the source file to be autobanked <code>#pragma bank 255</code> (this sets the temporary bank to <code>255</code>, which <a class="el" href="docs_toolchain.html#bankpack">bankpack</a> then updates when repacking).</li>
 <li>Create a reference to store the bank number for that source file: <code>BANKREF(&lt;some-bank-reference-name&gt;)</code>.<ul>
-<li>More than one <code><a class="el" href="gb_8h.html#a086293f2afb4c7945460a4496b20aea3">BANKREF()</a></code> may be created per file, but they should always have unique names.</li>
+<li>More than one <code><a class="el" href="gb_8h.html#BANKREF">BANKREF()</a></code> may be created per file, but they should always have unique names.</li>
 </ul>
 </li>
 </ul>
@@ -401,16 +401,16 @@ Auto-Banking</h1>
 </ul>
 <p >Example: level_1_map.c</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#pragma bank 255</span></div>
-<div class="line"><a class="code hl_define" href="gb_8h.html#a086293f2afb4c7945460a4496b20aea3">BANKREF</a>(level_1_map)</div>
+<div class="line"><a class="code hl_define" href="gb_8h.html#BANKREF">BANKREF</a>(level_1_map)</div>
 <div class="line">...</div>
-<div class="line">const <a class="code hl_typedef" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> level_1_map[] = {... some map data here ...};</div>
-<div class="ttc" id="agb_8h_html_a086293f2afb4c7945460a4496b20aea3"><div class="ttname"><a href="gb_8h.html#a086293f2afb4c7945460a4496b20aea3">BANKREF</a></div><div class="ttdeci">#define BANKREF(VARNAME)</div><div class="ttdef"><b>Definition:</b> gb.h:562</div></div>
+<div class="line">const <a class="code hl_typedef" href="stdint_8h.html#uint8_t">uint8_t</a> level_1_map[] = {... some map data here ...};</div>
+<div class="ttc" id="agb_8h_html_BANKREF"><div class="ttname"><a href="gb_8h.html#BANKREF">BANKREF</a></div><div class="ttdeci">#define BANKREF(VARNAME)</div><div class="ttdef"><b>Definition:</b> gb.h:562</div></div>
 </div><!-- fragment --><p >Accessing that data: main.c</p>
-<div class="fragment"><div class="line"><a class="code hl_define" href="gb_8h.html#a261bba55a07b802baf99346feadd9852">BANKREF_EXTERN</a>(level_1_map)</div>
+<div class="fragment"><div class="line"><a class="code hl_define" href="gb_8h.html#BANKREF_EXTERN">BANKREF_EXTERN</a>(level_1_map)</div>
 <div class="line">...</div>
-<div class="line">SWITCH_ROM( <a class="code hl_define" href="gb_8h.html#a42705001e2b9897f5167b67fb36c69dd">BANK</a>(level_1_map) );</div>
+<div class="line">SWITCH_ROM( <a class="code hl_define" href="gb_8h.html#BANK">BANK</a>(level_1_map) );</div>
 <div class="line"><span class="comment">// Do something with level_1_map[]</span></div>
-<div class="ttc" id="agb_8h_html_a261bba55a07b802baf99346feadd9852"><div class="ttname"><a href="gb_8h.html#a261bba55a07b802baf99346feadd9852">BANKREF_EXTERN</a></div><div class="ttdeci">#define BANKREF_EXTERN(VARNAME)</div><div class="ttdef"><b>Definition:</b> gb.h:579</div></div>
+<div class="ttc" id="agb_8h_html_BANKREF_EXTERN"><div class="ttname"><a href="gb_8h.html#BANKREF_EXTERN">BANKREF_EXTERN</a></div><div class="ttdeci">#define BANKREF_EXTERN(VARNAME)</div><div class="ttdef"><b>Definition:</b> gb.h:579</div></div>
 </div><!-- fragment --><p >Features and Notes:</p><ul>
 <li>Fixed banked source files can be used in the same project as auto-banked source files. The bankpack tool will attempt to pack the auto-banked source files as efficiently as possible around the fixed-bank ones.</li>
 </ul>
@@ -433,7 +433,7 @@ Bank space usage</h1>
 <h2><a class="anchor" id="autotoc_md105"></a>
 Other important notes</h2>
 <ul>
-<li>The <a class="el" href="gb_8h.html#a92d040284342702026eb19dab59b586e">SWITCH_ROM_MBC5</a> macro is not interrupt-safe. If using less than 256 banks you may always use SWITCH_ROM - that is faster. Even if you use mbc5 hardware chip in the cart.</li>
+<li>The <a class="el" href="gb_8h.html#SWITCH_ROM_MBC5">SWITCH_ROM_MBC5</a> macro is not interrupt-safe. If using less than 256 banks you may always use SWITCH_ROM - that is faster. Even if you use mbc5 hardware chip in the cart.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md106"></a>
 Banking example projects</h1>
@@ -452,14 +452,14 @@ SMS/Game Gear Banking</h1>
 <li>Frame 1: <code>CODE_&lt;N&gt;</code>, at address <code>0x4000 - 0x7FFF</code><ul>
 <li>Use for: Banked Code and Assets</li>
 <li>Example: <code>#pragma codeseg CODE_2</code> or <code>#pragma codeseg CODE_255</code> for autobanking (no leading underscore)</li>
-<li>Select the active bank using: <a class="el" href="gb_8h.html#af61262bbc05629f31020afce67e1b9ea">SWITCH_ROM()</a>. The current active bank can be queried using <a class="el" href="sms_8h.html#ae042588f20bf5a2349c8ad8716245233">CURRENT_BANK</a> or <code>MAP_FRAME1</code></li>
+<li>Select the active bank using: <a class="el" href="gb_8h.html#SWITCH_ROM">SWITCH_ROM()</a>. The current active bank can be queried using <a class="el" href="sms_8h.html#CURRENT_BANK">CURRENT_BANK</a> or <code>MAP_FRAME1</code></li>
 </ul>
 </li>
 <li>Frame 2: <code>_LIT_&lt;N&gt;</code>, at address 0x8000- 0xBFFF<ul>
 <li>Use for: Assets</li>
 <li><code>_DATA_N</code> may also be mapped into Frame 2 (RAM)</li>
 <li>Example: <code>#pragma codeseg LIT_2</code> or <code>#pragma codeseg LIT_255</code> for autobanking (no leading underscore)</li>
-<li>Select the active bank using <a class="el" href="msx_8h.html#a6d40a15ff27c2a1c8269d3dbe67eae65">SWITCH_ROM2()</a>. The current active bank can be queried using <code>MAP_FRAME2</code></li>
+<li>Select the active bank using <a class="el" href="msx_8h.html#SWITCH_ROM2">SWITCH_ROM2()</a>. The current active bank can be queried using <code>MAP_FRAME2</code></li>
 </ul>
 </li>
 </ul>
