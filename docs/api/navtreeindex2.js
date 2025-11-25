@@ -1,9 +1,9 @@
 var NAVTREEINDEX2 =
 {
-"docs_using_gbdk.html#autotoc_md64":[0,6,4,1],
-"docs_using_gbdk.html#autotoc_md65":[0,6,5],
-"docs_using_gbdk.html#autotoc_md66":[0,6,6],
-"docs_using_gbdk.html#autotoc_md67":[0,6,6,0],
+"docs_using_gbdk.html#autotoc_md55":[0,6,4,1],
+"docs_using_gbdk.html#autotoc_md56":[0,6,5],
+"docs_using_gbdk.html#autotoc_md57":[0,6,6],
+"docs_using_gbdk.html#autotoc_md58":[0,6,6,0],
 "drawing_8h.html":[4,0,1,0,2,4],
 "drawing_8h.html#a08cbc66092284f7da94279f986a0aae9":[4,0,1,0,2,4,13],
 "drawing_8h.html#a0ffe2221c8690dc80b5f9553474dd096":[4,0,1,0,2,4,7],

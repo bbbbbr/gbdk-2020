@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['plot_1680',['plot',['../drawing_8h.html#ac888c327137d7f00cb3af57af236602a',1,'drawing.h']]],
-  ['plot_5fpoint_1681',['plot_point',['../drawing_8h.html#a595c77bca15884c75fd85af84f373814',1,'drawing.h']]],
-  ['posx_1682',['posx',['../console_8h.html#ad3c65a82dfb7812bb8824bd053c733bb',1,'console.h']]],
-  ['posy_1683',['posy',['../console_8h.html#ac3c7a63f972de763d137a9150eeb18a6',1,'console.h']]],
-  ['printf_1684',['printf',['../stdio_8h.html#a133c04c35a1c14c6f8d8078831705661',1,'stdio.h']]],
-  ['putchar_1685',['putchar',['../stdio_8h.html#aab41487f7727cf7eb7377f9b8f494c58',1,'stdio.h']]],
-  ['puts_1686',['puts',['../stdio_8h.html#a299d0f9cb9e7b14e1278a4ed21e4d76f',1,'stdio.h']]]
+  ['plot_0',['plot',['../drawing_8h.html#ac888c327137d7f00cb3af57af236602a',1,'drawing.h']]],
+  ['plot_5fpoint_1',['plot_point',['../drawing_8h.html#a595c77bca15884c75fd85af84f373814',1,'drawing.h']]],
+  ['posx_2',['posx',['../console_8h.html#ad3c65a82dfb7812bb8824bd053c733bb',1,'console.h']]],
+  ['posy_3',['posy',['../console_8h.html#ac3c7a63f972de763d137a9150eeb18a6',1,'console.h']]],
+  ['printf_4',['printf',['../stdio_8h.html#a133c04c35a1c14c6f8d8078831705661',1,'stdio.h']]],
+  ['putchar_5',['putchar',['../stdio_8h.html#aab41487f7727cf7eb7377f9b8f494c58',1,'stdio.h']]],
+  ['puts_6',['puts',['../stdio_8h.html#a299d0f9cb9e7b14e1278a4ed21e4d76f',1,'stdio.h']]]
 ];
