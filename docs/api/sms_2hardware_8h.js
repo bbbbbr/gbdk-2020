@@ -5,7 +5,7 @@ var sms_2hardware_8h =
     [ "GGSTATE_STT", "sms_2hardware_8h.html#ac47372b55b9220014f56cd5d82ad4f6a", null ],
     [ "GGSTATE_NJAP", "sms_2hardware_8h.html#afbcd35f381a5a019f0ba68c125a3b0b6", null ],
     [ "GGSTATE_NNTS", "sms_2hardware_8h.html#a57ce09982f2d20989540a1c4f207f992", null ],
-    [ "GGEXT_NINIT", "sms_2hardware_8h.html#ad68641fd6be1f4032c688dcdf9c0ff5e", null ],
+    [ "GGEXT_NINT", "sms_2hardware_8h.html#a1b09c3699494da74b30bb836be186c36", null ],
     [ "SIOCTL_TXFL", "sms_2hardware_8h.html#a48bb341314dd449f124e5a9a91767cc2", null ],
     [ "SIOCTL_RXRD", "sms_2hardware_8h.html#a2f356619237cafd166d4399d8fca63d8", null ],
     [ "SIOCTL_FRER", "sms_2hardware_8h.html#ae27ff078ad5f80282990bfb1cf5e1d32", null ],

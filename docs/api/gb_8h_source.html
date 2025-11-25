@@ -19,7 +19,19 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<!-- BEGIN: doxygen-awesome-css -->
+        <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeDarkModeToggle.init()
+        </script>
+        <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeParagraphLink.init()
+        </script>        
+<!-- END: doxygen-awesome-css -->
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -409,7 +421,7 @@ $(document).ready(function(){initNavTree('gb_8h_source.html',''); initResizable(
 <div class="line"><a name="l00992"></a><span class="lineno"><a class="line" href="gb_8h.html#ae32250cfb4daaa1fff7250a0e3f0ad0f">  992</a></span>&#160;<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="gb_8h.html#ae32250cfb4daaa1fff7250a0e3f0ad0f">get_vram_byte</a>(<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> * addr) <a class="code" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="code" href="gb_8h.html#a4c2e4adef74067fdbb49005bc73de937">b</a>, <a class="code" href="gb_8h.html#a0b3366755f3276b0243c1e0497471b7a">c</a>, <a class="code" href="gb_8h.html#aba4fa6f13f80e53daeb0caa7b1ec8afb">h</a>, <a class="code" href="gb_8h.html#af79b920bcb642bba2e652874c4f7eeff">l</a>);</div>
 <div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160; </div>
 <div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160; </div>
-<div class="line"><a name="l00998"></a><span class="lineno"><a class="line" href="gb_8h.html#a9005b80d3315f50f0fb0e1728e7ee60f">  998</a></span>&#160;<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> * <a class="code" href="gb_8h.html#a9005b80d3315f50f0fb0e1728e7ee60f">get_bkg_xy_addr</a>(<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y) <a class="code" href="asm_2types_8h.html#a0971918860055db2e50dacea4da8f3bc">OLDCALL</a> <a class="code" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="code" href="gb_8h.html#a4c2e4adef74067fdbb49005bc73de937">b</a>, <a class="code" href="gb_8h.html#a0b3366755f3276b0243c1e0497471b7a">c</a>);</div>
+<div class="line"><a name="l00998"></a><span class="lineno"><a class="line" href="gb_8h.html#a33383252fdc7f22b7c1c993c12581946">  998</a></span>&#160;<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> * <a class="code" href="gb_8h.html#a33383252fdc7f22b7c1c993c12581946">get_bkg_xy_addr</a>(<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y) <a class="code" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="code" href="gb_8h.html#aba4fa6f13f80e53daeb0caa7b1ec8afb">h</a>, <a class="code" href="gb_8h.html#af79b920bcb642bba2e652874c4f7eeff">l</a>);</div>
 <div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160; </div>
 <div class="line"><a name="l01000"></a><span class="lineno"><a class="line" href="gb_8h.html#a67f80e65620470b55a4950e2966eb868"> 1000</a></span>&#160;<span class="preprocessor">#define COMPAT_PALETTE(C0,C1,C2,C3) ((uint8_t)(((C3) &lt;&lt; 6) | ((C2) &lt;&lt; 4) | ((C1) &lt;&lt; 2) | (C0)))</span></div>
 <div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160; </div>
@@ -505,7 +517,7 @@ $(document).ready(function(){initNavTree('gb_8h_source.html',''); initResizable(
 <div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160; </div>
 <div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160; </div>
 <div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160; </div>
-<div class="line"><a name="l01483"></a><span class="lineno"><a class="line" href="gb_8h.html#aa8213cfad631865e3b6faec18e772cb4"> 1483</a></span>&#160;<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> * <a class="code" href="gb_8h.html#aa8213cfad631865e3b6faec18e772cb4">get_win_xy_addr</a>(<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y) <a class="code" href="asm_2types_8h.html#a0971918860055db2e50dacea4da8f3bc">OLDCALL</a> <a class="code" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="code" href="gb_8h.html#a4c2e4adef74067fdbb49005bc73de937">b</a>, <a class="code" href="gb_8h.html#a0b3366755f3276b0243c1e0497471b7a">c</a>);</div>
+<div class="line"><a name="l01483"></a><span class="lineno"><a class="line" href="gb_8h.html#a385a8503a8cc20f0c35d3123b699797f"> 1483</a></span>&#160;<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> * <a class="code" href="gb_8h.html#a385a8503a8cc20f0c35d3123b699797f">get_win_xy_addr</a>(<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y) <a class="code" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="code" href="gb_8h.html#aba4fa6f13f80e53daeb0caa7b1ec8afb">h</a>, <a class="code" href="gb_8h.html#af79b920bcb642bba2e652874c4f7eeff">l</a>);</div>
 <div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160; </div>
 <div class="line"><a name="l01498"></a><span class="lineno"><a class="line" href="gb_8h.html#ac2bf0c4919c30d322fa5853c896e710f"> 1498</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="gb_8h.html#ac2bf0c4919c30d322fa5853c896e710f">set_win_data</a>(<a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> first_tile, <a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> nb_tiles, <span class="keyword">const</span> <a class="code" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *data) <a class="code" href="asm_2types_8h.html#a0971918860055db2e50dacea4da8f3bc">OLDCALL</a> <a class="code" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="code" href="gb_8h.html#a4c2e4adef74067fdbb49005bc73de937">b</a>, <a class="code" href="gb_8h.html#a0b3366755f3276b0243c1e0497471b7a">c</a>);</div>
 <div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160; </div>
@@ -710,8 +722,10 @@ $(document).ready(function(){initNavTree('gb_8h_source.html',''); initResizable(
 <div class="ttc" id="agb_8h_html_a2e29fdca81c28c627c2591029722e71c"><div class="ttname"><a href="gb_8h.html#a2e29fdca81c28c627c2591029722e71c">get_win_tile_xy</a></div><div class="ttdeci">uint8_t get_win_tile_xy(uint8_t x, uint8_t y) OLDCALL PRESERVES_REGS(b</div></div>
 <div class="ttc" id="agb_8h_html_a2e3415ce2f7fb63427618bd9b9cb6635"><div class="ttname"><a href="gb_8h.html#a2e3415ce2f7fb63427618bd9b9cb6635">_io_status</a></div><div class="ttdeci">volatile uint8_t _io_status</div></div>
 <div class="ttc" id="agb_8h_html_a325751f7e2373601d2a7a94671deef29"><div class="ttname"><a href="gb_8h.html#a325751f7e2373601d2a7a94671deef29">remove_SIO</a></div><div class="ttdeci">void remove_SIO(int_handler h)</div></div>
+<div class="ttc" id="agb_8h_html_a33383252fdc7f22b7c1c993c12581946"><div class="ttname"><a href="gb_8h.html#a33383252fdc7f22b7c1c993c12581946">get_bkg_xy_addr</a></div><div class="ttdeci">uint8_t * get_bkg_xy_addr(uint8_t x, uint8_t y) PRESERVES_REGS(h</div></div>
 <div class="ttc" id="agb_8h_html_a34d6500215984e8f9a986523a2f2dadd"><div class="ttname"><a href="gb_8h.html#a34d6500215984e8f9a986523a2f2dadd">receive_byte</a></div><div class="ttdeci">void receive_byte(void)</div></div>
 <div class="ttc" id="agb_8h_html_a3619f9cb1e3c92238a033ead79a0c551"><div class="ttname"><a href="gb_8h.html#a3619f9cb1e3c92238a033ead79a0c551">shadow_OAM</a></div><div class="ttdeci">volatile struct OAM_item_t shadow_OAM[]</div></div>
+<div class="ttc" id="agb_8h_html_a385a8503a8cc20f0c35d3123b699797f"><div class="ttname"><a href="gb_8h.html#a385a8503a8cc20f0c35d3123b699797f">get_win_xy_addr</a></div><div class="ttdeci">uint8_t * get_win_xy_addr(uint8_t x, uint8_t y) PRESERVES_REGS(h</div></div>
 <div class="ttc" id="agb_8h_html_a3aea9deb2a0bfea9ff05a898f4822e31"><div class="ttname"><a href="gb_8h.html#a3aea9deb2a0bfea9ff05a898f4822e31">reset</a></div><div class="ttdeci">void reset(void)</div><div class="ttdef"><b>Definition:</b> nes.h:534</div></div>
 <div class="ttc" id="agb_8h_html_a3dcce95daec5b42fc14a8938ef2cf503"><div class="ttname"><a href="gb_8h.html#a3dcce95daec5b42fc14a8938ef2cf503">set_bkg_attribute_xy</a></div><div class="ttdeci">uint8_t * set_bkg_attribute_xy(uint8_t x, uint8_t y, uint8_t a)</div><div class="ttdef"><b>Definition:</b> gb.h:1420</div></div>
 <div class="ttc" id="agb_8h_html_a4093fb5f45f807fe8d4a45121f3fffc5"><div class="ttname"><a href="gb_8h.html#a4093fb5f45f807fe8d4a45121f3fffc5">get_system</a></div><div class="ttdeci">uint8_t get_system(void)</div><div class="ttdef"><b>Definition:</b> gb.h:426</div></div>
@@ -750,7 +764,6 @@ $(document).ready(function(){initNavTree('gb_8h_source.html',''); initResizable(
 <div class="ttc" id="agb_8h_html_a874b9bd95b0a05d6a6072feabc879e45"><div class="ttname"><a href="gb_8h.html#a874b9bd95b0a05d6a6072feabc879e45">_cpu</a></div><div class="ttdeci">uint8_t _cpu</div></div>
 <div class="ttc" id="agb_8h_html_a8a469de4c6640f921254b336b5a6191a"><div class="ttname"><a href="gb_8h.html#a8a469de4c6640f921254b336b5a6191a">get_win_tiles</a></div><div class="ttdeci">void get_win_tiles(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t *tiles) OLDCALL PRESERVES_REGS(b</div></div>
 <div class="ttc" id="agb_8h_html_a8e5ea12b86bdfc812448c2f5c4336c03"><div class="ttname"><a href="gb_8h.html#a8e5ea12b86bdfc812448c2f5c4336c03">OAM_item_t</a></div><div class="ttdeci">struct OAM_item_t OAM_item_t</div></div>
-<div class="ttc" id="agb_8h_html_a9005b80d3315f50f0fb0e1728e7ee60f"><div class="ttname"><a href="gb_8h.html#a9005b80d3315f50f0fb0e1728e7ee60f">get_bkg_xy_addr</a></div><div class="ttdeci">uint8_t * get_bkg_xy_addr(uint8_t x, uint8_t y) OLDCALL PRESERVES_REGS(b</div></div>
 <div class="ttc" id="agb_8h_html_a9508f919d9482d1d51534ccac212454d"><div class="ttname"><a href="gb_8h.html#a9508f919d9482d1d51534ccac212454d">int_handler</a></div><div class="ttdeci">void(* int_handler)(void) NONBANKED</div><div class="ttdef"><b>Definition:</b> gb.h:184</div></div>
 <div class="ttc" id="agb_8h_html_a97b9f2fc6ac7cae97656aca940d65d44"><div class="ttname"><a href="gb_8h.html#a97b9f2fc6ac7cae97656aca940d65d44">hiramcpy</a></div><div class="ttdeci">void hiramcpy(uint8_t dst, const void *src, uint8_t n) OLDCALL PRESERVES_REGS(b</div></div>
 <div class="ttc" id="agb_8h_html_a97bab71effd5e4e386629cb6ca5816cf"><div class="ttname"><a href="gb_8h.html#a97bab71effd5e4e386629cb6ca5816cf">vmemset</a></div><div class="ttdeci">void vmemset(void *s, uint8_t c, size_t n) OLDCALL PRESERVES_REGS(b</div></div>
@@ -761,7 +774,6 @@ $(document).ready(function(){initNavTree('gb_8h_source.html',''); initResizable(
 <div class="ttc" id="agb_8h_html_aa1bf03fa405248ec322b2a02d95975de"><div class="ttname"><a href="gb_8h.html#aa1bf03fa405248ec322b2a02d95975de">get_mode</a></div><div class="ttdeci">uint8_t get_mode(void) PRESERVES_REGS(b</div></div>
 <div class="ttc" id="agb_8h_html_aa224c9bac27c7fd268e62bdf33338a84"><div class="ttname"><a href="gb_8h.html#aa224c9bac27c7fd268e62bdf33338a84">set_2bpp_palette</a></div><div class="ttdeci">void set_2bpp_palette(uint16_t palette)</div><div class="ttdef"><b>Definition:</b> gb.h:1004</div></div>
 <div class="ttc" id="agb_8h_html_aa6bcf24d97f93307b30f2906251f39a0"><div class="ttname"><a href="gb_8h.html#aa6bcf24d97f93307b30f2906251f39a0">get_bkg_tiles</a></div><div class="ttdeci">void get_bkg_tiles(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t *tiles) OLDCALL PRESERVES_REGS(b</div></div>
-<div class="ttc" id="agb_8h_html_aa8213cfad631865e3b6faec18e772cb4"><div class="ttname"><a href="gb_8h.html#aa8213cfad631865e3b6faec18e772cb4">get_win_xy_addr</a></div><div class="ttdeci">uint8_t * get_win_xy_addr(uint8_t x, uint8_t y) OLDCALL PRESERVES_REGS(b</div></div>
 <div class="ttc" id="agb_8h_html_aa82205e9629f984d0b3dc8055c211522"><div class="ttname"><a href="gb_8h.html#aa82205e9629f984d0b3dc8055c211522">_map_tile_offset</a></div><div class="ttdeci">uint8_t _map_tile_offset</div></div>
 <div class="ttc" id="agb_8h_html_aa9e3edd5311290cba933c382cf2f5898"><div class="ttname"><a href="gb_8h.html#aa9e3edd5311290cba933c382cf2f5898">set_sprite_native_data</a></div><div class="ttdeci">void set_sprite_native_data(uint8_t first_tile, uint8_t nb_tiles, const uint8_t *data)</div><div class="ttdef"><b>Definition:</b> gb.h:2184</div></div>
 <div class="ttc" id="agb_8h_html_aaad2823459f54a08a18be59d4c3d63d8"><div class="ttname"><a href="gb_8h.html#aaad2823459f54a08a18be59d4c3d63d8">set_bkg_tile_xy</a></div><div class="ttdeci">uint8_t * set_bkg_tile_xy(uint8_t x, uint8_t y, uint8_t t)</div></div>
@@ -821,9 +833,12 @@ $(document).ready(function(){initNavTree('gb_8h_source.html',''); initResizable(
 <div class="ttc" id="aversion_8h_html"><div class="ttname"><a href="version_8h.html">version.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.14-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8bd3092e915ccc8a773a74e0a10d4d15.html">gbdk-lib</a></li><li class="navelem"><a class="el" href="dir_a9f896cff747ba031115e41245385c17.html">include</a></li><li class="navelem"><a class="el" href="dir_bdfe001eb73b667f67d57fb851301eb1.html">gb</a></li><li class="navelem"><a class="el" href="gb_8h.html">gb.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
 </div>
 </body>
 </html>

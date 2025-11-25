@@ -19,7 +19,19 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<!-- BEGIN: doxygen-awesome-css -->
+        <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeDarkModeToggle.init()
+        </script>
+        <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeParagraphLink.init()
+        </script>        
+<!-- END: doxygen-awesome-css -->
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -91,7 +103,7 @@ $(document).ready(function(){initNavTree('docs_faq.html',''); initResizable(); }
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="toolchain_faq"></a></p>
-<h1><a class="anchor" id="autotoc_md219"></a>
+<h1><a class="anchor" id="autotoc_md220"></a>
 General</h1>
 <ul>
 <li>How can sound effects be made?<ul>
@@ -100,7 +112,7 @@ General</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md220"></a>
+<h1><a class="anchor" id="autotoc_md221"></a>
 Licensing</h1>
 <ul>
 <li>What license information is required when distributing the compiled ROM (binary) of my game or program?<ul>
@@ -109,7 +121,7 @@ Licensing</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md221"></a>
+<h1><a class="anchor" id="autotoc_md222"></a>
 Graphics and Resources</h1>
 <ul>
 <li>How do I use a tile map when its tiles don't start at index zero?<ul>
@@ -127,7 +139,7 @@ Graphics and Resources</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md222"></a>
+<h1><a class="anchor" id="autotoc_md223"></a>
 ROM Header Settings</h1>
 <ul>
 <li>How do I set the ROM's title?<ul>
@@ -154,7 +166,7 @@ ROM Header Settings</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md223"></a>
+<h1><a class="anchor" id="autotoc_md224"></a>
 Editors</h1>
 <ul>
 <li>Why is VSCode flagging some GBDK types or functions as unidentified or giving warnings about them?<ul>
@@ -163,7 +175,7 @@ Editors</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md224"></a>
+<h1><a class="anchor" id="autotoc_md225"></a>
 Errors and Warnings</h1>
 <p><a class="anchor" id="faq_gbz80_sm83_old_port_name_error"></a></p><ul>
 <li>What does the error <code>old "gbz80" SDCC PORT name specified (in "-mgbz80:gb"). Use "sm83" instead. You must update your build settings.</code> mean?<ul>
@@ -252,7 +264,7 @@ Errors and Warnings</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md225"></a>
+<h1><a class="anchor" id="autotoc_md226"></a>
 Debugging / Compiling / Toolchain</h1>
 <ul>
 <li>What flags should be enabled for debugging?<ul>
@@ -287,7 +299,7 @@ Debugging / Compiling / Toolchain</h1>
 <li>Known issue: SDCC may fail on Windows when <a class="el" href="docs_getting_started.html#windows_sdcc_non_c_drive_path_spaces">run from folder names with spaces on non-C drives</a>. <br  />
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md226"></a>
+<h1><a class="anchor" id="autotoc_md227"></a>
 API / Utilities</h1>
 <ul>
 <li>Is there a list of all functions in the API?<ul>
@@ -308,8 +320,8 @@ API / Utilities</h1>
 </ul>
 </li>
 <li>How can maps larger than 32x32 tiles be scrolled? &amp; Why is the map wrapping around to the left side when setting a map wider than 32 tiles with <a class="el" href="gb_8h.html#a1f5101f2b7bb0123c26a3e257f843626">set_bkg_data()</a>?<ul>
-<li>The hardware Background map is 32 x 32 tiles. The screen viewport that can be scrolled around that map is 20 x 18 tiles. In order to scroll around within a much larger map, new tiles must be loaded at the edges of the screen viewport in the direction that it is being scrolled. <a class="el" href="sms_8h.html#a0cfd261bc7a94b1f6093f423bad30298">set_bkg_submap</a> can be used to load those rows and columns of tiles from the desired sub-region of the large map.</li>
-<li>See the "Large Map" example program and <a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap()</a>.</li>
+<li>The hardware Background map is 32 x 32 tiles. The screen viewport that can be scrolled around that map is 20 x 18 tiles. In order to scroll around within a much larger map, new tiles must be loaded at the edges of the screen viewport in the direction that it is being scrolled. <a class="el" href="nes_8h.html#ac2c9fd8d613ad8ba52227c5a056e56fa">set_bkg_submap</a> can be used to load those rows and columns of tiles from the desired sub-region of the large map.</li>
+<li>See the "Large Map" example program and <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a>.</li>
 <li>Writes that exceed coordinate 31 of the Background tile map on the x or y axis will wrap around to the Left and Top edges. <br  />
 </li>
 </ul>
@@ -332,9 +344,12 @@ API / Utilities</h1>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.14-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="index.html">General Documentation</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
 </div>
 </body>
 </html>

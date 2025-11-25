@@ -19,7 +19,19 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<!-- BEGIN: doxygen-awesome-css -->
+        <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeDarkModeToggle.init()
+        </script>
+        <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeParagraphLink.init()
+        </script>        
+<!-- END: doxygen-awesome-css -->
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -172,26 +184,26 @@ $(document).ready(function(){initNavTree('globals_d.html',''); initResizable(); 
 , <a class="el" href="nes_8h.html#abfd70bf31185a4900680977c9fb5a5ec">nes.h</a>
 , <a class="el" href="sms_8h.html#abfd70bf31185a4900680977c9fb5a5ec">sms.h</a>
 </li>
-<li>DISPLAY_OFF
-: <a class="el" href="gb_8h.html#ad2ec9831813c5e7069917aa4455af682">gb.h</a>
-, <a class="el" href="msx_8h.html#ad2ec9831813c5e7069917aa4455af682">msx.h</a>
-, <a class="el" href="nes_8h.html#ad2ec9831813c5e7069917aa4455af682">nes.h</a>
-, <a class="el" href="sms_8h.html#ad2ec9831813c5e7069917aa4455af682">sms.h</a>
-</li>
 <li>display_off()
 : <a class="el" href="gb_8h.html#aae96812c15f9003428180ec3d0964145">gb.h</a>
 , <a class="el" href="msx_8h.html#afe5714734a8fea7b1617ba377b3c0a06">msx.h</a>
 , <a class="el" href="nes_8h.html#a98aab5a3d75429f9e7861a8100629782">nes.h</a>
 , <a class="el" href="sms_8h.html#afe5714734a8fea7b1617ba377b3c0a06">sms.h</a>
 </li>
-<li>DISPLAY_ON
-: <a class="el" href="sms_8h.html#a5ae6b05b3e1559c97f0d1b2daaaa0ee4">sms.h</a>
-, <a class="el" href="nes_8h.html#a5ae6b05b3e1559c97f0d1b2daaaa0ee4">nes.h</a>
-, <a class="el" href="gb_8h.html#a5ae6b05b3e1559c97f0d1b2daaaa0ee4">gb.h</a>
-, <a class="el" href="msx_8h.html#a5ae6b05b3e1559c97f0d1b2daaaa0ee4">msx.h</a>
+<li>DISPLAY_OFF
+: <a class="el" href="gb_8h.html#ad2ec9831813c5e7069917aa4455af682">gb.h</a>
+, <a class="el" href="msx_8h.html#ad2ec9831813c5e7069917aa4455af682">msx.h</a>
+, <a class="el" href="nes_8h.html#ad2ec9831813c5e7069917aa4455af682">nes.h</a>
+, <a class="el" href="sms_8h.html#ad2ec9831813c5e7069917aa4455af682">sms.h</a>
 </li>
 <li>display_on()
 : <a class="el" href="nes_8h.html#a42756a31babdcb4b7e692960a069b13b">nes.h</a>
+</li>
+<li>DISPLAY_ON
+: <a class="el" href="sms_8h.html#a5ae6b05b3e1559c97f0d1b2daaaa0ee4">sms.h</a>
+, <a class="el" href="msx_8h.html#a5ae6b05b3e1559c97f0d1b2daaaa0ee4">msx.h</a>
+, <a class="el" href="nes_8h.html#a5ae6b05b3e1559c97f0d1b2daaaa0ee4">nes.h</a>
+, <a class="el" href="gb_8h.html#a5ae6b05b3e1559c97f0d1b2daaaa0ee4">gb.h</a>
 </li>
 <li>DIV_REG
 : <a class="el" href="msx_8h.html#a2032c420256dfa5c5c62fe73841fa56d">msx.h</a>
@@ -251,8 +263,8 @@ $(document).ready(function(){initNavTree('globals_d.html',''); initResizable(); 
 <li>DUCK_IO_CMD_PLAY_SPEECH
 : <a class="el" href="laptop__io_8h.html#acbb9af8b76fecc11b2ec9e18fbafef58">laptop_io.h</a>
 </li>
-<li>DUCK_IO_CMD_PRINT_INIT_MAYBE_EXT_IO
-: <a class="el" href="laptop__io_8h.html#a2baed3d9ef122b1a7a4ffe30377a3e27">laptop_io.h</a>
+<li>DUCK_IO_CMD_PRINT_INIT_EXT_IO
+: <a class="el" href="laptop__io_8h.html#aecd51d19e1418dd251e86701dff4912b">laptop_io.h</a>
 </li>
 <li>DUCK_IO_CMD_PRINT_SEND_BYTES
 : <a class="el" href="laptop__io_8h.html#ade3655df70d9a5941df058f89c9a729c">laptop_io.h</a>
@@ -647,29 +659,23 @@ $(document).ready(function(){initNavTree('globals_d.html',''); initResizable(); 
 <li>DUCK_IO_LEN_TX_MAX
 : <a class="el" href="laptop__io_8h.html#a2cd86d57ca4966dfabd7a29ba2af11ab">laptop_io.h</a>
 </li>
-<li>duck_io_printer_detected()
-: <a class="el" href="laptop__io_8h.html#a6e11278ebd2a981030285ba8999c9a60">laptop_io.h</a>
+<li>DUCK_IO_PRINTER_FAIL
+: <a class="el" href="laptop__io_8h.html#a507c9326f35d64b2452771f21219ae2b">laptop_io.h</a>
 </li>
-<li>DUCK_IO_PRINTER_INIT_FAIL
-: <a class="el" href="laptop__io_8h.html#abc1d5cad1930852f03919f9093eec4a5">laptop_io.h</a>
+<li>duck_io_printer_last_status()
+: <a class="el" href="laptop__io_8h.html#abb14155d1ee2971c05219ca0247153e5">laptop_io.h</a>
 </li>
-<li>DUCK_IO_PRINTER_INIT_MASK
-: <a class="el" href="laptop__io_8h.html#a4c3cc7352c2873d11e82dca46c4a9a7f">laptop_io.h</a>
+<li>DUCK_IO_PRINTER_MAYBE_BUSY
+: <a class="el" href="laptop__io_8h.html#a1a9e43aa6882877502e2e2e8d8c1b362">laptop_io.h</a>
 </li>
-<li>DUCK_IO_PRINTER_INIT_OK
-: <a class="el" href="laptop__io_8h.html#a200d07d257129821374c64a64f5126ac">laptop_io.h</a>
-</li>
-<li>duck_io_printer_type()
-: <a class="el" href="laptop__io_8h.html#a76b5721cbacbc00638246572e34030b1">laptop_io.h</a>
+<li>duck_io_printer_query()
+: <a class="el" href="laptop__io_8h.html#a022272d8651936dbc3eac2683f71a17a">laptop_io.h</a>
 </li>
 <li>DUCK_IO_PRINTER_TYPE_1_PASS
 : <a class="el" href="laptop__io_8h.html#a7b13395ce3ba12e26ae4abe578e9c7d9">laptop_io.h</a>
 </li>
 <li>DUCK_IO_PRINTER_TYPE_2_PASS
 : <a class="el" href="laptop__io_8h.html#a19d0df507afbe887d6cd2623365fa2a4">laptop_io.h</a>
-</li>
-<li>DUCK_IO_PRINTER_TYPE_MASK
-: <a class="el" href="laptop__io_8h.html#aa495208fb87146f1e75c9e41c72eb8dd">laptop_io.h</a>
 </li>
 <li>duck_io_read_byte_no_timeout()
 : <a class="el" href="laptop__io_8h.html#a80b681ac57a1dbf5e52bd12dc1ce3b48">laptop_io.h</a>
@@ -770,9 +776,11 @@ $(document).ready(function(){initNavTree('globals_d.html',''); initResizable(); 
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.14-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
 </div>
 </body>
 </html>

@@ -37,6 +37,8 @@ var nes_2hardware_8h =
     [ "rLY", "nes_2hardware_8h.html#aa851dae67d0bb80c17415774558d985f", null ],
     [ "LYC_REG", "nes_2hardware_8h.html#ab6b2d3e024863233f59041b1b931d1ea", null ],
     [ "rLYC", "nes_2hardware_8h.html#a92083741d31c9b2206b403e97124cbdc", null ],
+    [ "scroll_x_t", "nes_2hardware_8h.html#a4923484c4c9afe154fda193c999f6c2d", null ],
+    [ "scroll_y_t", "nes_2hardware_8h.html#a88f6d0b1d14fc49148ac84ac84323423", null ],
     [ "__REG", "nes_2hardware_8h.html#a5f02ccf1491e0ff70833ac35d83cb814", null ],
     [ "__REG", "nes_2hardware_8h.html#a6a06f6bfe5466b54fcffb30e1fe657e5", null ],
     [ "__REG", "nes_2hardware_8h.html#a922873e2061c4bb9dc81c2888b6ec006", null ],

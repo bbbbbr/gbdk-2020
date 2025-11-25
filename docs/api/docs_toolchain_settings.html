@@ -19,7 +19,19 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<!-- BEGIN: doxygen-awesome-css -->
+        <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeDarkModeToggle.init()
+        </script>
+        <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeParagraphLink.init()
+        </script>        
+<!-- END: doxygen-awesome-css -->
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -91,7 +103,7 @@ $(document).ready(function(){initNavTree('docs_toolchain_settings.html',''); ini
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="lcc-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md289"></a>
+<h1><a class="anchor" id="autotoc_md290"></a>
 lcc settings</h1>
 <div class="fragment"><div class="line">./lcc [ option | file ]...</div>
 <div class="line">    except for -l, options are processed left-to-right before files</div>
@@ -120,7 +132,7 @@ lcc settings</h1>
 <div class="line">-W[pfablimnc]arg pass `arg&#39; to the (p)preprocessor, (f)compiler, (a)assembler, (b)bankpack,</div>
 <div class="line">                                   (l)linker, (i)ihxcheck, (m)makebin, (n)makenes, (c)makecom</div>
 </div><!-- fragment --><p> <a class="anchor" id="sdcc-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md290"></a>
+<h1><a class="anchor" id="autotoc_md291"></a>
 sdcc settings</h1>
 <div class="fragment"><div class="line">SDCC : z80/sm83/mos6502/mos65c02 TD- 4.5.1 #15267 (Linux)</div>
 <div class="line">published under GNU General Public License (GPL)</div>
@@ -268,7 +280,7 @@ sdcc settings</h1>
 <div class="line">      --no-zp-spill         place register spills in 16-bit address space</div>
 <div class="line">      --no-std-crt0         Do not link default crt0.rel</div>
 </div><!-- fragment --><p> <a class="anchor" id="sdasgb-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md291"></a>
+<h1><a class="anchor" id="autotoc_md292"></a>
 sdasgb settings</h1>
 <div class="fragment"><div class="line">sdas Assembler V02.00 + NoICE + SDCC mods  (GameBoy)</div>
 <div class="line"> </div>
@@ -310,7 +322,7 @@ sdasgb settings</h1>
 <div class="line">  -j   Enable NoICE Debug Symbols</div>
 <div class="line">  -y   Enable SDCC  Debug Symbols</div>
 </div><!-- fragment --><p> <a class="anchor" id="sdasz80-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md292"></a>
+<h1><a class="anchor" id="autotoc_md293"></a>
 sdasz80 settings</h1>
 <div class="fragment"><div class="line">sdas Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next / eZ80 / R800)</div>
 <div class="line"> </div>
@@ -352,7 +364,7 @@ sdasz80 settings</h1>
 <div class="line">  -j   Enable NoICE Debug Symbols</div>
 <div class="line">  -y   Enable SDCC  Debug Symbols</div>
 </div><!-- fragment --><p> <a class="anchor" id="sdas6500-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md293"></a>
+<h1><a class="anchor" id="autotoc_md294"></a>
 sdas6500 settings</h1>
 <div class="fragment"><div class="line">sdas Assembler V02.00 + NoICE + SDCC mods  (Rockwell 6502/6510/65C02)</div>
 <div class="line"> </div>
@@ -394,7 +406,7 @@ sdas6500 settings</h1>
 <div class="line">  -j   Enable NoICE Debug Symbols</div>
 <div class="line">  -y   Enable SDCC  Debug Symbols</div>
 </div><!-- fragment --><p> <a class="anchor" id="bankpack-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md294"></a>
+<h1><a class="anchor" id="autotoc_md295"></a>
 bankpack settings</h1>
 <div class="fragment"><div class="line">bankalloc [options] objfile1 objfile2 etc</div>
 <div class="line">Use: Read .o files and auto-assign areas with bank=255.</div>
@@ -436,7 +448,7 @@ bankpack settings</h1>
 <div class="line">S ___bank_&lt;const name&gt; Def0000FF</div>
 <div class="line">    (Above can be made by: const void __at(255) __bank_&lt;const name&gt;;</div>
 </div><!-- fragment --><p> <a class="anchor" id="sdldgb-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md295"></a>
+<h1><a class="anchor" id="autotoc_md296"></a>
 sdldgb settings</h1>
 <div class="fragment"><div class="line">sdld Linker V03.00/V05.40 + sdld</div>
 <div class="line"> </div>
@@ -473,7 +485,7 @@ sdldgb settings</h1>
 <div class="line">End:</div>
 <div class="line">  -e   or null line terminates input</div>
 </div><!-- fragment --><p> <a class="anchor" id="sdldz80-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md296"></a>
+<h1><a class="anchor" id="autotoc_md297"></a>
 sdldz80 settings</h1>
 <div class="fragment"><div class="line">sdld Linker V03.00/V05.40 + sdld</div>
 <div class="line"> </div>
@@ -510,7 +522,7 @@ sdldz80 settings</h1>
 <div class="line">End:</div>
 <div class="line">  -e   or null line terminates input</div>
 </div><!-- fragment --><p> <a class="anchor" id="sdld6808-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md297"></a>
+<h1><a class="anchor" id="autotoc_md298"></a>
 sdld6808 settings</h1>
 <div class="fragment"><div class="line">sdld Linker V03.00/V05.40 + sdld</div>
 <div class="line"> </div>
@@ -547,7 +559,7 @@ sdld6808 settings</h1>
 <div class="line">End:</div>
 <div class="line">  -e   or null line terminates input</div>
 </div><!-- fragment --><p> <a class="anchor" id="ihxcheck-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md298"></a>
+<h1><a class="anchor" id="autotoc_md299"></a>
 ihxcheck settings</h1>
 <div class="fragment"><div class="line">ihx_check input_file.ihx [options]</div>
 <div class="line"> </div>
@@ -558,7 +570,7 @@ ihxcheck settings</h1>
 <div class="line">Use: Read a .ihx and warn about overlapped areas.</div>
 <div class="line">Example: &quot;ihx_check build/MyProject.ihx&quot;</div>
 </div><!-- fragment --><p> <a class="anchor" id="makebin-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md299"></a>
+<h1><a class="anchor" id="autotoc_md300"></a>
 makebin settings</h1>
 <p>Also see <a class="el" href="docs_rombanking_mbcs.html#setting_mbc_and_rom_ram_banks">setting_mbc_and_rom_ram_banks</a> </p><div class="fragment"><div class="line">makebin: convert a Intel IHX file to binary or GameBoy format binary.</div>
 <div class="line">Usage: makebin [options] [&lt;in_file&gt; [&lt;out_file&gt;]]</div>
@@ -593,12 +605,12 @@ makebin settings</h1>
 <div class="line">  &lt;in_file&gt;      optional IHX input file, &#39;-&#39; means stdin. (default: stdin)</div>
 <div class="line">  &lt;out_file&gt;     optional output file, &#39;-&#39; means stdout. (default: stdout)</div>
 </div><!-- fragment --><p> <a class="anchor" id="makecom-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md300"></a>
+<h1><a class="anchor" id="autotoc_md301"></a>
 makecom settings</h1>
 <div class="fragment"><div class="line">makecom image.rom image.noi output.com</div>
 <div class="line">Use: convert a binary .rom file to .msxdos com format.</div>
 </div><!-- fragment --><p> <a class="anchor" id="makenes-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md301"></a>
+<h1><a class="anchor" id="autotoc_md302"></a>
 makenes settings</h1>
 <div class="fragment"><div class="line">makenes: Prepend an iNES header to a binary ROM image file.</div>
 <div class="line">Usage: makenes [options] [&lt;in_file&gt; [&lt;out_file&gt;]]</div>
@@ -609,7 +621,7 @@ makenes settings</h1>
 <div class="line">                              1: horizontal arrangement / vertical mirroring</div>
 <div class="line">  -b   Battery bit set (default: 0)</div>
 </div><!-- fragment --><p> <a class="anchor" id="gbcompress-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md302"></a>
+<h1><a class="anchor" id="autotoc_md303"></a>
 gbcompress settings</h1>
 <div class="fragment"><div class="line">gbcompress [options] infile outfile</div>
 <div class="line">Use: compress a binary file and write it out.</div>
@@ -630,7 +642,7 @@ gbcompress settings</h1>
 <div class="line">The default compression (gb) is the type used by gbtd/gbmb</div>
 <div class="line">The rle compression is Amiga IFF style</div>
 </div><!-- fragment --><p> <a class="anchor" id="png2asset-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md303"></a>
+<h1><a class="anchor" id="autotoc_md304"></a>
 png2asset settings</h1>
 <div class="fragment"><div class="line">usage: png2asset    &lt;file&gt;.png [options]</div>
 <div class="line">-o &lt;filename&gt;       ouput file (if not used then default is &lt;png file&gt;.c)</div>
@@ -673,7 +685,7 @@ png2asset settings</h1>
 <div class="line">-rel_paths          paths to tilesets are relative to the input file path</div>
 <div class="line">decoder error empty input buffer given to decoder. Maybe caused by non-existing file?</div>
 </div><!-- fragment --><p> <a class="anchor" id="png2hicolorgb-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md304"></a>
+<h1><a class="anchor" id="autotoc_md305"></a>
 png2hicolorgb settings</h1>
 <div class="fragment"><div class="line">png2hicolorgb input_image.png [options]</div>
 <div class="line">version 1.4.2: bbbbbr. Based on Glen Cook&#39;s Windows GUI &quot;hicolour.exe&quot; 1.2</div>
@@ -716,7 +728,7 @@ png2hicolorgb settings</h1>
 <div class="line">   Original Quantiser Code : Benny</div>
 <div class="line">   Quantiser Conversion : Glen Cook</div>
 </div><!-- fragment --><p> <a class="anchor" id="romusage-settings"></a></p>
-<h1><a class="anchor" id="autotoc_md305"></a>
+<h1><a class="anchor" id="autotoc_md306"></a>
 romusage settings</h1>
 <div class="fragment"><div class="line">romusage input_file.[map|noi|ihx|cdb|.gb[c]|.pocket|.duck|.gg|.sms] [options]</div>
 <div class="line">version 1.3.1, by bbbbbr</div>
@@ -776,9 +788,12 @@ romusage settings</h1>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.14-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="index.html">General Documentation</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
 </div>
 </body>
 </html>

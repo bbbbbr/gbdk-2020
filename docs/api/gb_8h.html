@@ -19,7 +19,19 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<!-- BEGIN: doxygen-awesome-css -->
+        <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeDarkModeToggle.init()
+        </script>
+        <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeParagraphLink.init()
+        </script>        
+<!-- END: doxygen-awesome-css -->
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -286,7 +298,7 @@ Macros</h2></td></tr>
 <tr class="separator:ab94bfec130df50d9cb808142f94603a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55f82ff980398dd97036fd936ebd727e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#a55f82ff980398dd97036fd936ebd727e">set_tile_map</a>&#160;&#160;&#160;<a class="el" href="nes_8h.html#a6ab3fa75195d44d8d7e867d4a4cb1131">set_bkg_tiles</a></td></tr>
 <tr class="separator:a55f82ff980398dd97036fd936ebd727e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb5d0970167b81401113812773c90838"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#adb5d0970167b81401113812773c90838">set_tile_submap</a>&#160;&#160;&#160;<a class="el" href="sms_8h.html#a0cfd261bc7a94b1f6093f423bad30298">set_bkg_submap</a></td></tr>
+<tr class="memitem:adb5d0970167b81401113812773c90838"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#adb5d0970167b81401113812773c90838">set_tile_submap</a>&#160;&#160;&#160;<a class="el" href="nes_8h.html#ac2c9fd8d613ad8ba52227c5a056e56fa">set_bkg_submap</a></td></tr>
 <tr class="separator:adb5d0970167b81401113812773c90838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b235c526c517fb02d20cdea780ee2c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#a3b235c526c517fb02d20cdea780ee2c5">set_tile_xy</a>&#160;&#160;&#160;<a class="el" href="nes_8h.html#a31655c4b138654e803e295bd4413759c">set_bkg_tile_xy</a></td></tr>
 <tr class="separator:a3b235c526c517fb02d20cdea780ee2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -392,8 +404,8 @@ Functions</h2></td></tr>
 <tr class="separator:a2a26d723b07d1a9893f57208a201df36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae32250cfb4daaa1fff7250a0e3f0ad0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#ae32250cfb4daaa1fff7250a0e3f0ad0f">get_vram_byte</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *addr) <a class="el" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="el" href="sms_8h.html#a4c2e4adef74067fdbb49005bc73de937">b</a></td></tr>
 <tr class="separator:ae32250cfb4daaa1fff7250a0e3f0ad0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9005b80d3315f50f0fb0e1728e7ee60f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#a9005b80d3315f50f0fb0e1728e7ee60f">get_bkg_xy_addr</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y) <a class="el" href="asm_2types_8h.html#a0971918860055db2e50dacea4da8f3bc">OLDCALL</a> <a class="el" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="el" href="sms_8h.html#a4c2e4adef74067fdbb49005bc73de937">b</a></td></tr>
-<tr class="separator:a9005b80d3315f50f0fb0e1728e7ee60f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33383252fdc7f22b7c1c993c12581946"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#a33383252fdc7f22b7c1c993c12581946">get_bkg_xy_addr</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y) <a class="el" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="el" href="sms_8h.html#aba4fa6f13f80e53daeb0caa7b1ec8afb">h</a></td></tr>
+<tr class="separator:a33383252fdc7f22b7c1c993c12581946"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa224c9bac27c7fd268e62bdf33338a84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#aa224c9bac27c7fd268e62bdf33338a84">set_2bpp_palette</a> (<a class="el" href="stdint_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a> palette)</td></tr>
 <tr class="separator:aa224c9bac27c7fd268e62bdf33338a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f00bd35cd56aac84c108f5a802c3f9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#a1f00bd35cd56aac84c108f5a802c3f9c">set_1bpp_colors_ex</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> fgcolor, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> bgcolor, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="sms_8h.html#a3ea524204d839377cf39842eec23e202">mode</a>) <a class="el" href="asm_2types_8h.html#a0971918860055db2e50dacea4da8f3bc">OLDCALL</a></td></tr>
@@ -430,8 +442,8 @@ Functions</h2></td></tr>
 <tr class="separator:a6261537edc74068e3f7f057e6a3e8a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f583f7a880daa6145ca78b086a209d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#a1f583f7a880daa6145ca78b086a209d1">scroll_bkg</a> (<a class="el" href="stdint_8h.html#aef44329758059c91c76d334e8fc09700">int8_t</a> x, <a class="el" href="stdint_8h.html#aef44329758059c91c76d334e8fc09700">int8_t</a> y)</td></tr>
 <tr class="separator:a1f583f7a880daa6145ca78b086a209d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8213cfad631865e3b6faec18e772cb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#aa8213cfad631865e3b6faec18e772cb4">get_win_xy_addr</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y) <a class="el" href="asm_2types_8h.html#a0971918860055db2e50dacea4da8f3bc">OLDCALL</a> <a class="el" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="el" href="sms_8h.html#a4c2e4adef74067fdbb49005bc73de937">b</a></td></tr>
-<tr class="separator:aa8213cfad631865e3b6faec18e772cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a385a8503a8cc20f0c35d3123b699797f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#a385a8503a8cc20f0c35d3123b699797f">get_win_xy_addr</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y) <a class="el" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="el" href="sms_8h.html#aba4fa6f13f80e53daeb0caa7b1ec8afb">h</a></td></tr>
+<tr class="separator:a385a8503a8cc20f0c35d3123b699797f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2bf0c4919c30d322fa5853c896e710f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#ac2bf0c4919c30d322fa5853c896e710f">set_win_data</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> first_tile, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> nb_tiles, const <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *data) <a class="el" href="asm_2types_8h.html#a0971918860055db2e50dacea4da8f3bc">OLDCALL</a> <a class="el" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="el" href="sms_8h.html#a4c2e4adef74067fdbb49005bc73de937">b</a></td></tr>
 <tr class="separator:ac2bf0c4919c30d322fa5853c896e710f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd5ee7a94059e6edbe9223f291bc2b46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gb_8h.html#acd5ee7a94059e6edbe9223f291bc2b46">set_win_1bpp_data</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> first_tile, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> nb_tiles, const <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *data) <a class="el" href="asm_2types_8h.html#a0971918860055db2e50dacea4da8f3bc">OLDCALL</a> <a class="el" href="asm_2types_8h.html#acb825e83a33fcc06482c59b4ab2cf961">PRESERVES_REGS</a>(<a class="el" href="sms_8h.html#a4c2e4adef74067fdbb49005bc73de937">b</a></td></tr>
@@ -2089,7 +2101,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define set_tile_submap&#160;&#160;&#160;<a class="el" href="sms_8h.html#a0cfd261bc7a94b1f6093f423bad30298">set_bkg_submap</a></td>
+          <td class="memname">#define set_tile_submap&#160;&#160;&#160;<a class="el" href="nes_8h.html#ac2c9fd8d613ad8ba52227c5a056e56fa">set_bkg_submap</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3197,8 +3209,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9005b80d3315f50f0fb0e1728e7ee60f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9005b80d3315f50f0fb0e1728e7ee60f">&#9670;&nbsp;</a></span>get_bkg_xy_addr()</h2>
+<a id="a33383252fdc7f22b7c1c993c12581946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33383252fdc7f22b7c1c993c12581946">&#9670;&nbsp;</a></span>get_bkg_xy_addr()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3554,7 +3566,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <p>Entries are copied from map at <b>tiles</b> to the Background Tile Map starting at <b>x</b>, <b>y</b> writing across for <b>w</b> tiles and down for <b>h</b> tiles.</p>
-<p>Use <a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap()</a> instead when: </p><ul>
+<p>Use <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a> instead when: </p><ul>
 <li>Source map is wider than 32 tiles. </li>
 <li>Writing a width that does not match the source map width <b>and</b> more than one row high at a time.</li>
 </ul>
@@ -3918,7 +3930,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>This is identical to <a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
+<p>This is identical to <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap</a> for more details </dd></dl>
 
 </div>
@@ -4295,8 +4307,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aa8213cfad631865e3b6faec18e772cb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8213cfad631865e3b6faec18e772cb4">&#9670;&nbsp;</a></span>get_win_xy_addr()</h2>
+<a id="a385a8503a8cc20f0c35d3123b699797f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a385a8503a8cc20f0c35d3123b699797f">&#9670;&nbsp;</a></span>get_win_xy_addr()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4526,7 +4538,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <p>Entries are copied from map at <b>tiles</b> to the Window Tile Map starting at <b>x</b>, <b>y</b> writing across for <b>w</b> tiles and down for <b>h</b> tiles.</p>
-<p>Use <a class="el" href="gb_8h.html#af80befa3cad9cae361c7cf4fffb3a8de">set_win_submap()</a> instead when: </p><ul>
+<p>Use <a class="el" href="sms_8h.html#aee4ea0f9449d1a1834a8201358c6d5fe">set_win_submap()</a> instead when: </p><ul>
 <li>Source map is wider than 32 tiles. </li>
 <li>Writing a width that does not match the source map width <b>and</b> more than one row high at a time.</li>
 </ul>
@@ -4777,7 +4789,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>This is identical to <a class="el" href="gb_8h.html#af80befa3cad9cae361c7cf4fffb3a8de">set_win_submap()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
+<p>This is identical to <a class="el" href="sms_8h.html#aee4ea0f9449d1a1834a8201358c6d5fe">set_win_submap()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="gb_8h.html#af80befa3cad9cae361c7cf4fffb3a8de">set_win_submap</a> for more details </dd></dl>
 
 </div>
@@ -6180,8 +6192,8 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">x</td><td>X Start position in Background Map tile coordinates. Range 0 - 31 </td></tr>
     <tr><td class="paramname">y</td><td>Y Start position in Background Map tile coordinates. Range 0 - 31 </td></tr>
-    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 0 - 31 </td></tr>
-    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 0 - 31 </td></tr>
+    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 1 - 32 </td></tr>
+    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 1 - 32 </td></tr>
     <tr><td class="paramname">tile</td><td>Fill value </td></tr>
   </table>
   </dd>
@@ -6237,8 +6249,8 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">x</td><td>X Start position in Window Map tile coordinates. Range 0 - 31 </td></tr>
     <tr><td class="paramname">y</td><td>Y Start position in Window Map tile coordinates. Range 0 - 31 </td></tr>
-    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 0 - 31 </td></tr>
-    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 0 - 31 </td></tr>
+    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 1 - 32 </td></tr>
+    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 1 - 32 </td></tr>
     <tr><td class="paramname">tile</td><td>Fill value </td></tr>
   </table>
   </dd>
@@ -6616,9 +6628,12 @@ Variables</h2></td></tr>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.14-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8bd3092e915ccc8a773a74e0a10d4d15.html">gbdk-lib</a></li><li class="navelem"><a class="el" href="dir_a9f896cff747ba031115e41245385c17.html">include</a></li><li class="navelem"><a class="el" href="dir_bdfe001eb73b667f67d57fb851301eb1.html">gb</a></li><li class="navelem"><a class="el" href="gb_8h.html">gb.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
 </div>
 </body>
 </html>

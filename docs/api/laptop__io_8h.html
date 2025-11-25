@@ -19,7 +19,19 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<!-- BEGIN: doxygen-awesome-css -->
+        <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeDarkModeToggle.init()
+        </script>
+        <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeParagraphLink.init()
+        </script>        
+<!-- END: doxygen-awesome-css -->
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -116,8 +128,8 @@ Macros</h2></td></tr>
 <tr class="separator:acbb9af8b76fecc11b2ec9e18fbafef58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaab111d8fc65d794669405084543262"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#aaaab111d8fc65d794669405084543262">DUCK_IO_CMD_RUN_CART_IN_SLOT</a>&#160;&#160;&#160;0x08u</td></tr>
 <tr class="separator:aaaab111d8fc65d794669405084543262"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2baed3d9ef122b1a7a4ffe30377a3e27"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a2baed3d9ef122b1a7a4ffe30377a3e27">DUCK_IO_CMD_PRINT_INIT_MAYBE_EXT_IO</a>&#160;&#160;&#160;0x09u</td></tr>
-<tr class="separator:a2baed3d9ef122b1a7a4ffe30377a3e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd51d19e1418dd251e86701dff4912b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#aecd51d19e1418dd251e86701dff4912b">DUCK_IO_CMD_PRINT_INIT_EXT_IO</a>&#160;&#160;&#160;0x09u</td></tr>
+<tr class="separator:aecd51d19e1418dd251e86701dff4912b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bc3d136e99b659b1b922fa26c48dd77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a1bc3d136e99b659b1b922fa26c48dd77">DUCK_IO_CMD_SET_RTC</a>&#160;&#160;&#160;0x0Bu</td></tr>
 <tr class="separator:a1bc3d136e99b659b1b922fa26c48dd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a775c30331ca2f05cfd7545280bb6ee4b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a775c30331ca2f05cfd7545280bb6ee4b">DUCK_IO_CMD_GET_RTC</a>&#160;&#160;&#160;0x0Cu</td></tr>
@@ -178,18 +190,14 @@ Macros</h2></td></tr>
 <tr class="separator:a93c53ae7a897998a40f640631baee6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af366714812f9067a555c52ea6eff2d67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#af366714812f9067a555c52ea6eff2d67">DUCK_IO_KBD_KEYCODE</a>&#160;&#160;&#160;1u</td></tr>
 <tr class="separator:af366714812f9067a555c52ea6eff2d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c3cc7352c2873d11e82dca46c4a9a7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a4c3cc7352c2873d11e82dca46c4a9a7f">DUCK_IO_PRINTER_INIT_MASK</a>&#160;&#160;&#160;0x01u</td></tr>
-<tr class="separator:a4c3cc7352c2873d11e82dca46c4a9a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a200d07d257129821374c64a64f5126ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a200d07d257129821374c64a64f5126ac">DUCK_IO_PRINTER_INIT_OK</a>&#160;&#160;&#160;0x01u</td></tr>
-<tr class="separator:a200d07d257129821374c64a64f5126ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1d5cad1930852f03919f9093eec4a5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#abc1d5cad1930852f03919f9093eec4a5">DUCK_IO_PRINTER_INIT_FAIL</a>&#160;&#160;&#160;0x00u</td></tr>
-<tr class="separator:abc1d5cad1930852f03919f9093eec4a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa495208fb87146f1e75c9e41c72eb8dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#aa495208fb87146f1e75c9e41c72eb8dd">DUCK_IO_PRINTER_TYPE_MASK</a>&#160;&#160;&#160;0x02u</td></tr>
-<tr class="separator:aa495208fb87146f1e75c9e41c72eb8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19d0df507afbe887d6cd2623365fa2a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a19d0df507afbe887d6cd2623365fa2a4">DUCK_IO_PRINTER_TYPE_2_PASS</a>&#160;&#160;&#160;0x00u</td></tr>
+<tr class="memitem:a507c9326f35d64b2452771f21219ae2b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a507c9326f35d64b2452771f21219ae2b">DUCK_IO_PRINTER_FAIL</a>&#160;&#160;&#160;0x00u</td></tr>
+<tr class="separator:a507c9326f35d64b2452771f21219ae2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19d0df507afbe887d6cd2623365fa2a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a19d0df507afbe887d6cd2623365fa2a4">DUCK_IO_PRINTER_TYPE_2_PASS</a>&#160;&#160;&#160;0x01u</td></tr>
 <tr class="separator:a19d0df507afbe887d6cd2623365fa2a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b13395ce3ba12e26ae4abe578e9c7d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a7b13395ce3ba12e26ae4abe578e9c7d9">DUCK_IO_PRINTER_TYPE_1_PASS</a>&#160;&#160;&#160;0x02u</td></tr>
 <tr class="separator:a7b13395ce3ba12e26ae4abe578e9c7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a9e43aa6882877502e2e2e8d8c1b362"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a1a9e43aa6882877502e2e2e8d8c1b362">DUCK_IO_PRINTER_MAYBE_BUSY</a>&#160;&#160;&#160;0x03u</td></tr>
+<tr class="separator:a1a9e43aa6882877502e2e2e8d8c1b362"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -201,10 +209,10 @@ Functions</h2></td></tr>
 <tr class="separator:a4732e7f2b0ba1690443e4e7f86c5c1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb11bd7e4cd420d04e39433b9cc47589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdbool_8h.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#abb11bd7e4cd420d04e39433b9cc47589">duck_io_laptop_init</a> (void)</td></tr>
 <tr class="separator:abb11bd7e4cd420d04e39433b9cc47589"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e11278ebd2a981030285ba8999c9a60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdbool_8h.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a6e11278ebd2a981030285ba8999c9a60">duck_io_printer_detected</a> (void)</td></tr>
-<tr class="separator:a6e11278ebd2a981030285ba8999c9a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76b5721cbacbc00638246572e34030b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a76b5721cbacbc00638246572e34030b1">duck_io_printer_type</a> (void)</td></tr>
-<tr class="separator:a76b5721cbacbc00638246572e34030b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb14155d1ee2971c05219ca0247153e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#abb14155d1ee2971c05219ca0247153e5">duck_io_printer_last_status</a> (void)</td></tr>
+<tr class="separator:abb14155d1ee2971c05219ca0247153e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a022272d8651936dbc3eac2683f71a17a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a022272d8651936dbc3eac2683f71a17a">duck_io_printer_query</a> (void)</td></tr>
+<tr class="separator:a022272d8651936dbc3eac2683f71a17a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1254526e1e5e39e56957ec6c3eec9a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdbool_8h.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#ac1254526e1e5e39e56957ec6c3eec9a3">duck_io_read_byte_with_msecs_timeout</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> timeout_len_ms)</td></tr>
 <tr class="separator:ac1254526e1e5e39e56957ec6c3eec9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b5c7803c1733dd05f896b7c9cbbd7f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdbool_8h.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="laptop__io_8h.html#a0b5c7803c1733dd05f896b7c9cbbd7f5">duck_io_send_byte_and_check_ack_msecs_timeout</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> tx_byte, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> timeout_len_ms, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> expected_reply)</td></tr>
@@ -338,14 +346,14 @@ MegaDuck Laptop Peripheral IO support</h1>
 
 </div>
 </div>
-<a id="a2baed3d9ef122b1a7a4ffe30377a3e27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2baed3d9ef122b1a7a4ffe30377a3e27">&#9670;&nbsp;</a></span>DUCK_IO_CMD_PRINT_INIT_MAYBE_EXT_IO</h2>
+<a id="aecd51d19e1418dd251e86701dff4912b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecd51d19e1418dd251e86701dff4912b">&#9670;&nbsp;</a></span>DUCK_IO_CMD_PRINT_INIT_EXT_IO</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DUCK_IO_CMD_PRINT_INIT_MAYBE_EXT_IO&#160;&#160;&#160;0x09u</td>
+          <td class="memname">#define DUCK_IO_CMD_PRINT_INIT_EXT_IO&#160;&#160;&#160;0x09u</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -780,56 +788,14 @@ MegaDuck Laptop Peripheral IO support</h1>
 
 </div>
 </div>
-<a id="a4c3cc7352c2873d11e82dca46c4a9a7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c3cc7352c2873d11e82dca46c4a9a7f">&#9670;&nbsp;</a></span>DUCK_IO_PRINTER_INIT_MASK</h2>
+<a id="a507c9326f35d64b2452771f21219ae2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a507c9326f35d64b2452771f21219ae2b">&#9670;&nbsp;</a></span>DUCK_IO_PRINTER_FAIL</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DUCK_IO_PRINTER_INIT_MASK&#160;&#160;&#160;0x01u</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a200d07d257129821374c64a64f5126ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a200d07d257129821374c64a64f5126ac">&#9670;&nbsp;</a></span>DUCK_IO_PRINTER_INIT_OK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DUCK_IO_PRINTER_INIT_OK&#160;&#160;&#160;0x01u</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abc1d5cad1930852f03919f9093eec4a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc1d5cad1930852f03919f9093eec4a5">&#9670;&nbsp;</a></span>DUCK_IO_PRINTER_INIT_FAIL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DUCK_IO_PRINTER_INIT_FAIL&#160;&#160;&#160;0x00u</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa495208fb87146f1e75c9e41c72eb8dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa495208fb87146f1e75c9e41c72eb8dd">&#9670;&nbsp;</a></span>DUCK_IO_PRINTER_TYPE_MASK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DUCK_IO_PRINTER_TYPE_MASK&#160;&#160;&#160;0x02u</td>
+          <td class="memname">#define DUCK_IO_PRINTER_FAIL&#160;&#160;&#160;0x00u</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -843,7 +809,7 @@ MegaDuck Laptop Peripheral IO support</h1>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DUCK_IO_PRINTER_TYPE_2_PASS&#160;&#160;&#160;0x00u</td>
+          <td class="memname">#define DUCK_IO_PRINTER_TYPE_2_PASS&#160;&#160;&#160;0x01u</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -858,6 +824,20 @@ MegaDuck Laptop Peripheral IO support</h1>
       <table class="memname">
         <tr>
           <td class="memname">#define DUCK_IO_PRINTER_TYPE_1_PASS&#160;&#160;&#160;0x02u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a9e43aa6882877502e2e2e8d8c1b362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a9e43aa6882877502e2e2e8d8c1b362">&#9670;&nbsp;</a></span>DUCK_IO_PRINTER_MAYBE_BUSY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DUCK_IO_PRINTER_MAYBE_BUSY&#160;&#160;&#160;0x03u</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -956,14 +936,14 @@ MegaDuck Laptop Peripheral IO support</h1>
 
 </div>
 </div>
-<a id="a6e11278ebd2a981030285ba8999c9a60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e11278ebd2a981030285ba8999c9a60">&#9670;&nbsp;</a></span>duck_io_printer_detected()</h2>
+<a id="abb14155d1ee2971c05219ca0247153e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb14155d1ee2971c05219ca0247153e5">&#9670;&nbsp;</a></span>duck_io_printer_last_status()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="stdbool_8h.html#abb452686968e48b67397da5f97445f5b">bool</a> duck_io_printer_detected </td>
+          <td class="memname"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> duck_io_printer_last_status </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -971,20 +951,23 @@ MegaDuck Laptop Peripheral IO support</h1>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns whether the MegaDuck Printer was detected during <a class="el" href="laptop__io_8h.html#abb11bd7e4cd420d04e39433b9cc47589">duck_io_laptop_init()</a></p>
-<p>Returns <code>true</code> if successful, otherwise <code>false</code></p>
+<p>Returns status of MegaDuck Printer as last detected by <a class="el" href="laptop__io_8h.html#abb11bd7e4cd420d04e39433b9cc47589">duck_io_laptop_init()</a> or <a class="el" href="laptop__io_8h.html#a022272d8651936dbc3eac2683f71a17a">duck_io_printer_query()</a></p>
+<p>Returned unsigned 8 bit value will have: </p><ul>
+<li>Bit 0: Printer Status. Mask with DUCK_IO_PRINTER_INIT_OK </li>
+<li>Bit 1: Printer Type. Mask with DUCK_IO_PRINTER_TYPE_MASK</li>
+</ul>
 <p><a class="el" href="laptop__io_8h.html#abb11bd7e4cd420d04e39433b9cc47589">duck_io_laptop_init()</a> must be called first </p>
 
 </div>
 </div>
-<a id="a76b5721cbacbc00638246572e34030b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76b5721cbacbc00638246572e34030b1">&#9670;&nbsp;</a></span>duck_io_printer_type()</h2>
+<a id="a022272d8651936dbc3eac2683f71a17a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a022272d8651936dbc3eac2683f71a17a">&#9670;&nbsp;</a></span>duck_io_printer_query()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> duck_io_printer_type </td>
+          <td class="memname"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> duck_io_printer_query </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -992,11 +975,13 @@ MegaDuck Laptop Peripheral IO support</h1>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns which type of MegaDuck Printer was detected during <a class="el" href="laptop__io_8h.html#abb11bd7e4cd420d04e39433b9cc47589">duck_io_laptop_init()</a></p>
-<p>Return value should be one of the following: </p><ul>
-<li><a class="el" href="laptop__io_8h.html#a7b13395ce3ba12e26ae4abe578e9c7d9">DUCK_IO_PRINTER_TYPE_1_PASS</a> (single pass monochrome) </li>
-<li><a class="el" href="laptop__io_8h.html#a19d0df507afbe887d6cd2623365fa2a4">DUCK_IO_PRINTER_TYPE_2_PASS</a> (two pass possibly supports shades of grey)</li>
+<p>Performs a 3 x printer query serial command and returns raw system printer reply</p>
+<p>Should be called immediately before trying to print</p>
+<p>Returned unsigned 8 bit value will have: </p><ul>
+<li>Bit 0: Printer Status. Mask with DUCK_IO_PRINTER_INIT_OK </li>
+<li>Bit 1: Printer Type. Mask with DUCK_IO_PRINTER_TYPE_MASK</li>
 </ul>
+<p>The resulting value will be cached and used for any subsequent duck_io_printer_detected() and duck_io_printer_type() calls.</p>
 <p><a class="el" href="laptop__io_8h.html#abb11bd7e4cd420d04e39433b9cc47589">duck_io_laptop_init()</a> must be called first </p>
 
 </div>
@@ -1274,9 +1259,12 @@ MegaDuck Laptop Peripheral IO support</h1>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.14-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8bd3092e915ccc8a773a74e0a10d4d15.html">gbdk-lib</a></li><li class="navelem"><a class="el" href="dir_a9f896cff747ba031115e41245385c17.html">include</a></li><li class="navelem"><a class="el" href="dir_0a499b1b991479a5f341a18a1dd374d9.html">duck</a></li><li class="navelem"><a class="el" href="laptop__io_8h.html">laptop_io.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
 </div>
 </body>
 </html>

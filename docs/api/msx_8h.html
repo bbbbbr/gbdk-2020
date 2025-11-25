@@ -19,7 +19,19 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<!-- BEGIN: doxygen-awesome-css -->
+        <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeDarkModeToggle.init()
+        </script>
+        <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeParagraphLink.init()
+        </script>        
+<!-- END: doxygen-awesome-css -->
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -3274,6 +3286,20 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Sets a rectangular region of Background Tile Map. The offset value in <b>base_tile</b> is added to the tile ID for each map entry.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>X Start position in Background Map tile coordinates. Range 0 - 31 </td></tr>
+    <tr><td class="paramname">y</td><td>Y Start position in Background Map tile coordinates. Range 0 - 31 </td></tr>
+    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 1 - 32 </td></tr>
+    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 1 - 32 </td></tr>
+    <tr><td class="paramname">tiles</td><td>Pointer to source tile map data </td></tr>
+    <tr><td class="paramname">base_tile</td><td>Offset each tile ID entry of the source map by this value. Range 1 - 255</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This is identical to <a class="el" href="msx_8h.html#a9a732aec1b7aec7d10a9d76ca4da2064">set_bkg_tiles()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="nes_8h.html#a6ab3fa75195d44d8d7e867d4a4cb1131">set_bkg_tiles</a> for more details </dd></dl>
 
 </div>
 </div>
@@ -3672,6 +3698,36 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Sets a rectangular area of the Background Tile Map using a sub-region from a source tile map. The offset value in <b>base_tile</b> is added to the tile ID for each map entry.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>X Start position in Background Map tile coordinates. Range 0 - 31 </td></tr>
+    <tr><td class="paramname">y</td><td>Y Start position in Background Map tile coordinates. Range 0 - 31 </td></tr>
+    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 1 - 255 </td></tr>
+    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 1 - 255 </td></tr>
+    <tr><td class="paramname">map</td><td>Pointer to source tile map data </td></tr>
+    <tr><td class="paramname">map_w</td><td>Width of source tile map in tiles. Range 1 - 255 </td></tr>
+    <tr><td class="paramname">base_tile</td><td>Offset each tile ID entry of the source map by this value. Range 1 - 255</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This is identical to <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap</a> for more details</dd></dl>
+<p>Sets a rectangular area of the Background Tile Map using a sub-region from a source tile map. The offset value in <b>base_tile</b> is added to the tile ID for each map entry.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>X Start position in both the Source Tile Map and hardware Background Map tile coordinates. Range 0 - 255 </td></tr>
+    <tr><td class="paramname">y</td><td>Y Start position in both the Source Tile Map and hardware Background Map tile coordinates. Range 0 - 255 </td></tr>
+    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 1 - 255 </td></tr>
+    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 1 - 255 </td></tr>
+    <tr><td class="paramname">map</td><td>Pointer to source tile map data </td></tr>
+    <tr><td class="paramname">map_w</td><td>Width of source tile map in tiles. Range 1 - 255 </td></tr>
+    <tr><td class="paramname">base_tile</td><td>Offset each tile ID entry of the source map by this value. Range 1 - 255</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This is identical to <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap</a> for more details </dd></dl>
 
 </div>
 </div>
@@ -4719,9 +4775,12 @@ Variables</h2></td></tr>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.14-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8bd3092e915ccc8a773a74e0a10d4d15.html">gbdk-lib</a></li><li class="navelem"><a class="el" href="dir_a9f896cff747ba031115e41245385c17.html">include</a></li><li class="navelem"><a class="el" href="dir_71c6fbf9500dd05f2fc30c566388269f.html">msx</a></li><li class="navelem"><a class="el" href="msx_8h.html">msx.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
 </div>
 </body>
 </html>

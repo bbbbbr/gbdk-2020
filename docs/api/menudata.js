@@ -25,7 +25,7 @@
 var menudata={children:[
 {text:"Main Page",url:"index.html"},
 {text:"Related Pages",url:"pages.html"},
-{text:"C modules",url:"modules.html"},
+{text:"Modules",url:"modules.html"},
 {text:"Data Structures",url:"annotated.html",children:[
 {text:"Data Structures",url:"annotated.html"},
 {text:"Data Structure Index",url:"classes.html"},
@@ -112,7 +112,8 @@ var menudata={children:[
 {text:"t",url:"globals_func_t.html#index_t"},
 {text:"u",url:"globals_func_u.html#index_u"},
 {text:"v",url:"globals_func_v.html#index_v"},
-{text:"w",url:"globals_func_w.html#index_w"}]},
+{text:"w",url:"globals_func_w.html#index_w"},
+{text:"z",url:"globals_func_z.html#index_z"}]},
 {text:"Variables",url:"globals_vars.html",children:[
 {text:"_",url:"globals_vars.html#index__5F"},
 {text:"a",url:"globals_vars_a.html#index_a"},

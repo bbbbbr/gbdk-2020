@@ -19,7 +19,19 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<!-- BEGIN: doxygen-awesome-css -->
+        <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeDarkModeToggle.init()
+        </script>
+        <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeParagraphLink.init()
+        </script>        
+<!-- END: doxygen-awesome-css -->
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -91,9 +103,9 @@ $(document).ready(function(){initNavTree('docs_migrating_versions.html',''); ini
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This section contains information that may be useful to know or important when upgrading to a newer GBDK release.</p>
-<h1><a class="anchor" id="autotoc_md227"></a>
+<h1><a class="anchor" id="autotoc_md228"></a>
 GBDK-2020 versions</h1>
-<h2><a class="anchor" id="autotoc_md228"></a>
+<h2><a class="anchor" id="autotoc_md229"></a>
 Porting to GBDK-2020 4.4.0</h2>
 <ul>
 <li>GBDK now requires ~SDCC 4.5.0 or higher with GBDK-2020 patches for the z80 and NES</li>
@@ -113,6 +125,10 @@ Porting to GBDK-2020 4.4.0</h2>
 </li>
 <li>SMS/GG<ul>
 <li>Changed from unsigned (<code>uint16_t</code>) to signed int16 (<code>int16_t</code>) for coordinates with the family of <code>...metasprite...()</code> functions</li>
+<li>Changed screen map to be at <code>0x1800</code> instead of <code>0x3800</code><ul>
+<li>To switch to the older configuration use <code><a class="el" href="sms_8h.html#a63369a199a979eb3dbba71449659148d">__WRITE_VDP_REG_UNSAFE(VDP_R2, R2_MAP_0x3800)</a>;</code> and <code><a class="el" href="sms_8h.html#a63369a199a979eb3dbba71449659148d">__WRITE_VDP_REG_UNSAFE(VDP_R5, R5_SAT_0x3F00)</a>;</code> near the start of main</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>SDCC<ul>
@@ -125,7 +141,7 @@ Porting to GBDK-2020 4.4.0</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md229"></a>
+<h2><a class="anchor" id="autotoc_md230"></a>
 Porting to GBDK-2020 4.3.0</h2>
 <ul>
 <li>GBDK now requires ~SDCC 4.4.0 or higher with GBDK-2020 patches for the z80 and NES</li>
@@ -147,7 +163,7 @@ Porting to GBDK-2020 4.3.0</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md230"></a>
+<h2><a class="anchor" id="autotoc_md231"></a>
 Porting to GBDK-2020 4.2.0</h2>
 <ul>
 <li>GBDK now requires ~SDCC 4.3 or higher with GBDK-2020 patches for the z80 and NES</li>
@@ -168,12 +184,12 @@ Porting to GBDK-2020 4.2.0</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md231"></a>
+<h2><a class="anchor" id="autotoc_md232"></a>
 Porting to GBDK-2020 4.1.1</h2>
 <ul>
 <li>No significant changes required</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md232"></a>
+<h2><a class="anchor" id="autotoc_md233"></a>
 Porting to GBDK-2020 4.1.0</h2>
 <ul>
 <li>GBDK now requires SDCC 4.2 or higher with GBDK-2020 patches for the z80 linker</li>
@@ -203,7 +219,7 @@ Porting to GBDK-2020 4.1.0</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md233"></a>
+<h2><a class="anchor" id="autotoc_md234"></a>
 Porting to GBDK-2020 4.0.6</h2>
 <ul>
 <li>Renamed <code>bgb_emu.h</code> to <code>emu_debug.h</code> and BGB_* functions to EMU_*<ul>
@@ -211,7 +227,7 @@ Porting to GBDK-2020 4.0.6</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md234"></a>
+<h2><a class="anchor" id="autotoc_md235"></a>
 Porting to GBDK-2020 4.0.5</h2>
 <ul>
 <li>GBDK now requires SDCC 12259 or higher with GBDK-2020 patches</li>
@@ -228,18 +244,18 @@ Porting to GBDK-2020 4.0.5</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md235"></a>
+<h2><a class="anchor" id="autotoc_md236"></a>
 Porting to GBDK-2020 4.0.4</h2>
 <ul>
 <li>GBDK now requires SDCC 12238 or higher</li>
 <li>Made sample.h, cgb.h and sgb.h independent from gb.h</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md236"></a>
+<h2><a class="anchor" id="autotoc_md237"></a>
 Porting to GBDK-2020 4.0.3</h2>
 <ul>
 <li>No significant changes required</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md237"></a>
+<h2><a class="anchor" id="autotoc_md238"></a>
 Porting to GBDK-2020 4.0.2</h2>
 <ul>
 <li>The default font has been reduced from 256 to 96 characters.<ul>
@@ -248,7 +264,7 @@ Porting to GBDK-2020 4.0.2</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md238"></a>
+<h2><a class="anchor" id="autotoc_md239"></a>
 Porting to GBDK-2020 4.0.1</h2>
 <ul>
 <li><b>Important!</b> : The <code>WRAM</code> memory region is no longer automatically initialized to zeros during startup.<ul>
@@ -260,7 +276,7 @@ Porting to GBDK-2020 4.0.1</h2>
 <li>In .ihx files, multiple writes to the same ROM address are now warned about using <a class="el" href="docs_toolchain.html#ihxcheck">ihxcheck</a>.</li>
 <li><code>set_*_tiles()</code> now wrap maps around horizontal and vertical boundaries correctly. Code relying on it not wrapping correctly may be affected.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md239"></a>
+<h2><a class="anchor" id="autotoc_md240"></a>
 Porting to GBDK-2020 4.0</h2>
 <ul>
 <li>GBDK now requires SDCC 4.0.3 or higher</li>
@@ -272,22 +288,22 @@ Porting to GBDK-2020 4.0</h2>
 <li>Setting ROM bytes directly with <code>-Wl-yp0x&lt;address&gt;=0x&lt;value&gt;</code> is no longer supported. Instead use <a class="el" href="docs_toolchain.html#makebin">makebin</a> flags. For example, use <code>-Wm-yC</code> instead of <code>-Wl-yp0x143=0xC0</code>. See <a class="el" href="docs_faq.html#faq_gb_type_header_setting">faq_gb_type_header_setting</a>.</li>
 <li>OAM symbol has been renamed to <code>_shadow_OAM</code>, that allows accessing shadow OAM directly from C code</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md240"></a>
+<h2><a class="anchor" id="autotoc_md241"></a>
 Porting to GBDK-2020 3.2</h2>
 <ul>
 <li>No significant changes required</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md241"></a>
+<h2><a class="anchor" id="autotoc_md242"></a>
 Porting to GBDK-2020 3.1.1</h2>
 <ul>
 <li>No significant changes required</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md242"></a>
+<h2><a class="anchor" id="autotoc_md243"></a>
 Porting to GBDK-2020 3.1</h2>
 <ul>
 <li>Behavior formerly enabled by USE_SFR_FOR_REG is on by default now (no need to specify it, it isn't a tested <code>#ifdef</code> anymore). check here why: <a href="https://gbdev.gg8.se/forums/viewtopic.php?id=697">https://gbdev.gg8.se/forums/viewtopic.php?id=697</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md243"></a>
+<h2><a class="anchor" id="autotoc_md244"></a>
 Porting to GBDK-2020 3.0.1</h2>
 <ul>
 <li>LCC was upgraded to use SDCC v4.0. Makefile changes may be required<ul>
@@ -304,9 +320,9 @@ Porting to GBDK-2020 3.0.1</h2>
 </li>
 </ul>
 <hr  />
-<h1><a class="anchor" id="autotoc_md245"></a>
+<h1><a class="anchor" id="autotoc_md246"></a>
 Historical GBDK versions</h1>
-<h2><a class="anchor" id="autotoc_md246"></a>
+<h2><a class="anchor" id="autotoc_md247"></a>
 GBDK 1.1 to GBDK 2.0</h2>
 <ul>
 <li>Change your int variables to long if they have to be bigger than 255. If they should only contain values between 0 and 255, use an unsigned int.</li>
@@ -317,9 +333,12 @@ GBDK 1.1 to GBDK 2.0</h2>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.14-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="index.html">General Documentation</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
 </div>
 </body>
 </html>

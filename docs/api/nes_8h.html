@@ -19,7 +19,19 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<!-- BEGIN: doxygen-awesome-css -->
+        <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeDarkModeToggle.init()
+        </script>
+        <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+        <script type="text/javascript">
+            DoxygenAwesomeParagraphLink.init()
+        </script>        
+<!-- END: doxygen-awesome-css -->
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -275,7 +287,7 @@ Macros</h2></td></tr>
 <tr class="separator:ab94bfec130df50d9cb808142f94603a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55f82ff980398dd97036fd936ebd727e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#a55f82ff980398dd97036fd936ebd727e">set_tile_map</a>&#160;&#160;&#160;<a class="el" href="nes_8h.html#a6ab3fa75195d44d8d7e867d4a4cb1131">set_bkg_tiles</a></td></tr>
 <tr class="separator:a55f82ff980398dd97036fd936ebd727e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb5d0970167b81401113812773c90838"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#adb5d0970167b81401113812773c90838">set_tile_submap</a>&#160;&#160;&#160;<a class="el" href="sms_8h.html#a0cfd261bc7a94b1f6093f423bad30298">set_bkg_submap</a></td></tr>
+<tr class="memitem:adb5d0970167b81401113812773c90838"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#adb5d0970167b81401113812773c90838">set_tile_submap</a>&#160;&#160;&#160;<a class="el" href="nes_8h.html#ac2c9fd8d613ad8ba52227c5a056e56fa">set_bkg_submap</a></td></tr>
 <tr class="separator:adb5d0970167b81401113812773c90838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b235c526c517fb02d20cdea780ee2c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#a3b235c526c517fb02d20cdea780ee2c5">set_tile_xy</a>&#160;&#160;&#160;<a class="el" href="nes_8h.html#a31655c4b138654e803e295bd4413759c">set_bkg_tile_xy</a></td></tr>
 <tr class="separator:a3b235c526c517fb02d20cdea780ee2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -407,8 +419,8 @@ Functions</h2></td></tr>
 <tr class="separator:a7cd23c81062d37753a4429b794907524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaca04ce3d7213e6d0348196cd592780"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#adaca04ce3d7213e6d0348196cd592780">get_bkg_tile_xy</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y) NO_OVERLAY_LOCALS</td></tr>
 <tr class="separator:adaca04ce3d7213e6d0348196cd592780"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6261537edc74068e3f7f057e6a3e8a57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#a6261537edc74068e3f7f057e6a3e8a57">move_bkg</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> x, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> y)</td></tr>
-<tr class="separator:a6261537edc74068e3f7f057e6a3e8a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30e2a5b55e9a74f1894a1d7207601733"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#a30e2a5b55e9a74f1894a1d7207601733">move_bkg</a> (<a class="el" href="nes_2hardware_8h.html#a4923484c4c9afe154fda193c999f6c2d">scroll_x_t</a> x, <a class="el" href="nes_2hardware_8h.html#a88f6d0b1d14fc49148ac84ac84323423">scroll_y_t</a> y)</td></tr>
+<tr class="separator:a30e2a5b55e9a74f1894a1d7207601733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f583f7a880daa6145ca78b086a209d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#a1f583f7a880daa6145ca78b086a209d1">scroll_bkg</a> (<a class="el" href="stdint_8h.html#aef44329758059c91c76d334e8fc09700">int8_t</a> x, <a class="el" href="stdint_8h.html#aef44329758059c91c76d334e8fc09700">int8_t</a> y)</td></tr>
 <tr class="separator:a1f583f7a880daa6145ca78b086a209d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc0ef4fa6435ca3a1aac93f533eb85da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#adc0ef4fa6435ca3a1aac93f533eb85da">set_sprite_data</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> first_tile, <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> nb_tiles, const <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *data) NO_OVERLAY_LOCALS</td></tr>
@@ -464,10 +476,6 @@ Variables</h2></td></tr>
 <tr class="separator:a06bab3f8bce032de0d21fbd86e14c3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a250f5339e05523912926be566e9eb8c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#a250f5339e05523912926be566e9eb8c0">_current_1bpp_colors</a></td></tr>
 <tr class="separator:a250f5339e05523912926be566e9eb8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa82205e9629f984d0b3dc8055c211522"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#aa82205e9629f984d0b3dc8055c211522">_map_tile_offset</a></td></tr>
-<tr class="separator:aa82205e9629f984d0b3dc8055c211522"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab472d9bbb1bcfd141374f5babc71934c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#ab472d9bbb1bcfd141374f5babc71934c">_submap_tile_offset</a></td></tr>
-<tr class="separator:ab472d9bbb1bcfd141374f5babc71934c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3619f9cb1e3c92238a033ead79a0c551"><td class="memItemLeft" align="right" valign="top">volatile struct <a class="el" href="struct_o_a_m__item__t.html">OAM_item_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#a3619f9cb1e3c92238a033ead79a0c551">shadow_OAM</a> []</td></tr>
 <tr class="separator:a3619f9cb1e3c92238a033ead79a0c551"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6286d69d5fb1133edd0c01c9545c62e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nes_8h.html#a6286d69d5fb1133edd0c01c9545c62e4">_shadow_OAM_base</a></td></tr>
@@ -1866,7 +1874,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define set_tile_submap&#160;&#160;&#160;<a class="el" href="sms_8h.html#a0cfd261bc7a94b1f6093f423bad30298">set_bkg_submap</a></td>
+          <td class="memname">#define set_tile_submap&#160;&#160;&#160;<a class="el" href="nes_8h.html#ac2c9fd8d613ad8ba52227c5a056e56fa">set_bkg_submap</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3169,7 +3177,7 @@ On the current NES implementation, this handler is actually faked, and called be
 </div><div class="memdoc">
 <p>Sets a rectangular region of Background Tile Map.</p>
 <p>Entries are copied from map at <b>tiles</b> to the Background Tile Map starting at <b>x</b>, <b>y</b> writing across for <b>w</b> tiles and down for <b>h</b> tiles.</p>
-<p>Use <a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap()</a> instead when: </p><ul>
+<p>Use <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a> instead when: </p><ul>
 <li>Source map is wider than 32 tiles. </li>
 <li>Writing a width that does not match the source map width <b>and</b> more than one row high at a time.</li>
 </ul>
@@ -3190,7 +3198,7 @@ On the current NES implementation, this handler is actually faked, and called be
   </dd>
 </dl>
 <p>Entries are copied from map at <b>tiles</b> to the Background Tile Map starting at <b>x</b>, <b>y</b> writing across for <b>w</b> tiles and down for <b>h</b> tiles.</p>
-<p>Use <a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap()</a> instead when: </p><ul>
+<p>Use <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a> instead when: </p><ul>
 <li>Source map is wider than 32 tiles. </li>
 <li>Writing a width that does not match the source map width <b>and</b> more than one row high at a time.</li>
 </ul>
@@ -3426,7 +3434,7 @@ On the current NES implementation, this handler is actually faked, and called be
 <p>See <a class="el" href="nes_8h.html#a6ab3fa75195d44d8d7e867d4a4cb1131">set_bkg_tiles</a> for setting CGB attribute maps with <a class="el" href="gb_2hardware_8h.html#a5ccae0d556500e1055a0ec8de20c535a">VBK_REG</a>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="nes_8h.html#a8e3f36aa68ac036695816757f2a1322c">SHOW_BKG</a> </dd>
 <dd>
-<a class="el" href="nes_8h.html#a4eb0e4c6c672efdeb49c3cdba2fa4d4a">set_bkg_data</a>, <a class="el" href="nes_8h.html#a6ab3fa75195d44d8d7e867d4a4cb1131">set_bkg_tiles</a>, <a class="el" href="sms_8h.html#abb50a392ca0d0419a080413287ee5d79">set_win_submap</a>, <a class="el" href="nes_8h.html#a399a0430a177e349cc691c5109427c01">set_tiles</a> </dd></dl>
+<a class="el" href="nes_8h.html#a4eb0e4c6c672efdeb49c3cdba2fa4d4a">set_bkg_data</a>, <a class="el" href="nes_8h.html#a6ab3fa75195d44d8d7e867d4a4cb1131">set_bkg_tiles</a>, <a class="el" href="msx_8h.html#abb50a392ca0d0419a080413287ee5d79">set_win_submap</a>, <a class="el" href="nes_8h.html#a399a0430a177e349cc691c5109427c01">set_tiles</a> </dd></dl>
 
 </div>
 </div>
@@ -3491,7 +3499,7 @@ On the current NES implementation, this handler is actually faked, and called be
 <p>Please note that this is just a wrapper function for <a class="el" href="nes_8h.html#aadba8b700b97ec97dc9c488496619fd9">set_bkg_submap_attributes_nes16x16()</a> and divides the coordinates and dimensions by 2 to achieve this. It is intended to make code more portable by using the same coordinate system that systems with the much more common 8x8 attribute resolution would use.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="nes_8h.html#a8e3f36aa68ac036695816757f2a1322c">SHOW_BKG</a> </dd>
 <dd>
-<a class="el" href="nes_8h.html#a4eb0e4c6c672efdeb49c3cdba2fa4d4a">set_bkg_data</a>, <a class="el" href="nes_8h.html#a6ab3fa75195d44d8d7e867d4a4cb1131">set_bkg_tiles</a>, <a class="el" href="sms_8h.html#abb50a392ca0d0419a080413287ee5d79">set_win_submap</a>, <a class="el" href="nes_8h.html#a399a0430a177e349cc691c5109427c01">set_tiles</a> </dd></dl>
+<a class="el" href="nes_8h.html#a4eb0e4c6c672efdeb49c3cdba2fa4d4a">set_bkg_data</a>, <a class="el" href="nes_8h.html#a6ab3fa75195d44d8d7e867d4a4cb1131">set_bkg_tiles</a>, <a class="el" href="msx_8h.html#abb50a392ca0d0419a080413287ee5d79">set_win_submap</a>, <a class="el" href="nes_8h.html#a399a0430a177e349cc691c5109427c01">set_tiles</a> </dd></dl>
 
 </div>
 </div>
@@ -3738,8 +3746,23 @@ On the current NES implementation, this handler is actually faked, and called be
   </table>
   </dd>
 </dl>
-<p>This is identical to <a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="nes_8h.html#ac2c9fd8d613ad8ba52227c5a056e56fa">set_bkg_submap</a> for more details </dd></dl>
+<p>This is identical to <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap</a> for more details</dd></dl>
+<p>Sets a rectangular area of the Background Tile Map using a sub-region from a source tile map. The offset value in <b>base_tile</b> is added to the tile ID for each map entry.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>X Start position in both the Source Tile Map and hardware Background Map tile coordinates. Range 0 - 255 </td></tr>
+    <tr><td class="paramname">y</td><td>Y Start position in both the Source Tile Map and hardware Background Map tile coordinates. Range 0 - 255 </td></tr>
+    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 1 - 255 </td></tr>
+    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 1 - 255 </td></tr>
+    <tr><td class="paramname">map</td><td>Pointer to source tile map data </td></tr>
+    <tr><td class="paramname">map_w</td><td>Width of source tile map in tiles. Range 1 - 255 </td></tr>
+    <tr><td class="paramname">base_tile</td><td>Offset each tile ID entry of the source map by this value. Range 1 - 255</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This is identical to <a class="el" href="sms_8h.html#a7b120d9ee222995966a54bb6fd73b285">set_bkg_submap()</a> except that it adds the <b>base_tile</b> parameter for when a tile map's tiles don't start at index zero. (For example, the tiles used by the map range from 100 -&gt; 120 in VRAM instead of 0 -&gt; 20).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="gb_8h.html#adb21d1c7d533a7133bab36a845489780">set_bkg_submap</a> for more details </dd></dl>
 
 </div>
 </div>
@@ -3993,8 +4016,8 @@ On the current NES implementation, this handler is actually faked, and called be
 
 </div>
 </div>
-<a id="a6261537edc74068e3f7f057e6a3e8a57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6261537edc74068e3f7f057e6a3e8a57">&#9670;&nbsp;</a></span>move_bkg()</h2>
+<a id="a30e2a5b55e9a74f1894a1d7207601733"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30e2a5b55e9a74f1894a1d7207601733">&#9670;&nbsp;</a></span>move_bkg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4005,13 +4028,13 @@ On the current NES implementation, this handler is actually faked, and called be
         <tr>
           <td class="memname">void move_bkg </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="nes_2hardware_8h.html#a4923484c4c9afe154fda193c999f6c2d">scroll_x_t</a>&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="nes_2hardware_8h.html#a88f6d0b1d14fc49148ac84ac84323423">scroll_y_t</a>&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -4083,7 +4106,7 @@ On the current NES implementation, this handler is actually faked, and called be
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="nes_8h.html#a6261537edc74068e3f7f057e6a3e8a57">move_bkg</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="nes_8h.html#a30e2a5b55e9a74f1894a1d7207601733">move_bkg</a> </dd></dl>
 
 </div>
 </div>
@@ -5129,8 +5152,8 @@ On the current NES implementation, this handler is actually faked, and called be
   <table class="params">
     <tr><td class="paramname">x</td><td>X Start position in Background Map tile coordinates. Range 0 - 31 </td></tr>
     <tr><td class="paramname">y</td><td>Y Start position in Background Map tile coordinates. Range 0 - 31 </td></tr>
-    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 0 - 31 </td></tr>
-    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 0 - 31 </td></tr>
+    <tr><td class="paramname">w</td><td>Width of area to set in tiles. Range 1 - 32 </td></tr>
+    <tr><td class="paramname">h</td><td>Height of area to set in tiles. Range 1 - 32 </td></tr>
     <tr><td class="paramname">tile</td><td>Fill value </td></tr>
   </table>
   </dd>
@@ -5277,50 +5300,6 @@ On the current NES implementation, this handler is actually faked, and called be
 
 </div>
 </div>
-<a id="aa82205e9629f984d0b3dc8055c211522"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa82205e9629f984d0b3dc8055c211522">&#9670;&nbsp;</a></span>_map_tile_offset</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _map_tile_offset</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab472d9bbb1bcfd141374f5babc71934c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab472d9bbb1bcfd141374f5babc71934c">&#9670;&nbsp;</a></span>_submap_tile_offset</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _submap_tile_offset</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a3619f9cb1e3c92238a033ead79a0c551"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3619f9cb1e3c92238a033ead79a0c551">&#9670;&nbsp;</a></span>shadow_OAM</h2>
 
@@ -5369,9 +5348,12 @@ On the current NES implementation, this handler is actually faked, and called be
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.14-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8bd3092e915ccc8a773a74e0a10d4d15.html">gbdk-lib</a></li><li class="navelem"><a class="el" href="dir_a9f896cff747ba031115e41245385c17.html">include</a></li><li class="navelem"><a class="el" href="dir_af92cb28f7f9115544c8de6a3c7e6d6b.html">nes</a></li><li class="navelem"><a class="el" href="nes_8h.html">nes.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
 </div>
 </body>
 </html>

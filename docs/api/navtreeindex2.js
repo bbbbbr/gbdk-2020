@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"docs_using_gbdk.html#autotoc_md64":[0,6,4,1],
 "docs_using_gbdk.html#autotoc_md65":[0,6,5],
 "docs_using_gbdk.html#autotoc_md66":[0,6,6],
 "docs_using_gbdk.html#autotoc_md67":[0,6,6,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "gb_2hardware_8h.html#a820677d593625e8716c3b78f36feb805":[4,0,1,0,2,8,200],
 "gb_2hardware_8h.html#a82c53e957d31d22c475e1629843bc12d":[4,0,1,0,2,8,166],
 "gb_2hardware_8h.html#a83e14896ee3ddf2a4201b534d8e5f398":[4,0,1,0,2,8,177],
-"gb_2hardware_8h.html#a8492c6d9cb38fbb4a2bf9f5caa426578":[4,0,1,0,2,8,64],
-"gb_2hardware_8h.html#a849d2cff8df2655f86b294466bec40d6":[4,0,1,0,2,8,278]
+"gb_2hardware_8h.html#a8492c6d9cb38fbb4a2bf9f5caa426578":[4,0,1,0,2,8,64]
 };

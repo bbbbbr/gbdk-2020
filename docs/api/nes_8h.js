@@ -146,7 +146,7 @@ var nes_8h =
     [ "set_bkg_attribute_xy_nes16x16", "nes_8h.html#a7b7c27e672467f08097f744f3530bbc7", null ],
     [ "set_bkg_attribute_xy", "nes_8h.html#a7cd23c81062d37753a4429b794907524", null ],
     [ "get_bkg_tile_xy", "nes_8h.html#adaca04ce3d7213e6d0348196cd592780", null ],
-    [ "move_bkg", "nes_8h.html#a6261537edc74068e3f7f057e6a3e8a57", null ],
+    [ "move_bkg", "nes_8h.html#a30e2a5b55e9a74f1894a1d7207601733", null ],
     [ "scroll_bkg", "nes_8h.html#a1f583f7a880daa6145ca78b086a209d1", null ],
     [ "set_sprite_data", "nes_8h.html#adc0ef4fa6435ca3a1aac93f533eb85da", null ],
     [ "set_sprite_1bpp_data", "nes_8h.html#a6372e69db6290fbc0e73244dbe15f903", null ],
@@ -173,8 +173,6 @@ var nes_8h =
     [ "sys_time", "nes_8h.html#a78d2fd18666afec116f176d46debb4e7", null ],
     [ "_current_bank", "nes_8h.html#a06bab3f8bce032de0d21fbd86e14c3f3", null ],
     [ "_current_1bpp_colors", "nes_8h.html#a250f5339e05523912926be566e9eb8c0", null ],
-    [ "_map_tile_offset", "nes_8h.html#aa82205e9629f984d0b3dc8055c211522", null ],
-    [ "_submap_tile_offset", "nes_8h.html#ab472d9bbb1bcfd141374f5babc71934c", null ],
     [ "shadow_OAM", "nes_8h.html#a3619f9cb1e3c92238a033ead79a0c551", null ],
     [ "_shadow_OAM_base", "nes_8h.html#a6286d69d5fb1133edd0c01c9545c62e4", null ]
 ];
