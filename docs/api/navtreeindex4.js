@@ -1,5 +1,12 @@
 var NAVTREEINDEX4 =
 {
+"gb_8h.html#SWITCH_RAM_MBC5":[4,0,1,0,2,6,70],
+"gb_8h.html#SWITCH_ROM":[4,0,1,0,2,6,57],
+"gb_8h.html#SWITCH_ROM_MBC1":[4,0,1,0,2,6,62],
+"gb_8h.html#SWITCH_ROM_MBC5":[4,0,1,0,2,6,68],
+"gb_8h.html#SWITCH_ROM_MBC5_8M":[4,0,1,0,2,6,69],
+"gb_8h.html#SWITCH_ROM_MEGADUCK":[4,0,1,0,2,6,61],
+"gb_8h.html#SYSTEM_50HZ":[4,0,1,0,2,6,4],
 "gb_8h.html#SYSTEM_60HZ":[4,0,1,0,2,6,3],
 "gb_8h.html#S_BANK":[4,0,1,0,2,6,19],
 "gb_8h.html#S_FLIPX":[4,0,1,0,2,6,21],
@@ -157,8 +164,8 @@ var NAVTREEINDEX4 =
 "gbdk_2gbdecompress_8h_source.html":[4,0,1,0,3,5],
 "gbdk_2metasprites_8h.html":[4,0,1,0,3,8],
 "gbdk_2metasprites_8h_source.html":[4,0,1,0,3,8],
-"globals.html":[4,1,0],
 "globals.html":[4,1,0,0],
+"globals.html":[4,1,0],
 "globals_a.html":[4,1,0,1],
 "globals_b.html":[4,1,0,2],
 "globals_c.html":[4,1,0,3],
@@ -232,8 +239,8 @@ var NAVTREEINDEX4 =
 "globals_type.html":[4,1,3],
 "globals_u.html":[4,1,0,21],
 "globals_v.html":[4,1,0,22],
-"globals_vars.html":[4,1,2],
 "globals_vars.html":[4,1,2,0],
+"globals_vars.html":[4,1,2],
 "globals_vars_a.html":[4,1,2,1],
 "globals_vars_b.html":[4,1,2,2],
 "globals_vars_c.html":[4,1,2,3],
@@ -242,12 +249,5 @@ var NAVTREEINDEX4 =
 "globals_vars_f.html":[4,1,2,6],
 "globals_vars_h.html":[4,1,2,7],
 "globals_vars_i.html":[4,1,2,8],
-"globals_vars_k.html":[4,1,2,9],
-"globals_vars_l.html":[4,1,2,10],
-"globals_vars_n.html":[4,1,2,11],
-"globals_vars_o.html":[4,1,2,12],
-"globals_vars_p.html":[4,1,2,13],
-"globals_vars_r.html":[4,1,2,14],
-"globals_vars_s.html":[4,1,2,15],
-"globals_vars_t.html":[4,1,2,16]
+"globals_vars_k.html":[4,1,2,9]
 };

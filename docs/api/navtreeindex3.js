@@ -1,5 +1,12 @@
 var NAVTREEINDEX3 =
 {
+"gb_2hardware_8h.html#P1F_5":[4,0,1,0,2,8,8],
+"gb_2hardware_8h.html#P1F_GET_BTN":[4,0,1,0,2,8,15],
+"gb_2hardware_8h.html#P1F_GET_DPAD":[4,0,1,0,2,8,14],
+"gb_2hardware_8h.html#P1F_GET_NONE":[4,0,1,0,2,8,16],
+"gb_2hardware_8h.html#P1_REG":[4,0,1,0,2,8,253],
+"gb_2hardware_8h.html#PCM12_REG":[4,0,1,0,2,8,309],
+"gb_2hardware_8h.html#PCM34_REG":[4,0,1,0,2,8,310],
 "gb_2hardware_8h.html#PCM_SAMPLE":[4,0,1,0,2,8,283],
 "gb_2hardware_8h.html#RPF_DATAIN":[4,0,1,0,2,8,168],
 "gb_2hardware_8h.html#RPF_ENREAD":[4,0,1,0,2,8,167],
@@ -242,12 +249,5 @@ var NAVTREEINDEX3 =
 "gb_8h.html#SWITCH_16_8_MODE_MBC1":[4,0,1,0,2,6,66],
 "gb_8h.html#SWITCH_4_32_MODE_MBC1":[4,0,1,0,2,6,67],
 "gb_8h.html#SWITCH_RAM":[4,0,1,0,2,6,58],
-"gb_8h.html#SWITCH_RAM_MBC1":[4,0,1,0,2,6,63],
-"gb_8h.html#SWITCH_RAM_MBC5":[4,0,1,0,2,6,70],
-"gb_8h.html#SWITCH_ROM":[4,0,1,0,2,6,57],
-"gb_8h.html#SWITCH_ROM_MBC1":[4,0,1,0,2,6,62],
-"gb_8h.html#SWITCH_ROM_MBC5":[4,0,1,0,2,6,68],
-"gb_8h.html#SWITCH_ROM_MBC5_8M":[4,0,1,0,2,6,69],
-"gb_8h.html#SWITCH_ROM_MEGADUCK":[4,0,1,0,2,6,61],
-"gb_8h.html#SYSTEM_50HZ":[4,0,1,0,2,6,4]
+"gb_8h.html#SWITCH_RAM_MBC1":[4,0,1,0,2,6,63]
 };

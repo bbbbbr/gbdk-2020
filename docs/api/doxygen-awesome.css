@@ -9,6 +9,11 @@ Copyright (c) 2021 - 2025 jothepro
 */
 
 html {
+    /* Less game between content root level ol and ul lists and preceding block level element */
+    div > ol, div > ul {
+        margin-top: -0.50em;
+    }
+
     /* primary theme color. This will affect the entire websites color scheme: links, arrows, labels, ... */
     --primary-color: #1779c4;
     --primary-dark-color: #335c80;
@@ -118,8 +123,9 @@ html {
     --searchbar-border-radius: var(--searchbar-height);
 
     /* code block colors */
-    --code-background: #f5f5f5;
+    --code-background: #def1fd;
     --code-foreground: var(--page-foreground-color);
+    --code-separator-color: #cae2ec;
 
     /* fragment colors */
     --fragment-background: #F8F9FA;
@@ -155,7 +161,7 @@ html {
     --webkit-scrollbar-padding: 4px;
     --webkit-scrollbar-color: var(--separator-color);
 
-    --animation-duration: .12s
+    --animation-duration: 0.02s
 }
 
 @media screen and (max-width: 767px) {
@@ -188,7 +194,9 @@ html {
         --separator-color: #38393b;
         --side-nav-background: #252628;
 
-        --code-background: #2a2c2f;
+        --code-background: #223c5e;
+        --code-foreground: #a4c5d4;
+        --code-separator-color: #ffffff00; /* transparent */
 
         --tablehead-background: #2a2c2f;
     
@@ -248,8 +256,6 @@ html.dark-mode {
     --page-secondary-foreground-color: #859399;
     --separator-color: #38393b;
     --side-nav-background: #252628;
-
-    --code-background: #2a2c2f;
 
     --tablehead-background: #2a2c2f;
 
@@ -474,7 +480,7 @@ a.anchor {
     border: 1px solid var(--separator-color);
     border-radius: var(--border-radius-medium) !important;
     padding: var(--spacing-small);
-    animation: ease-out 150ms slideInMenu;
+    animation: ease-out 25ms slideInMenu;
 }
 
 @keyframes slideInMenu {
@@ -692,7 +698,7 @@ a.anchor {
     border: 1px solid var(--separator-color);
     transform: translate(0, 20px);
     box-shadow: var(--box-shadow);
-    animation: ease-out 280ms slideInSearchResults;
+    animation: ease-out 25ms slideInSearchResults;
     background: var(--page-background-color);
 }
 
@@ -778,7 +784,7 @@ html.dark-mode iframe#MSearchResults {
         right: var(--spacing-medium);
         overflow: auto;
         transform: translate(0, 20px);
-        animation: ease-out 280ms slideInSearchResultsMobile;
+        animation: ease-out 25ms slideInSearchResultsMobile;
         width: auto !important;
     }
 
@@ -1310,7 +1316,7 @@ div.toc li a.aboveActive {
     div.contents .toc.interactive.open {
         max-height: 45vh;
         overflow: auto;
-        transition: max-height 0.2s ease-in-out;
+        transition: max-height 0.02s ease-in-out;
     }
 
     div.contents .toc a, div.contents .toc a.active {
@@ -1417,7 +1423,7 @@ div.toc li a.aboveActive {
  */
 
 code, div.fragment, pre.fragment, span.tt {
-    border: 1px solid var(--separator-color);
+    border: 1px solid var(--code-separator-color);
     overflow: hidden;
 }
 
@@ -2221,7 +2227,7 @@ div.dynheader img[src="closed.png"] {
         display: block !important;
         visibility: visible;
         width: calc(100vw - 2 * var(--spacing-large));
-        animation: fade .5s;
+        animation: fade .10s;
     }
 
     @keyframes fade {
@@ -2741,7 +2747,7 @@ a.anchorlink {
     margin-left: var(--spacing-small);
     color: var(--page-foreground-color) !important;
     text-decoration: none;
-    opacity: .15;
+    opacity: .50;
     display: none;
     transition: opacity var(--animation-duration) ease-in-out, color var(--animation-duration) ease-in-out;
 }
@@ -2756,7 +2762,7 @@ h3 a.anchorlink svg, h4 a.anchorlink svg {
 }
 
 a.anchorlink:hover {
-    opacity: .45;
+    opacity: .95;
 }
 
 h2:hover a.anchorlink, h1:hover a.anchorlink, h3:hover a.anchorlink, h4:hover a.anchorlink  {
@@ -2935,7 +2941,7 @@ h2:hover a.anchorlink, h1:hover a.anchorlink, h3:hover a.anchorlink, h4:hover a.
 .section_buttons tr td.markdownTableBodyRight a::after {
     color: var(--page-secondary-foreground-color) !important;
     display: inline-block;
-    transition: color .08s ease-in-out, transform .09s ease-in-out;
+    transition: color .02s ease-in-out, transform .02s ease-in-out;
 }
 
 .section_buttons tr td.markdownTableBodyLeft a::before {

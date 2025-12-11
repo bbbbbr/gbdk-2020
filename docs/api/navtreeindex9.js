@@ -1,5 +1,12 @@
 var NAVTREEINDEX9 =
 {
+"sms_2hardware_8h.html#SIOCTL_INT":[4,0,1,0,6,2,9],
+"sms_2hardware_8h.html#SIOCTL_RON":[4,0,1,0,6,2,11],
+"sms_2hardware_8h.html#SIOCTL_RXRD":[4,0,1,0,6,2,7],
+"sms_2hardware_8h.html#SIOCTL_TON":[4,0,1,0,6,2,10],
+"sms_2hardware_8h.html#SIOCTL_TXFL":[4,0,1,0,6,2,6],
+"sms_2hardware_8h.html#SOUNDPAN_NOSL":[4,0,1,0,6,2,21],
+"sms_2hardware_8h.html#SOUNDPAN_NOSR":[4,0,1,0,6,2,17],
 "sms_2hardware_8h.html#SOUNDPAN_TN1L":[4,0,1,0,6,2,18],
 "sms_2hardware_8h.html#SOUNDPAN_TN1R":[4,0,1,0,6,2,14],
 "sms_2hardware_8h.html#SOUNDPAN_TN2L":[4,0,1,0,6,2,19],
@@ -242,12 +249,5 @@ var NAVTREEINDEX9 =
 "sms_8h.html#set_win_based_submap":[4,0,1,0,6,4,149],
 "sms_8h.html#set_win_based_tiles":[4,0,1,0,6,4,144],
 "sms_8h.html#set_win_submap":[4,0,1,0,6,4,73],
-"sms_8h.html#set_win_tile_xy":[4,0,1,0,6,4,82],
-"sms_8h.html#set_win_tiles":[4,0,1,0,6,4,71],
-"sms_8h.html#shadow_OAM":[4,0,1,0,6,4,182],
-"sms_8h.html#sys_time":[4,0,1,0,6,4,175],
-"sms_8h.html#vmemcpy":[4,0,1,0,6,4,140],
-"sms_8h.html#vsync":[4,0,1,0,6,4,106],
-"sms_8h.html#wait_vbl_done":[4,0,1,0,6,4,107],
-"sms_8h.html#waitpad":[4,0,1,0,6,4,113]
+"sms_8h.html#set_win_tile_xy":[4,0,1,0,6,4,82]
 };

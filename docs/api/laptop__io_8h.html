@@ -41,7 +41,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GBDK 2020 Docs
-   &#160;<span id="projectnumber">4.4.0</span>
+   &#160;<span id="projectnumber">4.5.0</span>
    </div>
    <div id="projectbrief">API Documentation for GBDK 2020</div>
   </td>
@@ -239,7 +239,7 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="anchor" id="megaduck_laptop_io_docs"></a></p>
-<h1><a class="anchor" id="autotoc_md302"></a>
+<h1><a class="anchor" id="autotoc_md309"></a>
 MegaDuck Laptop Peripheral IO support</h1>
 <p >The MegaDuck Laptop models (Spanish and German) have several built-in hardware peripherals which are attached via a controller that is communicated with using the serial link port.</p>
 <dl class="section note"><dt>Note</dt><dd>Using the duck_io_* functions referenced from this header file will cause the duck_io_ serial interrupt handler to be automatically installed.</dd></dl>
@@ -952,11 +952,11 @@ MegaDuck Laptop Peripheral IO support</h1>
       </table>
 </div><div class="memdoc">
 <p >Returns status of MegaDuck Printer as last detected by <a class="el" href="laptop__io_8h.html#duck_io_laptop_init">duck_io_laptop_init()</a> or <a class="el" href="laptop__io_8h.html#duck_io_printer_query">duck_io_printer_query()</a></p>
-<p >Returned unsigned 8 bit value will have: </p><ul>
-<li>Bit 0: Printer Status. Mask with DUCK_IO_PRINTER_INIT_OK </li>
-<li>Bit 1: Printer Type. Mask with DUCK_IO_PRINTER_TYPE_MASK</li>
-</ul>
-<p><a class="el" href="laptop__io_8h.html#duck_io_laptop_init">duck_io_laptop_init()</a> must be called first </p>
+<p >Should be called immediately before trying to print</p>
+<p >Returned unsigned 8 bit value will have Printer Type and Status in bits 1..0</p>
+<p >The resulting value will be cached and used for any subsequent <a class="el" href="laptop__io_8h.html#duck_io_printer_last_status">duck_io_printer_last_status()</a> calls.</p>
+<p ><a class="el" href="laptop__io_8h.html#duck_io_laptop_init">duck_io_laptop_init()</a> must be called first </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="laptop__io_8h.html#DUCK_IO_PRINTER_FAIL">DUCK_IO_PRINTER_FAIL</a>, <a class="el" href="laptop__io_8h.html#DUCK_IO_PRINTER_TYPE_2_PASS">DUCK_IO_PRINTER_TYPE_2_PASS</a>, <a class="el" href="laptop__io_8h.html#DUCK_IO_PRINTER_TYPE_1_PASS">DUCK_IO_PRINTER_TYPE_1_PASS</a>, <a class="el" href="laptop__io_8h.html#DUCK_IO_PRINTER_MAYBE_BUSY">DUCK_IO_PRINTER_MAYBE_BUSY</a> <br  />
+ </dd></dl>
 
 </div>
 </div>
@@ -977,12 +977,10 @@ MegaDuck Laptop Peripheral IO support</h1>
 </div><div class="memdoc">
 <p >Performs a 3 x printer query serial command and returns raw system printer reply</p>
 <p >Should be called immediately before trying to print</p>
-<p >Returned unsigned 8 bit value will have: </p><ul>
-<li>Bit 0: Printer Status. Mask with DUCK_IO_PRINTER_INIT_OK </li>
-<li>Bit 1: Printer Type. Mask with DUCK_IO_PRINTER_TYPE_MASK</li>
-</ul>
-<p>The resulting value will be cached and used for any subsequent duck_io_printer_detected() and duck_io_printer_type() calls.</p>
-<p ><a class="el" href="laptop__io_8h.html#duck_io_laptop_init">duck_io_laptop_init()</a> must be called first </p>
+<p >Returned unsigned 8 bit value will have Printer Type and Status in bits 1..0</p>
+<p >The resulting value will be cached and used for any subsequent <a class="el" href="laptop__io_8h.html#duck_io_printer_last_status">duck_io_printer_last_status()</a> calls.</p>
+<p ><a class="el" href="laptop__io_8h.html#duck_io_laptop_init">duck_io_laptop_init()</a> must be called first </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="laptop__io_8h.html#duck_io_printer_last_status">duck_io_printer_last_status()</a>, <a class="el" href="laptop__io_8h.html#DUCK_IO_PRINTER_FAIL">DUCK_IO_PRINTER_FAIL</a>, <a class="el" href="laptop__io_8h.html#DUCK_IO_PRINTER_TYPE_2_PASS">DUCK_IO_PRINTER_TYPE_2_PASS</a>, <a class="el" href="laptop__io_8h.html#DUCK_IO_PRINTER_TYPE_1_PASS">DUCK_IO_PRINTER_TYPE_1_PASS</a>, <a class="el" href="laptop__io_8h.html#DUCK_IO_PRINTER_MAYBE_BUSY">DUCK_IO_PRINTER_MAYBE_BUSY</a> <br  />
+ </dd></dl>
 
 </div>
 </div>

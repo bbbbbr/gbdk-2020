@@ -1,5 +1,12 @@
 var NAVTREEINDEX6 =
 {
+"model_8h.html#duck_check_model":[4,0,1,0,1,2,3],
+"model_8h_source.html":[4,0,1,0,1,2],
+"modules.html":[2],
+"mos6502_2provides_8h.html":[4,0,1,0,0,0,0],
+"mos6502_2provides_8h.html#USE_C_MEMCPY":[4,0,1,0,0,0,0,0],
+"mos6502_2provides_8h.html#USE_C_STRCMP":[4,0,1,0,0,0,0,2],
+"mos6502_2provides_8h.html#USE_C_STRCPY":[4,0,1,0,0,0,0,1],
 "mos6502_2provides_8h_source.html":[4,0,1,0,0,0,0],
 "msx_2hardware_8h.html":[4,0,1,0,4,0],
 "msx_2hardware_8h.html#DEVICE_SCREEN_PX_HEIGHT":[4,0,1,0,4,0,73],
@@ -242,12 +249,5 @@ var NAVTREEINDEX6 =
 "msx_8h.html#set_bkg_4bpp_data":[4,0,1,0,4,2,121],
 "msx_8h.html#set_bkg_based_submap":[4,0,1,0,4,2,139],
 "msx_8h.html#set_bkg_based_tiles":[4,0,1,0,4,2,133],
-"msx_8h.html#set_bkg_data":[4,0,1,0,4,2,125],
-"msx_8h.html#set_bkg_palette":[4,0,1,0,4,2,66],
-"msx_8h.html#set_bkg_palette_entry":[4,0,1,0,4,2,64],
-"msx_8h.html#set_bkg_submap":[4,0,1,0,4,2,137],
-"msx_8h.html#set_bkg_tile_xy":[4,0,1,0,4,2,78],
-"msx_8h.html#set_bkg_tiles":[4,0,1,0,4,2,69],
-"msx_8h.html#set_data":[4,0,1,0,4,2,130],
-"msx_8h.html#set_default_palette":[4,0,1,0,4,2,116]
+"msx_8h.html#set_bkg_data":[4,0,1,0,4,2,125]
 };

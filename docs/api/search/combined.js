@@ -355,7 +355,7 @@ var searchData = [
   ['robp1_147',['rOBP1',['../gb_2hardware_8h.html#rOBP1',1,'hardware.h']]],
   ['rocpd_148',['rOCPD',['../gb_2hardware_8h.html#rOCPD',1,'hardware.h']]],
   ['rocps_149',['rOCPS',['../gb_2hardware_8h.html#rOCPS',1,'hardware.h']]],
-  ['rom_2fram_20banking_20and_20mbcs_150',['ROM/RAM Banking and MBCs',['../docs_rombanking_mbcs.html',1,'index']]],
+  ['rom_2fsram_20banking_20and_20mbcs_150',['ROM/SRAM Banking and MBCs',['../docs_rombanking_mbcs.html',1,'index']]],
   ['rp1_151',['rP1',['../gb_2hardware_8h.html#rP1',1,'hardware.h']]],
   ['rp_5freg_152',['RP_REG',['../gb_2hardware_8h.html#RP_REG',1,'hardware.h']]],
   ['rpcm12_153',['rPCM12',['../gb_2hardware_8h.html#rPCM12',1,'hardware.h']]],

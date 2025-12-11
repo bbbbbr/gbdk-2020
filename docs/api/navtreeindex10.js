@@ -1,5 +1,12 @@
 var NAVTREEINDEX10 =
 {
+"sms_8h.html#set_win_tiles":[4,0,1,0,6,4,71],
+"sms_8h.html#shadow_OAM":[4,0,1,0,6,4,182],
+"sms_8h.html#sys_time":[4,0,1,0,6,4,175],
+"sms_8h.html#vmemcpy":[4,0,1,0,6,4,140],
+"sms_8h.html#vsync":[4,0,1,0,6,4,106],
+"sms_8h.html#wait_vbl_done":[4,0,1,0,6,4,107],
+"sms_8h.html#waitpad":[4,0,1,0,6,4,113],
 "sms_8h.html#waitpadup":[4,0,1,0,6,4,114],
 "sms_8h_source.html":[4,0,1,0,6,4],
 "stdarg_8h.html":[4,0,1,0,12],

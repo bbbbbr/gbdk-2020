@@ -1,5 +1,12 @@
 var NAVTREEINDEX2 =
 {
+"docs_using_gbdk.html#autotoc_md48":[0,6,1,3],
+"docs_using_gbdk.html#autotoc_md49":[0,6,1,4],
+"docs_using_gbdk.html#autotoc_md50":[0,6,1,5],
+"docs_using_gbdk.html#autotoc_md51":[0,6,2],
+"docs_using_gbdk.html#autotoc_md52":[0,6,3],
+"docs_using_gbdk.html#autotoc_md53":[0,6,4],
+"docs_using_gbdk.html#autotoc_md54":[0,6,4,0],
 "docs_using_gbdk.html#autotoc_md55":[0,6,4,1],
 "docs_using_gbdk.html#autotoc_md56":[0,6,5],
 "docs_using_gbdk.html#autotoc_md57":[0,6,6],
@@ -242,12 +249,5 @@ var NAVTREEINDEX2 =
 "gb_2hardware_8h.html#P1F_1":[4,0,1,0,2,8,12],
 "gb_2hardware_8h.html#P1F_2":[4,0,1,0,2,8,11],
 "gb_2hardware_8h.html#P1F_3":[4,0,1,0,2,8,10],
-"gb_2hardware_8h.html#P1F_4":[4,0,1,0,2,8,9],
-"gb_2hardware_8h.html#P1F_5":[4,0,1,0,2,8,8],
-"gb_2hardware_8h.html#P1F_GET_BTN":[4,0,1,0,2,8,15],
-"gb_2hardware_8h.html#P1F_GET_DPAD":[4,0,1,0,2,8,14],
-"gb_2hardware_8h.html#P1F_GET_NONE":[4,0,1,0,2,8,16],
-"gb_2hardware_8h.html#P1_REG":[4,0,1,0,2,8,253],
-"gb_2hardware_8h.html#PCM12_REG":[4,0,1,0,2,8,309],
-"gb_2hardware_8h.html#PCM34_REG":[4,0,1,0,2,8,310]
+"gb_2hardware_8h.html#P1F_4":[4,0,1,0,2,8,9]
 };

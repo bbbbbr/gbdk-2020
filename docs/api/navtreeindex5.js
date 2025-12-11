@@ -1,5 +1,12 @@
 var NAVTREEINDEX5 =
 {
+"globals_vars_l.html":[4,1,2,10],
+"globals_vars_n.html":[4,1,2,11],
+"globals_vars_o.html":[4,1,2,12],
+"globals_vars_p.html":[4,1,2,13],
+"globals_vars_r.html":[4,1,2,14],
+"globals_vars_s.html":[4,1,2,15],
+"globals_vars_t.html":[4,1,2,16],
 "globals_vars_v.html":[4,1,2,17],
 "globals_vars_w.html":[4,1,2,18],
 "globals_w.html":[4,1,0,23],
@@ -25,10 +32,10 @@ var NAVTREEINDEX5 =
 "incbin_8h_source.html":[4,0,1,0,3,7],
 "index.html":[0],
 "index.html":[],
-"index.html#autotoc_md298":[0,0],
-"index.html#autotoc_md299":[0,1],
-"index.html#autotoc_md300":[0,2],
-"index.html#autotoc_md301":[0,3],
+"index.html#autotoc_md305":[0,0],
+"index.html#autotoc_md306":[0,1],
+"index.html#autotoc_md307":[0,2],
+"index.html#autotoc_md308":[0,3],
 "isr_8h.html":[4,0,1,0,2,10],
 "isr_8h.html#ISR_NESTED_VECTOR":[4,0,1,0,2,10,7],
 "isr_8h.html#ISR_VECTOR":[4,0,1,0,2,10,6],
@@ -242,12 +249,5 @@ var NAVTREEINDEX5 =
 "model_8h.html":[4,0,1,0,1,2],
 "model_8h.html#MEGADUCK_HANDHELD_STANDARD":[4,0,1,0,1,2,0],
 "model_8h.html#MEGADUCK_LAPTOP_GERMAN":[4,0,1,0,1,2,2],
-"model_8h.html#MEGADUCK_LAPTOP_SPANISH":[4,0,1,0,1,2,1],
-"model_8h.html#duck_check_model":[4,0,1,0,1,2,3],
-"model_8h_source.html":[4,0,1,0,1,2],
-"modules.html":[2],
-"mos6502_2provides_8h.html":[4,0,1,0,0,0,0],
-"mos6502_2provides_8h.html#USE_C_MEMCPY":[4,0,1,0,0,0,0,0],
-"mos6502_2provides_8h.html#USE_C_STRCMP":[4,0,1,0,0,0,0,2],
-"mos6502_2provides_8h.html#USE_C_STRCPY":[4,0,1,0,0,0,0,1]
+"model_8h.html#MEGADUCK_LAPTOP_SPANISH":[4,0,1,0,1,2,1]
 };

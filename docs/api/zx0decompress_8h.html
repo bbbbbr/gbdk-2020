@@ -41,7 +41,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GBDK 2020 Docs
-   &#160;<span id="projectnumber">4.4.0</span>
+   &#160;<span id="projectnumber">4.5.0</span>
    </div>
    <div id="projectbrief">API Documentation for GBDK 2020</div>
   </td>
@@ -138,6 +138,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Decompress zx0 compressed data from sour into dest</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sour</td><td>Pointer to source zx0 compressed data </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to destination buffer/address</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Will decompress <b>all</b> of it's data to destination without stopping until the end of compressed data is reached. It is not possible to set a limit, so ensure the destination buffer has sufficient space to avoid an overflow.</p>
+<p >Decompresses data which has been compressed with <a class="el" href="docs_toolchain.html#utility_gbcompress">gbcompress</a> using the <code>--alg=zx0</code> argument. </p>
 
 </div>
 </div>

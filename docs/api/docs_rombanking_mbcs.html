@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GBDK 2020 Docs: ROM/RAM Banking and MBCs</title>
+<title>GBDK 2020 Docs: ROM/SRAM Banking and MBCs</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,7 +41,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GBDK 2020 Docs
-   &#160;<span id="projectnumber">4.4.0</span>
+   &#160;<span id="projectnumber">4.5.0</span>
    </div>
    <div id="projectbrief">API Documentation for GBDK 2020</div>
   </td>
@@ -99,11 +99,11 @@ $(document).ready(function(){initNavTree('docs_rombanking_mbcs.html',''); initRe
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">ROM/RAM Banking and MBCs </div></div>
+  <div class="headertitle"><div class="title">ROM/SRAM Banking and MBCs </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md81"></a>
-ROM/RAM Banking and MBCs (Memory Bank Controllers)</h1>
+ROM/SRAM Banking and MBCs (Memory Bank Controllers)</h1>
 <p >The standard Game Boy cartridge with no MBC has a fixed 32K bytes of ROM. In order to make cartridges with larger ROM sizes (to store more code and graphics) MBCs can be used. They allow switching between multiple ROM banks that use the same memory region. Only one of the banks can be selected as active at a given time, while all the other banks are inactive (and so, inaccessible).</p>
 <p >The majority of this section about banking is focused on the Game Boy since that is the original GBDK platform. Much of it still applies for the Game Gear(GG) and Sega Master System(SMS). For additional details about banking specifically related to these two systems see the <a class="el" href="docs_rombanking_mbcs.html#sms_gg_banking">SMS/GG Banking</a> section.</p>
 <h2><a class="anchor" id="autotoc_md82"></a>
@@ -111,7 +111,7 @@ Non-banked cartridges</h2>
 <p >Cartridges with no MBC controller are non-banked, they have 32K bytes of fixed ROM space and no switchable banks. For these cartridges the ROM space between <code>0000h and 7FFFh</code> can be treated as a single large bank of 32K bytes, or as two contiguous banks of 16K bytes in Bank <code>0</code> at <code>0000h - 3FFFh</code> and Bank <code>1</code> at <code>4000h to 7FFFh</code>.</p>
 <h2><a class="anchor" id="autotoc_md83"></a>
 MBC Banked cartridges (Memory Bank Controllers)</h2>
-<p ><a class="anchor" id="MBC"></a><a class="anchor" id="MBCS"></a>Cartridges with MBCs allow the the Game Boy to work with ROMS up to 8MB in size and with RAM up to 128kB. Each bank is 16K Bytes. The following are <em>usually</em> true, with some exceptions:</p><ul>
+<p ><a class="anchor" id="MBC"></a><a class="anchor" id="MBCS"></a>Cartridges with MBCs allow the the Game Boy to work with ROMS up to 8MB in size and with SRAM up to 128kB. Each ROM bank is 16K Bytes. The following are <em>usually</em> true, with some exceptions:</p><ul>
 <li>Bank <code>0</code> of the ROM is located in the region at <code>0000h - 3FFFh</code>. It is fixed (non-banked) and cannot be switched out for another bank.</li>
 <li>Banks <code>1 .. N</code> can be switched into the upper region at <code>4000h - 7FFFh</code>. The upper limit for <code>N</code> is determined by the MBC used and available cartridge space.</li>
 <li>It is not necessary to manually assign Bank <code>0</code> for source files, that will happen by default if no bank is specified.</li>
@@ -140,8 +140,8 @@ Working with Banks</h1>
 </ul>
 <h2><a class="anchor" id="autotoc_md88"></a>
 Setting the ROM bank for a Source file</h2>
-<p >The ROM and RAM bank for a source file can be set in a couple different ways. Multiple different banks cannot be assigned inside the same source file (unless the <code>__addressmod</code> method is used), but multiple source files can share the same bank.</p>
-<p >If no ROM and RAM bank are specified for a file then the default _CODE, _BSS and _DATA segments are used.</p>
+<p >The cart ROM bank for a source file can be set in a couple different ways. Multiple different banks cannot be assigned inside the same source file (unless the <code>__addressmod</code> method is used), but multiple source files can share the same bank.</p>
+<p >If no ROM and SRAM bank are specified for a file then the default _CODE, _BSS and _DATA segments are used.</p>
 <p >Ways to set the ROM bank for a Source file:</p><ul>
 <li><code>#pragma bank &lt;N&gt;</code> at the start of a source file. Example (ROM bank 2): <code>#pragma bank 2</code></li>
 <li>The lcc switch for ROM bank <code>-Wf-bo&lt;N&gt;</code>. Example (ROM bank 2): <code>-Wf-bo2</code></li>
@@ -149,20 +149,26 @@ Setting the ROM bank for a Source file</h2>
 </ul>
 <p >Note: You can use the <code>NONBANKED</code> keyword to define a function as non-banked if it resides in a source file which has been assigned a bank.</p>
 <h2><a class="anchor" id="autotoc_md89"></a>
-Setting the RAM bank for a Source file</h2>
+Setting the Cart SRAM bank for a Source file</h2>
 <ul>
-<li><code>#pragma dataseg DATA_&lt;N&gt;</code> at the start of a source file. Example (Cartridge SRAM bank 3): <code>#pragma bank 3</code></li>
+<li><code>#pragma dataseg DATA_&lt;N&gt;</code> at the start of a source file. Example (Cartridge SRAM bank 3): <code>#pragma bank 3</code><ul>
+<li>See the cross-platform <code>sram_banks</code> example</li>
+</ul>
+</li>
 <li>Using the lcc switch for Cartridge SRAM bank <code>-Wf-ba&lt;N&gt;</code>. Example (Cartridge SRAM bank 3): <code>-Wf-ba3</code></li>
 </ul>
 <p ><a class="anchor" id="setting_mbc_and_rom_ram_banks"></a></p>
 <h2><a class="anchor" id="autotoc_md90"></a>
-Setting the MBC and number of ROM &amp; RAM banks available</h2>
+Setting the MBC and number of Cart ROM &amp; SRAM banks available</h2>
 <p >At the link stage this is done with <a class="el" href="docs_toolchain.html#lcc">lcc</a> using pass-through switches for <a class="el" href="docs_toolchain.html#makebin">makebin</a>.</p><ul>
 <li><code>-Wm-yo&lt;N&gt;</code> where <code>&lt;N&gt;</code> is the number of ROM banks. 2, 4, 8, 16, 32, 64, 128, 256, 512<ul>
 <li><code>-Wm-yoA</code> may be used for automatic bank size.</li>
 </ul>
 </li>
-<li><code>-Wm-ya&lt;N&gt;</code> where <code>&lt;N&gt;</code> is the number of RAM banks. 2, 4, 8, 16, 32</li>
+<li><code>-Wm-ya&lt;N&gt;</code> where <code>&lt;N&gt;</code> is the number of 8K Cart SRAM banks. 0, 1, 4, 16<ul>
+<li>(corresponding to: None, 8K, 32K, 128K)</li>
+</ul>
+</li>
 <li><code>-Wm-yt&lt;N&gt;</code> where <code>&lt;N&gt;</code> is the type of MBC cartridge (see chart below).<ul>
 <li>Example: <code>Wm-yt0x1A</code></li>
 </ul>
@@ -174,25 +180,23 @@ Setting the MBC and number of ROM &amp; RAM banks available</h2>
 </ul>
 <p >The MBC settings below are available when using the makebin <code>-Wl-yt&lt;N&gt;</code> switch.</p>
 <p >Source: Pandocs. Additional details available at <a href="https://gbdev.io/pandocs/The_Cartridge_Header.html#0147---cartridge-type" title="Pandocs">Pandocs</a></p>
-<p >For SMS/GG, the ROM file size must be at least 64K to enable mapper support for RAM banks in emulators.</p><ul>
-<li>If the generated ROM is too small then <code>-yo 4</code> for makebin (or <code>-Wm-yo4</code> for LCC) can be used to set the size to 64K.</li>
-</ul>
+<p >See the note about <a class="el" href="docs_rombanking_mbcs.html#gg_sms_cart_sram_info">enabling Cart SRAM and number of banks available for SMS/GG</a></p>
 <h2><a class="anchor" id="autotoc_md91"></a>
 MBC Type Chart</h2>
 <div class="fragment"><div class="line">0147: Cartridge type:</div>
-<div class="line">0x00: ROM ONLY                  0x12: ROM+MBC3+RAM</div>
-<div class="line">0x01: ROM+MBC1                  0x13: ROM+MBC3+RAM+BATT</div>
-<div class="line">0x02: ROM+MBC1+RAM              0x19: ROM+MBC5</div>
-<div class="line">0x03: ROM+MBC1+RAM+BATT         0x1A: ROM+MBC5+RAM</div>
-<div class="line">0x05: ROM+MBC2                  0x1B: ROM+MBC5+RAM+BATT</div>
-<div class="line">0x06: ROM+MBC2+BATTERY          0x1C: ROM+MBC5+RUMBLE</div>
-<div class="line">0x08: ROM+RAM                   0x1D: ROM+MBC5+RUMBLE+SRAM</div>
-<div class="line">0x09: ROM+RAM+BATTERY           0x1E: ROM+MBC5+RUMBLE+SRAM+BATT</div>
-<div class="line">0x0B: ROM+MMM01                 0x1F: Pocket Camera</div>
-<div class="line">0x0C: ROM+MMM01+SRAM            0x22: MBC7+ACCELEROMETER+EEPROM</div>
-<div class="line">0x0D: ROM+MMM01+SRAM+BATT       0xFD: Bandai TAMA5</div>
-<div class="line">0x0F: ROM+MBC3+TIMER+BATT       0xFE: Hudson HuC-3</div>
-<div class="line">0x10: ROM+MBC3+TIMER+RAM+BATT   0xFF: Hudson HuC-1</div>
+<div class="line">0x00: ROM ONLY                   0x12: ROM+MBC3+SRAM</div>
+<div class="line">0x01: ROM+MBC1                   0x13: ROM+MBC3+SRAM+BATT</div>
+<div class="line">0x02: ROM+MBC1+SRAM              0x19: ROM+MBC5</div>
+<div class="line">0x03: ROM+MBC1+SRAM+BATT         0x1A: ROM+MBC5+SRAM</div>
+<div class="line">0x05: ROM+MBC2                   0x1B: ROM+MBC5+SRAM+BATT</div>
+<div class="line">0x06: ROM+MBC2+BATTERY           0x1C: ROM+MBC5+RUMBLE</div>
+<div class="line">0x08: ROM+SRAM                   0x1D: ROM+MBC5+RUMBLE+SRAM</div>
+<div class="line">0x09: ROM+SRAM+BATTERY           0x1E: ROM+MBC5+RUMBLE+SRAM+BATT</div>
+<div class="line">0x0B: ROM+MMM01                  0x1F: Pocket Camera</div>
+<div class="line">0x0C: ROM+MMM01+SRAM             0x22: MBC7+ACCELEROMETER+EEPROM</div>
+<div class="line">0x0D: ROM+MMM01+SRAM+BATT        0xFD: Bandai TAMA5</div>
+<div class="line">0x0F: ROM+MBC3+TIMER+BATT        0xFE: Hudson HuC-3</div>
+<div class="line">0x10: ROM+MBC3+TIMER+SRAM+BATT   0xFF: Hudson HuC-1</div>
 <div class="line">0x11: ROM+MBC3</div>
 </div><!-- fragment --><p ><a class="anchor" id="mbc_type_chart"></a> </p><table class="markdownTable">
 <tr class="markdownTableHead">
@@ -260,10 +264,10 @@ MBC Type Chart</h2>
 </ul>
 <p >2: For MBC1 some banks in it's range are unavailable. See pandocs for more details <a href="https://gbdev.io/pandocs/MBC1">https://gbdev.io/pandocs/MBC1</a></p>
 <p >3: No licensed cartridge makes use of this option. Exact behavior is unknown.</p>
-<p >4: MBC-3 with RAM size 64 KByte refers to MBC30, used only in Pocket Monsters Crystal Version for Japan.</p>
+<p >4: MBC-3 with SRAM size 64 KByte refers to MBC30, used only in Pocket Monsters Crystal Version for Japan.</p>
 <p >5: For MBC-1 the 32 K SRAM is only available for ROM sizes &lt;= 512 K.</p>
-<p >6: MBC-2 uses integrated RAM with 512 x 4 bits, the upper 4 bits of each byte should be disregarded.</p>
-<p >7: Additional RAM on the cartridge in the memory range of <code>0xA000 - 0xBFFF</code>. Contents do not persist after power-off unless the cart has <code>Battery Save</code>.</p>
+<p >6: MBC-2 uses integrated SRAM with 512 x 4 bits, the upper 4 bits of each byte should be disregarded.</p>
+<p >7: Additional SRAM on the cartridge in the memory range of <code>0xA000 - 0xBFFF</code>. Contents do not persist after power-off unless the cart has <code>Battery Save</code>.</p>
 <p >8: With <code>Battery Save</code> the contents of the cartridge SRAM will persist after power-off. The electronic implementation on cart may vary, for example it may use FRAM or RAM backed with a coin cell battery.</p>
 <p >9: The battery for MBC-3 type <code>0x0F</code> is only used for the RTC, there is no cartridge SRAM present.</p>
 <h2><a class="anchor" id="autotoc_md92"></a>
@@ -330,10 +334,10 @@ Banked Function Calls</h3>
 </ul>
 <h2><a class="anchor" id="autotoc_md96"></a>
 Const Data (Variables in ROM)</h2>
-<p >Data declared as <code>const</code> (read only) will be stored in ROM in the bank associated with it's source file (if none is specified it defaults to Bank 0). If that bank is a switchable bank then the data is only accesible while the given bank is active.</p>
+<p >Data declared as <code>const</code> (read only) will be stored in ROM in the bank associated with it's source file (if none is specified it defaults to Bank 0). If that bank is a switchable bank then the data is only accessible while the given bank is active.</p>
 <h2><a class="anchor" id="autotoc_md97"></a>
-Variables in RAM</h2>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Variables in RAM</dd></dl>
+Variables in Cart SRAM</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Variables in SRAM</dd></dl>
 <h2><a class="anchor" id="autotoc_md98"></a>
 Far Pointers</h2>
 <p ><a class="anchor" id="far_pointers"></a>Far pointers include a segment (bank) selector so they are able to point to addresses (functions or data) outside of the current bank (unlike normal pointers which are not bank-aware). A set of macros is provided by GBDK 2020 for working with far pointers.</p>
@@ -446,6 +450,8 @@ Banking example projects</h1>
 <p ><a class="anchor" id="sms_gg_banking"></a>"SMS/GG Banking" section. </p>
 <h1><a class="anchor" id="autotoc_md107"></a>
 SMS/Game Gear Banking</h1>
+<h2><a class="anchor" id="autotoc_md108"></a>
+ROM Banks</h2>
 <p >The memory banking setup for SMS and Game Gear in GBDK is different than it is for the Game Boy. Instead of a single switchable bank in the <code>0x4000 - 0x7FFF</code> range, there are two switchable frames at different address ranges. The configuration is as follows:</p>
 <ul>
 <li>Frame 0: Non-banked, at address <code>0x0000 - 0x3FFF</code></li>
@@ -464,7 +470,17 @@ SMS/Game Gear Banking</h1>
 </li>
 </ul>
 <p >Banked code and any pointers associated with it will only work correctly when active in Frame 1 (at <code>0x4000</code>), so it must use <code>CODE_&lt;N&gt;</code>. Graphics and other assets may go in either Frame 1 (at <code>0x4000</code>) or, if designed for it then Frame 2 (at <code>0x8000</code>).</p>
-<h2><a class="anchor" id="autotoc_md108"></a>
+<p ><a class="anchor" id="gg_sms_cart_sram_info"></a>"SMS/GG Cart SRAM info" </p>
+<h2><a class="anchor" id="autotoc_md109"></a>
+Cart SRAM Banks</h2>
+<p >The maximum supported number of Cart SRAM banks for SMS/GG is 2. The size is 8K.</p><ul>
+<li>Additional details in the SMS Power docs: <a href="https://www.smspower.org/Development/Mappers#RAMMapping">https://www.smspower.org/Development/Mappers#RAMMapping</a></li>
+</ul>
+<p >For SMS/GG, the ROM file size must be at least 64K to enable mapper support for Cart SRAM banks in emulators.</p><ul>
+<li>If the generated ROM is too small then <code>-yo 4</code> for makebin (or <code>-Wm-yo4</code> for LCC) can be used to set the size to 64K.</li>
+<li>If auto-banking is being used and Cart SRAM banks are specified then <a class="el" href="docs_toolchain.html#makebin">makebin</a> will auto-increase the ROM size to 64k to ensure</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md110"></a>
 Auto-Banking</h2>
 <p >CODE and LIT cannot share the same bank number. For example, if <code>CODE</code> is assigned to <code>bank 3</code> then <code>LIT</code> cannot be in <code>bank 3</code> as well.</p>
 <p ><a class="el" href="docs_toolchain.html#bankpack">bankpack</a> is aware of this requirement and will group <code>CODE</code> and <code>LIT</code> separately when packing for autobanking. It's process is as follows:</p><ol type="1">
@@ -472,7 +488,17 @@ Auto-Banking</h2>
 <li>Assign fixed banks first (for both <code>CODE</code> and <code>LIT</code>). An error will be generated if both types assigned to the same bank. Banks are marked exclusive to whichever type is assigned in them first.</li>
 <li>Then autobanked entries (both <code>CODE</code> and <code>LIT</code>) are assigned to banks, they are only assigned to banks of a matching type or an unused bank. Same as above, the first type to use a bank makes it exclusive to that type.</li>
 </ol>
-<p >The bankpack option <code>-banktype=</code> may be used to set a bank to use specific type (<code>CODE</code> or <code>LIT</code>). This will take effect before bankpack tries to perform any bank assignment. For example: <code>-banktype=2:LIT</code> (or <code>-Wb-banktype=2:LIT</code> when used with <a class="el" href="docs_toolchain.html#lcc">lcc</a>) sets bank 2 to exclusively use type <code>LIT</code>. </p>
+<p >The bankpack option <code>-banktype=</code> may be used to set a bank to use specific type (<code>CODE</code> or <code>LIT</code>). This will take effect before bankpack tries to perform any bank assignment. For example: <code>-banktype=2:LIT</code> (or <code>-Wb-banktype=2:LIT</code> when used with <a class="el" href="docs_toolchain.html#lcc">lcc</a>) sets bank 2 to exclusively use type <code>LIT</code>.</p>
+<p ><a class="anchor" id="nes_banking"></a>"NES Banking" section. </p>
+<h1><a class="anchor" id="autotoc_md111"></a>
+NES Banking</h1>
+<h2><a class="anchor" id="autotoc_md112"></a>
+ROM Banks</h2>
+<p >To do</p>
+<p ><a class="anchor" id="nes_cart_sram_info"></a>"NES Cart SRAM info" </p>
+<h2><a class="anchor" id="autotoc_md113"></a>
+Cart SRAM Banks</h2>
+<p >Cart SRAM is not currently supported for the NES </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

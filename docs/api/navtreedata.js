@@ -53,15 +53,15 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "docs_getting_started.html",
-"docs_using_gbdk.html#autotoc_md55",
-"gb_2hardware_8h.html#PCM_SAMPLE",
-"gb_8h.html#SYSTEM_60HZ",
-"globals_vars_v.html",
-"mos6502_2provides_8h_source.html",
-"msx_8h.html#set_interrupts",
-"nes_8h.html#set_bkg_1bpp_data",
-"sms_2hardware_8h.html#SOUNDPAN_TN1L",
-"sms_8h.html#waitpadup"
+"docs_using_gbdk.html#autotoc_md48",
+"gb_2hardware_8h.html#P1F_5",
+"gb_8h.html#SWITCH_RAM_MBC5",
+"globals_vars_l.html",
+"model_8h.html#duck_check_model",
+"msx_8h.html#set_bkg_palette",
+"nes_8h.html#reset",
+"sms_2hardware_8h.html#SIOCTL_INT",
+"sms_8h.html#set_win_tiles"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

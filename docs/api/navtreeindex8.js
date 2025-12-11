@@ -1,5 +1,12 @@
 var NAVTREEINDEX8 =
 {
+"nes_8h.html#reset":[4,0,1,0,5,3,120],
+"nes_8h.html#scroll_bkg":[4,0,1,0,5,3,147],
+"nes_8h.html#scroll_sprite":[4,0,1,0,5,3,156],
+"nes_8h.html#set_1bpp_colors":[4,0,1,0,5,3,130],
+"nes_8h.html#set_1bpp_colors_ex":[4,0,1,0,5,3,129],
+"nes_8h.html#set_2bpp_palette":[4,0,1,0,5,3,128],
+"nes_8h.html#set_attribute_xy":[4,0,1,0,5,3,85],
 "nes_8h.html#set_bkg_1bpp_data":[4,0,1,0,5,3,132],
 "nes_8h.html#set_bkg_2bpp_data":[4,0,1,0,5,3,81],
 "nes_8h.html#set_bkg_attribute_xy":[4,0,1,0,5,3,144],
@@ -242,12 +249,5 @@ var NAVTREEINDEX8 =
 "sms_2hardware_8h.html#RAMCTL_ROM":[4,0,1,0,6,2,146],
 "sms_2hardware_8h.html#SIOCTL_BS0":[4,0,1,0,6,2,12],
 "sms_2hardware_8h.html#SIOCTL_BS1":[4,0,1,0,6,2,13],
-"sms_2hardware_8h.html#SIOCTL_FRER":[4,0,1,0,6,2,8],
-"sms_2hardware_8h.html#SIOCTL_INT":[4,0,1,0,6,2,9],
-"sms_2hardware_8h.html#SIOCTL_RON":[4,0,1,0,6,2,11],
-"sms_2hardware_8h.html#SIOCTL_RXRD":[4,0,1,0,6,2,7],
-"sms_2hardware_8h.html#SIOCTL_TON":[4,0,1,0,6,2,10],
-"sms_2hardware_8h.html#SIOCTL_TXFL":[4,0,1,0,6,2,6],
-"sms_2hardware_8h.html#SOUNDPAN_NOSL":[4,0,1,0,6,2,21],
-"sms_2hardware_8h.html#SOUNDPAN_NOSR":[4,0,1,0,6,2,17]
+"sms_2hardware_8h.html#SIOCTL_FRER":[4,0,1,0,6,2,8]
 };
