@@ -163,13 +163,15 @@ static void export_h_map_mode(PNG2AssetData* assetData, FILE* file) {
         fprintf(file, "#define %s_MAP_ATTRIBUTES_PACKED_HEIGHT %d\n", assetData->args->data_name.c_str(), (int)assetData->args->map_attributes_packed_size.height);
     }
 
-    fprintf(file, "extern const unsigned char %s_map[%d];\n", assetData->args->data_name.c_str(), (unsigned int)(assetData->map).size());
+
+
+    fprintf(file, "extern const %s %s_map[%d];\n", (assetData->args->map_entry_type_size == 2) ? "uint16_t" : "unsigned char", assetData->args->data_name.c_str(), (unsigned int)(assetData->map).size() / assetData->args->map_entry_type_size);
 
     if (assetData->args->use_map_attributes && assetData->map_attributes.size()) {
         fprintf(file, "extern const unsigned char %s_map_attributes[%d];\n", assetData->args->data_name.c_str(), (unsigned int)(assetData->map_attributes).size());
     }
     else {
-        // Some platforms (like SMS/GG) encode attributes as part of map
+        // Some platforms (like SMS/GG/Casio Loopy) encode attributes as part of map
         // For compatibility, add a define that makes _map_attributes equal _map,
         // so that set_bkg_attributes can work the same on these platforms
         fprintf(file, "#define %s_map_attributes %s_map\n", assetData->args->data_name.c_str(), assetData->args->data_name.c_str());

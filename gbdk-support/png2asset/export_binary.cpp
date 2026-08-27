@@ -154,6 +154,13 @@ static void export_map_binary_palette_data(PNG2AssetData* assetData) {
                                   (((pal_ptr[RGBA8_R] >> 4) & 0b00001111) << 0);
                 paletteBinaryFile.write((const char *)&rgb444, sizeof(rgb444));
             }
+            else if (assetData->args->pack_mode == Tile::CasioLoopy) {
+                // .14..10: Red, 9..5: Green, .4..0: Blue
+                uint16_t rgb555 = (((pal_ptr[RGBA8_R] >> 3) & 0b00011111) << 10) |
+                                  (((pal_ptr[RGBA8_G] >> 3) & 0b00011111) << 5)  |
+                                  (((pal_ptr[RGBA8_B] >> 3) & 0b00011111) << 0);
+                paletteBinaryFile.write((const char *)&rgb555, sizeof(rgb555));
+            }
             else {
                 uint16_t rgb555 = (((pal_ptr[RGBA8_B] >> 3) & 0b00011111) << 10) |
                                   (((pal_ptr[RGBA8_G] >> 3) & 0b00011111) << 5)  |

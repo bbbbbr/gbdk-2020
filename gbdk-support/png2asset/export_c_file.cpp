@@ -260,31 +260,36 @@ static void export_c_map_mode(PNG2AssetData* assetData, FILE* file) {
     }
 
     //Export map
+    const int map_entry_type_size = assetData->args->map_entry_type_size;
     fprintf(file, "\n");
-    fprintf(file, "const unsigned char %s_map[%d] = {\n", assetData->args->data_name.c_str(), (unsigned int)(assetData->map.size()));
+    fprintf(file, "const %s %s_map[%d] = {\n", (map_entry_type_size == 2) ? "uint16_t" : "unsigned char", assetData->args->data_name.c_str(), (unsigned int)(assetData->map.size() / map_entry_type_size));
     // TODO: These hardwired "/ 8" should be using " / assetData->image.tile_w" and "_h"
     // TODO: Should also be converted to using args.map_entry_size_bytes
-    size_t line_size = assetData->map.size() / (assetData->image.h / 8);
+    size_t line_size = (assetData->map.size() / map_entry_type_size) / (assetData->image.h / 8);
     if(assetData->args->output_transposed) {
 
-        for(size_t i = 0; i < line_size; ++i)
+        for(size_t tile_x = 0; tile_x < line_size; ++tile_x)
         {
             fprintf(file, "\t");
-            for(size_t j = 0; j < assetData->image.h / 8; ++j)
+            for(size_t tile_y = 0; tile_y < assetData->image.h / 8; ++tile_y)
             {
-                fprintf(file, "0x%02x,", assetData->map[j * line_size + i]);
+                size_t idx = (tile_y * line_size + tile_x) * map_entry_type_size;
+                if (map_entry_type_size == 2) fprintf(file, "0x%02x%02x,", assetData->map[idx], assetData->map[idx + 1]);  // uint16_t values
+                else                          fprintf(file, "0x%02x,", assetData->map[idx]); // uint8_t values
             }
             fprintf(file, "\n");
         }
     }
     else {
 
-        for(size_t j = 0; j < assetData->image.h / 8; ++j)
+        for(size_t tile_y = 0; tile_y < assetData->image.h / 8; ++tile_y)
         {
             fprintf(file, "\t");
-            for(size_t i = 0; i < line_size; ++i)
+            for(size_t tile_x = 0; tile_x < line_size; ++tile_x)
             {
-                fprintf(file, "0x%02x,", assetData->map[j * line_size + i]);
+                size_t idx = (tile_y * line_size + tile_x) * map_entry_type_size;
+                if (map_entry_type_size == 2) fprintf(file, "0x%02x%02x,", assetData->map[idx], assetData->map[idx + 1]);  // uint16_t values
+                else                          fprintf(file, "0x%02x,", assetData->map[idx]); // uint8_t values        
             }
             fprintf(file, "\n");
         }

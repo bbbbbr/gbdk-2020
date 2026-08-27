@@ -109,7 +109,7 @@ bool FindTile(const Tile& t, size_t& idx, unsigned char& props, vector< Tile > &
         if(it != tileset.end())
         {
             idx = (size_t)(it - tileset.begin());
-            props = assetData->args->props_default | (1 << 5);
+            props = assetData->args->props_default | Tile::FLIPX;
             return true;
         }
 
@@ -118,7 +118,7 @@ bool FindTile(const Tile& t, size_t& idx, unsigned char& props, vector< Tile > &
         if(it != tileset.end())
         {
             idx = (size_t)(it - tileset.begin());
-            props = assetData->args->props_default | (1 << 5) | (1 << 6);
+            props = assetData->args->props_default | Tile::FLIPX | Tile::FLIPY;
             return true;
         }
 
@@ -127,7 +127,7 @@ bool FindTile(const Tile& t, size_t& idx, unsigned char& props, vector< Tile > &
         if(it != tileset.end())
         {
             idx = (size_t)(it - tileset.begin());
-            props = assetData->args->props_default | (1 << 6);
+            props = assetData->args->props_default | Tile::FLIPY;
             return true;
         }
     }

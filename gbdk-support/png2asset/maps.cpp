@@ -50,12 +50,15 @@ void ExtractTileset(PNG2AssetData* assetData, vector< Tile > & tileset, bool kee
 static void checkWarnMapTileLimits(PNG2AssetData* assetData) {
 
     unsigned int maxUsedTileCount = (assetData->tiles.size() + assetData->args->tile_origin);
-    unsigned int maxTilesWarnLimit = 256; // 256 is default for GB, NES
+    unsigned int maxTilesWarnLimit = Tile::TILE_COUNT_WARN_GB_NES; // 256 is default for GB, NES
 
     // GB + Map Attributes implies GBC which has a secondary tile bank
     if ( ((assetData->args->pack_mode == Tile::GB) && assetData->args->use_map_attributes)
          || (assetData->args->pack_mode == Tile::SMS) || (assetData->args->pack_mode == Tile::GG) ) {
-        maxTilesWarnLimit = 512;
+        maxTilesWarnLimit = Tile::TILE_COUNT_WARN_SMS_GG_GBC;
+    }
+    else if ((assetData->args->pack_mode == Tile::CasioLoopy) ) {
+        maxTilesWarnLimit = Tile::TILE_COUNT_WARN_CASIOLOOPY;
     }
 
     if (maxUsedTileCount > maxTilesWarnLimit) {
@@ -65,7 +68,7 @@ static void checkWarnMapTileLimits(PNG2AssetData* assetData) {
     }
 
     // If using GBC, notify user about extra requirements to use > 256 tiles
-    if ((maxUsedTileCount > 256) && ((assetData->args->pack_mode == Tile::GB) && assetData->args->use_map_attributes)) {
+    if ((maxUsedTileCount > Tile::TILE_COUNT_WARN_GB_NES) && ((assetData->args->pack_mode == Tile::GB) && assetData->args->use_map_attributes)) {
         printf("Warning: On GBC more then 256 tiles may require use of alternate tile bank. Tile count (%d) + tile origin (%d) = %d\n",
                 (unsigned int)assetData->tiles.size(), (unsigned int)assetData->args->tile_origin, maxUsedTileCount);
     }
@@ -118,7 +121,10 @@ void GetMap(PNG2AssetData* assetData)
 
 
             // Creating map tile id and attributes entries is only when processing the the main image.
-            assetData->map.push_back((unsigned char)idx + assetData->args->tile_origin);
+            // Casio Loopy handled below, it's a single 16 bit entry with 11 bit tile id (idx(
+            if (assetData->args->pack_mode != Tile::CasioLoopy) {
+                assetData->map.push_back((unsigned char)idx + assetData->args->tile_origin);
+            }
 
             if(assetData->args->use_map_attributes)
             {
@@ -128,6 +134,25 @@ void GetMap(PNG2AssetData* assetData)
                     props = props << 1; //Mirror flags in SGB are on bit 7
                     props |= (pal_idx + 4) << 2; //Pals are in bits 2,3,4 and need to go from 4 to 7
                     assetData->map.push_back(props); //Also they are stored within the map tiles
+                }
+                else if (assetData->args->pack_mode == Tile::CasioLoopy)
+                {
+                    // Tilemap Entries
+                    // .15:     FlipX (1=true)
+                    // .14:     FlipY (1=true)
+                    // .13..12: Tile Sub Palette (4bpp only, ignored 8bpp)
+                    // .11:     Screen A=0/B=1  // TODO: Casio Loopy: Not yet implemented as a argument flag
+                    // .10..0:  Tile ID 
+                    uint16_t map_entry = 0;
+                    map_entry |= tile.pal << 12;
+
+                    map_entry |= (uint16_t)(props & (Tile::FLIPX | Tile::FLIPY)) << 9;  // Mirror/Flip flags (2 x 1 bit each) (.6 and .5 on GBC)
+                    map_entry |= tile.pal << 12;         // Tile palette (2 bits)
+                    map_entry |= (uint16_t)(idx + assetData->args->tile_origin);  // Tile ID (11 bits)
+                    // Easier to split the u16 here (pushed big-endian style) to conform to
+                    // png2asset assumptions and expectations for tilemaps with attributes
+                    assetData->map.push_back((unsigned char)(map_entry >> 8));
+                    assetData->map.push_back((unsigned char)(map_entry & 0xFF));
                 }
                 else if ((assetData->args->pack_mode == Tile::SMS) || (assetData->args->pack_mode == Tile::GG))
                 {
