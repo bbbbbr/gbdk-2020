@@ -134,6 +134,10 @@ static void export_h_map_and_metasprite_shared_defines(PNG2AssetData* assetData,
 
 static void export_h_map_and_metasprite_shared_externs(PNG2AssetData* assetData, FILE* file) {
 
+    bool u16_tile_export    = (assetData->args->pack_mode == Tile::CasioLoopy);
+    int  array_sz_div       = (u16_tile_export) ? 16 : 8;
+    size_t entries_per_tile = (assetData->image.tile_w * assetData->image.tile_h * assetData->args->bpp) / array_sz_div;
+
     fprintf(file, "\n");
     fprintf(file, "BANKREF_EXTERN(%s)\n", assetData->args->data_name.c_str());
     fprintf(file, "\n");
@@ -142,7 +146,8 @@ static void export_h_map_and_metasprite_shared_externs(PNG2AssetData* assetData,
         fprintf(file, "extern const palette_color_t %s_palettes[%d];\n", assetData->args->data_name.c_str(), (unsigned int)exportOpt.color_count);
     }
     if (assetData->args->includeTileData) {
-        fprintf(file, "extern const uint8_t %s_tiles[%d];\n", assetData->args->data_name.c_str(), (unsigned int)(exportOpt.tiles_count * (assetData->image.tile_w * assetData->image.tile_h * assetData->args->bpp / 8)));
+        fprintf(file, "extern const %s %s_tiles[%d];\n", (u16_tile_export) ? "uint16_t" : "uint8_t", assetData->args->data_name.c_str(),
+                       (unsigned int)(exportOpt.tiles_count * entries_per_tile));
     }
 }
 

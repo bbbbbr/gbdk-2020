@@ -159,17 +159,28 @@ static void export_c_palette_data(PNG2AssetData* assetData, FILE* file) {
 
 static void export_c_tile_data(PNG2AssetData* assetData, FILE* file) {
 
+    bool u16_tile_export    = (assetData->args->pack_mode == Tile::CasioLoopy);
+    int  array_sz_div       = (u16_tile_export) ? 16 : 8;
+    size_t entries_per_tile = (assetData->image.tile_w * assetData->image.tile_h * assetData->args->bpp) / array_sz_div;
+
     fprintf(file, "\n");
-    fprintf(file, "const uint8_t %s_tiles[%d] = {\n", assetData->args->data_name.c_str(), (unsigned int)(exportOpt.tiles_count * assetData->image.tile_w * assetData->image.tile_h * assetData->args->bpp / 8));
+    fprintf(file, "const %s %s_tiles[%d] = {\n", (u16_tile_export) ? "uint16_t" : "uint8_t", assetData->args->data_name.c_str(),
+                   (unsigned int)(exportOpt.tiles_count * entries_per_tile));
     fprintf(file, "\t");
     for(vector< Tile >::iterator it = assetData->tiles.begin() + exportOpt.tiles_start; it != assetData->tiles.end(); ++it)
     {
 
-        int line_break = 1; // Start with 1 to prevent line break on first iteration
+        size_t line_break = 1; // Start with 1 to prevent line break on first iteration
         vector< unsigned char > packed_data = (*it).GetPackedData(assetData->args->pack_mode, assetData->image.tile_w, assetData->image.tile_h, assetData->args->bpp);
         for(vector< unsigned char >::iterator it2 = packed_data.begin(); it2 != packed_data.end(); ++it2)
         {
-            fprintf(file, "0x%02x", (*it2));
+            if (u16_tile_export) {
+                fprintf(file, "0x%02x", (*it2++));
+                fprintf(file, "%02x", (*it2));
+                line_break++;  // Extra Line break to match previous formatting behavior
+            } else
+                fprintf(file, "0x%02x", (*it2));
+
             if((it + 1) != assetData->tiles.end() || (it2 + 1) != packed_data.end())
                 fprintf(file, ",");
             // Add a line break after each 8x8 tile
